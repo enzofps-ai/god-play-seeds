@@ -195,3 +195,12 @@
   text-transform: uppercase;
   color: oklch(0.55 0.12 75);
 }
+
+@keyframes carousel-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@utility animate-carousel {
+  animation: carousel-scroll 12s linear infinite;
+}

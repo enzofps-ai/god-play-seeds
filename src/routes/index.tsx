@@ -248,26 +248,34 @@ function Index() {
                 className="mt-10 rounded-3xl shadow-lg"
               />
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {games.map((game) => (
+            <div className="overflow-hidden rounded-2xl border bg-card shadow-lg">
+              <div className="relative">
                 <div
-                  key={game.name}
-                  className="group relative overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                  className="flex animate-carousel"
+                  style={{ width: `${games.length * 2 * 280}px` }}
                 >
-                  <img
-                    src={game.src}
-                    alt={game.alt}
-                    loading="lazy"
-                    decoding="async"
-                    width={400}
-                    height={400}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/80 to-transparent px-3 py-2">
-                    <span className="text-xs font-semibold text-cream">{game.name}</span>
-                  </div>
+                  {[...games, ...games].map((game, i) => (
+                    <div
+                      key={`${game.name}-${i}`}
+                      className="relative flex-shrink-0 overflow-hidden"
+                      style={{ width: "280px", height: "280px" }}
+                    >
+                      <img
+                        src={game.src}
+                        alt={game.alt}
+                        loading="lazy"
+                        decoding="async"
+                        width={400}
+                        height={400}
+                        className="h-full w-full object-cover"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/80 to-transparent px-3 py-2">
+                        <span className="text-xs font-semibold text-cream">{game.name}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>

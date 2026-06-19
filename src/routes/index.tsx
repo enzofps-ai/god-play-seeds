@@ -40,15 +40,15 @@ export const Route = createFileRoute("/")({
 });
 
 const games = [
-  "Uno Bíblico 2.0",
-  "Jogo Mímico Bíblico",
-  "Passatempo Bíblico",
-  "Super Trunfo Personagens",
-  "Encontre",
-  "Spot It Bíblico",
-  "Siga a Cristo",
-  "Quiz Bíblico",
-  "Uno da Fé",
+  { name: "Uno Bíblico 2.0", src: "/images/uno-biblico-2.webp", alt: "Jogo Uno Bíblico 2.0 — cartas bíblicas para crianças" },
+  { name: "Jogo Mímico Bíblico", src: "/images/jogo-mimico-biblico.webp", alt: "Jogo Mímico Bíblico — atividade de mímica com histórias da Bíblia" },
+  { name: "Passatempo Bíblico", src: "/images/passatempo-biblico.webp", alt: "Passatempo Bíblico — caça-palavras, labirinto e atividades cristãs" },
+  { name: "Super Trunfo Personagens", src: "/images/super-trunfo-personagens.webp", alt: "Super Trunfo Personagens Bíblicos — cartas colecionáveis" },
+  { name: "Encontre", src: "/images/encontre.webp", alt: "Encontre — desafio bíblico de descobrir e aprender brincando" },
+  { name: "Spot It Bíblico", src: "/images/spot-it-biblico.webp", alt: "Spot It Bíblico — jogo de atenção com símbolos cristãos" },
+  { name: "Siga a Cristo", src: "/images/siga-a-cristo.webp", alt: "Siga a Cristo — jogo de tabuleiro cristão para crianças" },
+  { name: "Quiz Bíblico", src: "/images/quiz-biblico.webp", alt: "Quiz Bíblico — perguntas e respostas sobre a Palavra de Deus" },
+  { name: "Uno da Fé", src: "/images/uno-da-fe.webp", alt: "Uno da Fé — jogo cristão de cartas para toda a família" },
 ];
 
 const benefits = [
@@ -248,19 +248,27 @@ function Index() {
                 className="mt-10 rounded-3xl shadow-lg"
               />
             </div>
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {games.map((g, i) => (
-                <li
-                  key={g}
-                  className="group flex items-center gap-4 rounded-2xl border bg-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {games.map((game) => (
+                <div
+                  key={game.name}
+                  className="group relative overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-md"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold/15 font-display text-lg font-semibold text-deep">
-                    {String(i + 1).padStart(2, "0")}
+                  <img
+                    src={game.src}
+                    alt={game.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={400}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/80 to-transparent px-3 py-2">
+                    <span className="text-xs font-semibold text-cream">{game.name}</span>
                   </div>
-                  <span className="font-medium text-card-foreground">{g}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>

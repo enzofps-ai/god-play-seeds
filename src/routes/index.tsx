@@ -1,6 +1,6 @@
+import { useState, useEffect, useCallback } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroKids from "@/assets/hero-kids.jpg";
-import kitMockup from "@/assets/kit-mockup.jpg";
 import familyImg from "@/assets/family.jpg";
 import {
   BookOpen,
@@ -75,6 +75,59 @@ function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: Reac
       {children}
       <ArrowRight className="h-5 w-5" />
     </a>
+  );
+}
+
+function GameSlideshow() {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % games.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 3000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <div className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-lg" style={{ aspectRatio: "1" }}>
+        <div
+          className="flex h-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {games.map((game) => (
+            <div key={game.name} className="relative h-full w-full flex-shrink-0">
+              <img
+                src={game.src}
+                alt={game.alt}
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={400}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/80 to-transparent px-4 py-3">
+                <span className="text-sm font-semibold text-cream">{game.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex gap-2">
+        {games.map((game, i) => (
+          <button
+            key={game.name}
+            onClick={() => setCurrent(i)}
+            aria-label={`Ver ${game.name}`}
+            className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+              i === current ? "bg-muted-foreground" : "bg-border"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -229,7 +282,7 @@ function Index() {
       {/* WHAT'S INSIDE */}
       <section className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <span className="section-eyebrow">O que vem no kit</span>
               <h2 className="mt-4 text-3xl font-bold md:text-5xl">
@@ -239,44 +292,8 @@ function Index() {
                 Perguntas, desafios, personagens, atividades visuais e dinâmicas — feitos para
                 deixar o aprendizado leve, divertido e participativo.
               </p>
-              <img
-                src={kitMockup}
-                alt="Mockup do kit de jogos bíblicos digital"
-                loading="lazy"
-                width={1280}
-                height={1280}
-                className="mt-10 rounded-3xl shadow-lg"
-              />
             </div>
-            <div className="overflow-hidden rounded-2xl border bg-card shadow-lg">
-              <div className="relative">
-                <div
-                  className="flex animate-carousel"
-                  style={{ width: `${games.length * 2 * 280}px` }}
-                >
-                  {[...games, ...games].map((game, i) => (
-                    <div
-                      key={`${game.name}-${i}`}
-                      className="relative flex-shrink-0 overflow-hidden"
-                      style={{ width: "280px", height: "280px" }}
-                    >
-                      <img
-                        src={game.src}
-                        alt={game.alt}
-                        loading="lazy"
-                        decoding="async"
-                        width={400}
-                        height={400}
-                        className="h-full w-full object-cover"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/80 to-transparent px-3 py-2">
-                        <span className="text-xs font-semibold text-cream">{game.name}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <GameSlideshow />
           </div>
         </div>
       </section>

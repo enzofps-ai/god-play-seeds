@@ -380,7 +380,7 @@ function Index() {
               "radial-gradient(circle at 50% 0%, oklch(0.92 0.08 80 / 0.7), transparent 60%)",
           }}
         />
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto grid gap-6 md:grid-cols-2 max-w-6xl">
           <div className="relative overflow-hidden rounded-[2rem] border-2 border-gold/40 bg-card p-10 text-center shadow-2xl md:p-14">
             <div
               aria-hidden
@@ -425,12 +425,13 @@ function Index() {
               </div>
             </div>
           </div>
+          
         </div>
       </section>
 
       {/* FINAL CTA */}
       <section className="bg-deep px-6 py-24 text-cream md:py-32">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto grid gap-6 md:grid-cols-2 max-w-6xl text-center">
           <Cross className="mx-auto h-8 w-8 text-gold" />
           <h2 className="mt-6 text-3xl font-bold md:text-5xl">
             Dê às crianças uma alternativa melhor do que apenas telas

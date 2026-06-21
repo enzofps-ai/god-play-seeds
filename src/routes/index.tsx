@@ -381,33 +381,33 @@ function Index() {
           }}
         />
         <div className="mx-auto grid gap-6 md:grid-cols-2 max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] border-2 border-gold/40 bg-card p-10 text-center shadow-2xl md:p-14">
+          <div className="relative overflow-hidden rounded-[1.75rem] border-2 border-gold/40 bg-card p-7 text-center shadow-xl flex flex-col">
             <div
               aria-hidden
               className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
             />
-            <span className="section-eyebrow">Oferta especial de lançamento</span>
+            <span className="section-eyebrow">Kit Básico</span>
             <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-              Kit de Jogos Bíblicos completo
+              4 Jogos
             </h2>
             <p className="mt-3 text-muted-foreground">Acesso imediato ao material digital</p>
 
             <div className="mx-auto mt-10 flex items-end justify-center gap-2">
-              <span className="text-2xl text-muted-foreground line-through">R$ 47,00</span>
+              <span className="text-2xl text-muted-foreground line-through">R$ 29,90</span>
             </div>
             <div className="mt-1 flex items-baseline justify-center gap-2">
               <span className="font-display text-7xl font-bold text-deep md:text-8xl">
-                R$9,90
+                R$14,90
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground">pagamento único · acesso vitalício</p>
 
             <ul className="mx-auto mt-8 max-w-md space-y-3 text-left">
               {[
-                "9 jogos bíblicos prontos para imprimir",
-                "Atividades cristãs para todas as idades",
-                "Acesso imediato em formato digital",
-                "Use em casa, na EBD ou no ministério",
+                "Uno Bíblico",
+                "Passatempo Bíblico",
+                "Siga a Cristo",
+                "Mico Bíblico",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3">
                   <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
@@ -419,7 +419,62 @@ function Index() {
             </ul>
 
             <div className="mt-10 flex flex-col items-center gap-4">
-              <CTAButton>Sim, quero receber agora</CTAButton>
+              <CTAButton>Quero o Kit Básico</CTAButton>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura · Acesso imediato
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2 - Kit Completo */}
+          <div className="relative overflow-hidden rounded-[1.75rem] border-2 border-gold bg-card p-7 text-center shadow-2xl flex flex-col">
+            <div
+              aria-hidden
+              className="absolute -top-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
+            />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2">
+              <span className="inline-block rounded-b-2xl bg-gold px-4 py-1 text-xs font-bold text-deep uppercase tracking-widest shadow">
+                Mais popular
+              </span>
+            </div>
+            <span className="mt-8 section-eyebrow">Kit Completo</span>
+            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+              8 Jogos
+            </h2>
+            <p className="mt-3 text-muted-foreground">Acesso imediato ao material digital</p>
+
+            <div className="mx-auto mt-10 flex items-end justify-center gap-2">
+              <span className="text-2xl text-muted-foreground line-through">R$ 59,90</span>
+            </div>
+            <div className="mt-1 flex items-baseline justify-center gap-2">
+              <span className="font-display text-7xl font-bold text-deep md:text-8xl">
+                R$19,90
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">pagamento único · acesso vitalício</p>
+
+            <ul className="mx-auto mt-8 max-w-md space-y-3 text-left">
+              {[
+                "Uno Bíblico",
+                "Passatempo Bíblico",
+                "Siga a Cristo",
+                "Mico Bíblico",
+                "Quiz Bíblico",
+                "Memória Bíblica",
+                "Trilha da Fé",
+                "Caça-Palavras Bíblico",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
+                    <Check className="h-3.5 w-3.5 text-deep" />
+                  </div>
+                  <span className="text-card-foreground">{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 flex flex-col items-center gap-4">
+              <CTAButton>Quero o Kit Completo</CTAButton>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura · Acesso imediato
               </div>

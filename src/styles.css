@@ -165,10 +165,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-  padding: 0.85rem 1.5rem;
+  padding: 0.7rem 1rem;
   border-radius: 9999px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   @media (min-width: 640px) {
     padding: 1.05rem 2rem;
     font-size: 1.05rem;

@@ -395,7 +395,7 @@ function Index() {
       </section>
 
       {/* OFFER */}
-      <section id="oferta" className="relative overflow-hidden px-4 py-14 sm:px-6 md:py-32">
+      <section id="oferta" className="relative overflow-hidden px-3 py-14 sm:px-6 md:py-32">
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
@@ -404,29 +404,29 @@ function Index() {
               "radial-gradient(circle at 50% 0%, oklch(0.92 0.08 80 / 0.7), transparent 60%)",
           }}
         />
-        <div className="mx-auto flex flex-col gap-4 sm:gap-6 md:grid md:grid-cols-2 max-w-6xl">
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[1.75rem] border-2 border-gold/40 bg-card px-5 py-6 sm:p-7 text-center shadow-xl flex flex-col">
+        <div className="mx-auto grid grid-cols-2 gap-2.5 sm:gap-6 max-w-6xl">
+          {/* Card 1 - Kit Básico */}
+          <div className="relative overflow-hidden rounded-xl sm:rounded-[1.75rem] border-2 border-gold/40 bg-card px-3 py-4 sm:px-5 sm:py-6 md:p-7 text-center shadow-xl flex flex-col">
             <div
               aria-hidden
               className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
             />
-            <span className="section-eyebrow">Kit Básico</span>
-            <h2 className="mt-2 text-2xl font-bold sm:mt-4 sm:text-3xl md:text-5xl">
+            <span className="section-eyebrow text-[0.6rem] sm:text-xs">Kit Básico</span>
+            <h2 className="mt-1 text-lg font-bold sm:mt-3 sm:text-2xl md:text-5xl">
               4 Jogos
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground sm:mt-3 sm:text-base">Acesso imediato ao material digital</p>
 
-            <div className="mx-auto mt-4 flex items-end justify-center gap-2 sm:mt-10">
-              <span className="text-lg text-muted-foreground line-through sm:text-2xl">R$ 29,90</span>
+            <div className="mt-2 sm:mt-6">
+              <span className="text-xs text-muted-foreground line-through sm:text-lg">R$ 29,90</span>
             </div>
-            <div className="mt-1 flex items-baseline justify-center gap-2">
-              <span className="font-display text-5xl font-bold text-deep sm:text-7xl md:text-8xl">
+            <div className="mt-0.5">
+              <span className="font-display text-2xl font-bold text-deep sm:text-5xl md:text-7xl">
                 R$14,90
               </span>
             </div>
-            <p className="mt-1 text-xs text-muted-foreground sm:mt-2 sm:text-sm">pagamento único · acesso vitalício</p>
+            <p className="mt-0.5 text-[0.6rem] text-muted-foreground sm:mt-2 sm:text-sm">pagamento único</p>
 
-            <ul className="mx-auto mt-4 max-w-md space-y-2 text-left sm:mt-8 sm:space-y-3">
+            <ul className="mx-auto mt-2 hidden space-y-2 text-left sm:mt-6 sm:block sm:space-y-3">
               {[
                 "Uno Bíblico",
                 "Passatempo Bíblico",
@@ -442,42 +442,43 @@ function Index() {
               ))}
             </ul>
 
-            <div className="mt-6 flex flex-col items-center gap-3 sm:mt-10 sm:gap-4">
-              <CTAButton>Quero o Kit Básico</CTAButton>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura · Acesso imediato
+            <div className="mt-3 flex flex-col items-center gap-2 sm:mt-8 sm:gap-4">
+              <a href="#oferta" className="btn-cta w-full justify-center text-xs sm:text-base">
+                Quero esse <ArrowRight className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
+              </a>
+              <div className="hidden items-center gap-2 text-xs text-muted-foreground sm:flex">
+                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura
               </div>
             </div>
           </div>
 
           {/* Card 2 - Kit Completo */}
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-[1.75rem] border-2 border-gold bg-card px-5 py-6 sm:p-7 text-center shadow-2xl flex flex-col">
+          <div className="relative overflow-hidden rounded-xl sm:rounded-[1.75rem] border-2 border-gold bg-card px-3 py-4 sm:px-5 sm:py-6 md:p-7 text-center shadow-2xl flex flex-col">
             <div
               aria-hidden
               className="absolute -top-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
             />
             <div className="absolute top-0 left-1/2 -translate-x-1/2">
-              <span className="inline-block rounded-b-2xl bg-gold px-4 py-1 text-xs font-bold text-deep uppercase tracking-widest shadow">
+              <span className="inline-block rounded-b-xl sm:rounded-b-2xl bg-gold px-2 py-0.5 sm:px-4 sm:py-1 text-[0.55rem] sm:text-xs font-bold text-deep uppercase tracking-wider sm:tracking-widest shadow">
                 Mais popular
               </span>
             </div>
-            <span className="mt-6 section-eyebrow sm:mt-8">Kit Completo</span>
-            <h2 className="mt-2 text-2xl font-bold sm:mt-4 sm:text-3xl md:text-5xl">
+            <span className="mt-5 section-eyebrow text-[0.6rem] sm:mt-8 sm:text-xs">Kit Completo</span>
+            <h2 className="mt-1 text-lg font-bold sm:mt-3 sm:text-2xl md:text-5xl">
               8 Jogos
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground sm:mt-3 sm:text-base">Acesso imediato ao material digital</p>
 
-            <div className="mx-auto mt-4 flex items-end justify-center gap-2 sm:mt-10">
-              <span className="text-lg text-muted-foreground line-through sm:text-2xl">R$ 59,90</span>
+            <div className="mt-2 sm:mt-6">
+              <span className="text-xs text-muted-foreground line-through sm:text-lg">R$ 59,90</span>
             </div>
-            <div className="mt-1 flex items-baseline justify-center gap-2">
-              <span className="font-display text-5xl font-bold text-deep sm:text-7xl md:text-8xl">
+            <div className="mt-0.5">
+              <span className="font-display text-2xl font-bold text-deep sm:text-5xl md:text-7xl">
                 R$19,90
               </span>
             </div>
-            <p className="mt-1 text-xs text-muted-foreground sm:mt-2 sm:text-sm">pagamento único · acesso vitalício</p>
+            <p className="mt-0.5 text-[0.6rem] text-muted-foreground sm:mt-2 sm:text-sm">pagamento único</p>
 
-            <ul className="mx-auto mt-4 max-w-md space-y-2 text-left sm:mt-8 sm:space-y-3">
+            <ul className="mx-auto mt-2 hidden space-y-2 text-left sm:mt-6 sm:block sm:space-y-3">
               {[
                 "Uno Bíblico",
                 "Passatempo Bíblico",
@@ -497,14 +498,15 @@ function Index() {
               ))}
             </ul>
 
-            <div className="mt-6 flex flex-col items-center gap-3 sm:mt-10 sm:gap-4">
-              <CTAButton>Quero o Kit Completo</CTAButton>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura · Acesso imediato
+            <div className="mt-3 flex flex-col items-center gap-2 sm:mt-8 sm:gap-4">
+              <a href="#oferta" className="btn-cta w-full justify-center text-xs sm:text-base">
+                Quero esse <ArrowRight className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
+              </a>
+              <div className="hidden items-center gap-2 text-xs text-muted-foreground sm:flex">
+                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura
               </div>
             </div>
           </div>
-
         </div>
       </section>
 

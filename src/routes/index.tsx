@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect, useCallback } from "react";
 import heroKids from "@/assets/hero-kids.jpg";
-import kitMockup from "@/assets/kit-mockup.jpg";
 import familyImg from "@/assets/family.jpg";
 import {
   BookOpen,
@@ -75,6 +75,58 @@ function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: Reac
       {children}
       <ArrowRight className="h-5 w-5" />
     </a>
+  );
+}
+
+function GameCarousel() {
+  const [current, setCurrent] = useState(0);
+  const total = games.length;
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % total);
+  }, [total]);
+
+  useEffect(() => {
+    const timer = setInterval(next, 800);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  return (
+    <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl bg-secondary/40">
+      <div className="relative aspect-square w-full">
+        {games.map((game, i) => (
+          <div
+            key={game.name}
+            className="absolute inset-0 transition-all duration-500 ease-in-out"
+            style={{
+              opacity: i === current ? 1 : 0,
+              transform: i === current ? "translateX(0)" : i === (current - 1 + total) % total ? "translateX(-100%)" : "translateX(100%)",
+            }}
+          >
+            <img
+              src={game.src}
+              alt={game.alt}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/90 to-transparent px-5 py-4">
+              <span className="text-sm font-semibold text-cream">{game.name}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+        {games.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-gold" : "w-2 bg-white/40"}`}
+            aria-label={`Ir para jogo ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -239,36 +291,8 @@ function Index() {
                 Perguntas, desafios, personagens, atividades visuais e dinâmicas — feitos para
                 deixar o aprendizado leve, divertido e participativo.
               </p>
-              <img
-                src={kitMockup}
-                alt="Mockup do kit de jogos bíblicos digital"
-                loading="lazy"
-                width={1280}
-                height={1280}
-                className="mt-10 rounded-3xl shadow-lg"
-              />
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {games.map((game) => (
-                <div
-                  key={game.name}
-                  className="group relative overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-                >
-                  <img
-                    src={game.src}
-                    alt={game.alt}
-                    loading="lazy"
-                    decoding="async"
-                    width={400}
-                    height={400}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/80 to-transparent px-3 py-2">
-                    <span className="text-xs font-semibold text-cream">{game.name}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <GameCarousel />
           </div>
         </div>
       </section>

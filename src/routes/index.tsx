@@ -405,81 +405,22 @@ function Index() {
           }}
         />
         <div className="mx-auto grid grid-cols-2 gap-2.5 sm:gap-6 max-w-6xl">
-          {/* Card 1 - Kit Básico */}
-          <div className="relative overflow-hidden rounded-xl sm:rounded-[1.75rem] border-2 border-gold/40 bg-card px-3 py-4 sm:px-5 sm:py-6 md:p-7 text-center shadow-xl flex flex-col">
-            <div
-              aria-hidden
-              className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
-            />
-            <span className="section-eyebrow text-[0.6rem] sm:text-xs">Kit Básico</span>
-            <h2 className="mt-1 text-lg font-bold sm:mt-3 sm:text-2xl md:text-5xl">
-              4 Jogos
-            </h2>
-
-            <div className="mt-2 sm:mt-6">
-              <span className="text-xs text-muted-foreground line-through sm:text-lg">R$ 29,90</span>
-            </div>
-            <div className="mt-0.5">
-              <span className="font-display text-2xl font-bold text-deep sm:text-5xl md:text-7xl">
-                R$14,90
-              </span>
-            </div>
-            <p className="mt-0.5 text-[0.6rem] text-muted-foreground sm:mt-2 sm:text-sm">pagamento único</p>
-
-            <ul className="mx-auto mt-2 hidden space-y-2 text-left sm:mt-6 sm:block sm:space-y-3">
-              {[
-                "Uno Bíblico",
-                "Passatempo Bíblico",
-                "Siga a Cristo",
-                "Mico Bíblico",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-2 sm:gap-3">
-                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
-                    <Check className="h-3.5 w-3.5 text-deep" />
-                  </div>
-                  <span className="text-sm text-card-foreground sm:text-base">{b}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-3 flex flex-col items-center gap-2 sm:mt-8 sm:gap-4">
-              <a href="#oferta" className="btn-cta w-full justify-center text-xs sm:text-base">
-                Quero esse <ArrowRight className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
-              </a>
-              <div className="hidden items-center gap-2 text-xs text-muted-foreground sm:flex">
-                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 - Kit Completo */}
-          <div className="relative overflow-hidden rounded-xl sm:rounded-[1.75rem] border-2 border-gold bg-card px-3 py-4 sm:px-5 sm:py-6 md:p-7 text-center shadow-2xl flex flex-col">
-            <div
-              aria-hidden
-              className="absolute -top-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
-            />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2">
-              <span className="inline-block rounded-b-xl sm:rounded-b-2xl bg-gold px-2 py-0.5 sm:px-4 sm:py-1 text-[0.55rem] sm:text-xs font-bold text-deep uppercase tracking-wider sm:tracking-widest shadow">
-                Mais popular
-              </span>
-            </div>
-            <span className="mt-5 section-eyebrow text-[0.6rem] sm:mt-8 sm:text-xs">Kit Completo</span>
-            <h2 className="mt-1 text-lg font-bold sm:mt-3 sm:text-2xl md:text-5xl">
-              8 Jogos
-            </h2>
-
-            <div className="mt-2 sm:mt-6">
-              <span className="text-xs text-muted-foreground line-through sm:text-lg">R$ 59,90</span>
-            </div>
-            <div className="mt-0.5">
-              <span className="font-display text-2xl font-bold text-deep sm:text-5xl md:text-7xl">
-                R$19,90
-              </span>
-            </div>
-            <p className="mt-0.5 text-[0.6rem] text-muted-foreground sm:mt-2 sm:text-sm">pagamento único</p>
-
-            <ul className="mx-auto mt-2 hidden space-y-2 text-left sm:mt-6 sm:block sm:space-y-3">
-              {[
+          {[
+            {
+              label: "Kit Básico",
+              qty: "4 Jogos",
+              oldPrice: "R$ 29,90",
+              price: "R$14,90",
+              popular: false,
+              items: ["Uno Bíblico", "Passatempo Bíblico", "Siga a Cristo", "Mico Bíblico"],
+            },
+            {
+              label: "Kit Completo",
+              qty: "8 Jogos",
+              oldPrice: "R$ 59,90",
+              price: "R$19,90",
+              popular: true,
+              items: [
                 "Uno Bíblico",
                 "Passatempo Bíblico",
                 "Siga a Cristo",
@@ -487,26 +428,63 @@ function Index() {
                 "Quiz Bíblico",
                 "Memória Bíblica",
                 "Trilha da Fé",
-                "Caça-Palavras Bíblico",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-2 sm:gap-3">
-                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
-                    <Check className="h-3.5 w-3.5 text-deep" />
-                  </div>
-                  <span className="text-sm text-card-foreground sm:text-base">{b}</span>
-                </li>
-              ))}
-            </ul>
+                "Caça-Palavras",
+              ],
+            },
+          ].map((plan) => (
+            <div
+              key={plan.label}
+              className={`relative overflow-hidden rounded-xl sm:rounded-[1.75rem] border-2 bg-card px-3 py-4 sm:px-5 sm:py-6 md:p-7 text-center shadow-xl flex flex-col ${plan.popular ? "border-gold shadow-2xl" : "border-gold/40"}`}
+            >
+              <div
+                aria-hidden
+                className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
+              />
+              {plan.popular && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2">
+                  <span className="inline-block rounded-b-xl sm:rounded-b-2xl bg-gold px-2 py-0.5 sm:px-4 sm:py-1 text-[0.55rem] sm:text-xs font-bold text-deep uppercase tracking-wider sm:tracking-widest shadow">
+                    Mais popular
+                  </span>
+                </div>
+              )}
+              <span className={`section-eyebrow text-[0.6rem] sm:text-xs ${plan.popular ? "mt-5 sm:mt-8" : ""}`}>
+                {plan.label}
+              </span>
+              <h2 className="mt-1 text-lg font-bold sm:mt-3 sm:text-2xl md:text-5xl">
+                {plan.qty}
+              </h2>
 
-            <div className="mt-3 flex flex-col items-center gap-2 sm:mt-8 sm:gap-4">
-              <a href="#oferta" className="btn-cta w-full justify-center text-xs sm:text-base">
-                Quero esse <ArrowRight className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
-              </a>
-              <div className="hidden items-center gap-2 text-xs text-muted-foreground sm:flex">
-                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura
+              <div className="mt-2 sm:mt-6">
+                <span className="text-[0.65rem] text-muted-foreground line-through sm:text-lg">{plan.oldPrice}</span>
+              </div>
+              <div className="mt-0.5">
+                <span className="font-display text-[1.4rem] font-bold text-deep sm:text-5xl md:text-7xl">
+                  {plan.price}
+                </span>
+              </div>
+              <p className="mt-0.5 text-[0.55rem] text-muted-foreground sm:mt-2 sm:text-sm">pagamento único</p>
+
+              <ul className="mt-2 space-y-1 text-left sm:mt-6 sm:space-y-2.5">
+                {plan.items.map((b) => (
+                  <li key={b} className="flex items-center gap-1.5 sm:gap-3">
+                    <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-gold/30 sm:h-5 sm:w-5">
+                      <Check className="h-2 w-2 text-deep sm:h-3.5 sm:w-3.5" />
+                    </div>
+                    <span className="text-[0.6rem] leading-tight text-card-foreground sm:text-sm">{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto pt-3 flex flex-col items-center gap-1.5 sm:pt-8 sm:gap-4">
+                <a href="#oferta" className="btn-cta w-full justify-center text-[0.65rem] !px-2 !py-2 sm:text-base sm:!px-6 sm:!py-3">
+                  Quero esse kit <ArrowRight className="h-3 w-3 sm:h-5 sm:w-5" />
+                </a>
+                <div className="flex items-center gap-1 text-[0.5rem] text-muted-foreground sm:gap-2 sm:text-xs">
+                  <ShieldCheck className="h-3 w-3 text-gold sm:h-4 sm:w-4" /> Compra segura
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 

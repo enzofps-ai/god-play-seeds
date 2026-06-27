@@ -405,48 +405,105 @@ function Index() {
               "radial-gradient(circle at 50% 0%, oklch(0.92 0.08 80 / 0.7), transparent 60%)",
           }}
         />
-        <div className="mx-auto max-w-3xl">
-          <div className="relative overflow-hidden rounded-[2rem] border-2 border-gold/40 bg-card p-10 text-center shadow-2xl md:p-14">
-            <div
-              aria-hidden
-              className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
-            />
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-12 text-center">
             <span className="section-eyebrow">Oferta especial de lançamento</span>
             <h2 className="mt-4 text-3xl font-bold md:text-5xl">
-              Kit de Jogos Bíblicos completo
+              Escolha o kit ideal para você
             </h2>
-            <p className="mt-3 text-muted-foreground">Acesso imediato ao material digital</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Kit Básico */}
+            <div className="relative overflow-hidden rounded-[2rem] border-2 border-border bg-card p-8 text-center shadow-xl md:p-10">
+              <span className="section-eyebrow">Kit Básico</span>
+              <h3 className="mt-3 text-2xl font-bold">4 Jogos Bíblicos</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Ideal para começar</p>
 
-            <div className="mx-auto mt-10 flex items-end justify-center gap-2">
-              <span className="text-2xl text-muted-foreground line-through">R$ 47,00</span>
+              <div className="mt-8">
+                <span className="font-display text-5xl font-bold text-deep md:text-6xl">
+                  R$14,90
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">pagamento único · acesso vitalício</p>
+
+              <ul className="mx-auto mt-6 max-w-xs space-y-2.5 text-left">
+                {[
+                  "4 jogos bíblicos prontos para imprimir",
+                  "Acesso imediato em formato digital",
+                  "Use em casa, na EBD ou no ministério",
+                ].map((b) => (
+                  <li key={b} className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
+                      <Check className="h-3.5 w-3.5 text-deep" />
+                    </div>
+                    <span className="text-sm text-card-foreground">{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 flex flex-col items-center gap-3">
+                <a
+                  href="https://go.perfectpay.com.br/PPU38CQDFEA"
+                  rel="noopener noreferrer"
+                  className="btn-cta w-full justify-center"
+                >
+                  Quero o Kit Básico
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura
+                </div>
+              </div>
             </div>
-            <div className="mt-1 flex items-baseline justify-center gap-2">
-              <span className="font-display text-7xl font-bold text-deep md:text-8xl">
-                R$9,90
-              </span>
-            </div>
-            <p className="mt-2 text-sm text-muted-foreground">pagamento único · acesso vitalício</p>
 
-            <ul className="mx-auto mt-8 max-w-md space-y-3 text-left">
-              {[
-                "9 jogos bíblicos prontos para imprimir",
-                "Atividades cristãs para todas as idades",
-                "Acesso imediato em formato digital",
-                "Use em casa, na EBD ou no ministério",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
-                    <Check className="h-3.5 w-3.5 text-deep" />
-                  </div>
-                  <span className="text-card-foreground">{b}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Kit Completo */}
+            <div className="relative overflow-hidden rounded-[2rem] border-2 border-gold/40 bg-card p-8 text-center shadow-2xl md:p-10">
+              <div
+                aria-hidden
+                className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
+              />
+              <div className="mb-3 inline-block rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-deep">
+                Mais popular
+              </div>
+              <span className="block section-eyebrow">Kit Completo</span>
+              <h3 className="mt-3 text-2xl font-bold">8 Jogos Bíblicos</h3>
+              <p className="mt-2 text-sm text-muted-foreground">O pacote mais completo</p>
 
-            <div className="mt-10 flex flex-col items-center gap-4">
-              <CTAButton>Sim, quero receber agora</CTAButton>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura · Acesso imediato
+              <div className="mt-8">
+                <span className="font-display text-5xl font-bold text-deep md:text-6xl">
+                  R$19,90
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">pagamento único · acesso vitalício</p>
+
+              <ul className="mx-auto mt-6 max-w-xs space-y-2.5 text-left">
+                {[
+                  "8 jogos bíblicos prontos para imprimir",
+                  "Atividades cristãs para todas as idades",
+                  "Acesso imediato em formato digital",
+                  "Use em casa, na EBD ou no ministério",
+                ].map((b) => (
+                  <li key={b} className="flex items-start gap-2.5">
+                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
+                      <Check className="h-3.5 w-3.5 text-deep" />
+                    </div>
+                    <span className="text-sm text-card-foreground">{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 flex flex-col items-center gap-3">
+                <a
+                  href="https://go.perfectpay.com.br/PPU38CQDI55"
+                  rel="noopener noreferrer"
+                  className="btn-cta w-full justify-center"
+                >
+                  Quero o Kit Completo
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura · Acesso imediato
+                </div>
               </div>
             </div>
           </div>

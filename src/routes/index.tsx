@@ -86,7 +86,7 @@ function GameSlideshow() {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(next, 3000);
+    const timer = setInterval(next, 1000);
     return () => clearInterval(timer);
   }, [next]);
 
@@ -94,7 +94,7 @@ function GameSlideshow() {
     <div className="flex flex-col items-center gap-4">
       <div className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-lg" style={{ aspectRatio: "1" }}>
         <div
-          className="flex h-full transition-transform duration-500 ease-in-out"
+          className="flex h-full transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {games.map((game) => (
@@ -412,97 +412,97 @@ function Index() {
               Escolha o kit ideal para você
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 md:gap-6">
             {/* Kit Básico */}
-            <div className="relative overflow-hidden rounded-[2rem] border-2 border-border bg-card p-8 text-center shadow-xl md:p-10">
-              <span className="section-eyebrow">Kit Básico</span>
-              <h3 className="mt-3 text-2xl font-bold">4 Jogos Bíblicos</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Ideal para começar</p>
+            <div className="relative overflow-hidden rounded-2xl border-2 border-border bg-card p-4 text-center shadow-xl md:rounded-[2rem] md:p-10">
+              <span className="section-eyebrow text-[0.6rem] md:text-xs">Kit Básico</span>
+              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">4 Jogos Bíblicos</h3>
+              <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Ideal para começar</p>
 
-              <div className="mt-8">
-                <span className="font-display text-5xl font-bold text-deep md:text-6xl">
+              <div className="mt-4 md:mt-8">
+                <span className="font-display text-2xl font-bold text-deep md:text-6xl">
                   R$14,90
                 </span>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">pagamento único · acesso vitalício</p>
+              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">pagamento único</p>
 
-              <ul className="mx-auto mt-6 max-w-xs space-y-2.5 text-left">
+              <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
                 {[
-                  "4 jogos bíblicos prontos para imprimir",
-                  "Acesso imediato em formato digital",
-                  "Use em casa, na EBD ou no ministério",
+                  "4 jogos prontos para imprimir",
+                  "Acesso imediato digital",
+                  "Use em casa ou na EBD",
                 ].map((b) => (
-                  <li key={b} className="flex items-start gap-2.5">
-                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
-                      <Check className="h-3.5 w-3.5 text-deep" />
+                  <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
+                    <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
+                      <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
                     </div>
-                    <span className="text-sm text-card-foreground">{b}</span>
+                    <span className="text-[0.65rem] leading-tight text-card-foreground md:text-sm">{b}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-col items-center gap-3">
+              <div className="mt-4 flex flex-col items-center gap-2 md:mt-8 md:gap-3">
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDFEA"
                   rel="noopener noreferrer"
-                  className="btn-cta w-full justify-center"
+                  className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >
-                  Quero o Kit Básico
-                  <ArrowRight className="h-5 w-5" />
+                  Quero esse
+                  <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
                 </a>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura
+                <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
+                  <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
                 </div>
               </div>
             </div>
 
             {/* Kit Completo */}
-            <div className="relative overflow-hidden rounded-[2rem] border-2 border-gold/40 bg-card p-8 text-center shadow-2xl md:p-10">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-gold/40 bg-card p-4 text-center shadow-2xl md:rounded-[2rem] md:p-10">
               <div
                 aria-hidden
                 className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
               />
-              <div className="mb-3 inline-block rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-deep">
+              <div className="mb-1.5 inline-block rounded-full bg-gold/20 px-2 py-0.5 text-[0.6rem] font-bold text-deep md:mb-3 md:px-3 md:py-1 md:text-xs">
                 Mais popular
               </div>
-              <span className="block section-eyebrow">Kit Completo</span>
-              <h3 className="mt-3 text-2xl font-bold">8 Jogos Bíblicos</h3>
-              <p className="mt-2 text-sm text-muted-foreground">O pacote mais completo</p>
+              <span className="block section-eyebrow text-[0.6rem] md:text-xs">Kit Completo</span>
+              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">8 Jogos Bíblicos</h3>
+              <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">O pacote completo</p>
 
-              <div className="mt-8">
-                <span className="font-display text-5xl font-bold text-deep md:text-6xl">
+              <div className="mt-4 md:mt-8">
+                <span className="font-display text-2xl font-bold text-deep md:text-6xl">
                   R$19,90
                 </span>
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">pagamento único · acesso vitalício</p>
+              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">pagamento único</p>
 
-              <ul className="mx-auto mt-6 max-w-xs space-y-2.5 text-left">
+              <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
                 {[
-                  "8 jogos bíblicos prontos para imprimir",
-                  "Atividades cristãs para todas as idades",
-                  "Acesso imediato em formato digital",
-                  "Use em casa, na EBD ou no ministério",
+                  "8 jogos prontos para imprimir",
+                  "Todas as idades",
+                  "Acesso imediato digital",
+                  "Casa, EBD ou ministério",
                 ].map((b) => (
-                  <li key={b} className="flex items-start gap-2.5">
-                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/30">
-                      <Check className="h-3.5 w-3.5 text-deep" />
+                  <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
+                    <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
+                      <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
                     </div>
-                    <span className="text-sm text-card-foreground">{b}</span>
+                    <span className="text-[0.65rem] leading-tight text-card-foreground md:text-sm">{b}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-col items-center gap-3">
+              <div className="mt-4 flex flex-col items-center gap-2 md:mt-8 md:gap-3">
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDI55"
                   rel="noopener noreferrer"
-                  className="btn-cta w-full justify-center"
+                  className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >
-                  Quero o Kit Completo
-                  <ArrowRight className="h-5 w-5" />
+                  Quero esse
+                  <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
                 </a>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <ShieldCheck className="h-4 w-4 text-gold" /> Compra 100% segura · Acesso imediato
+                <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
+                  <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
                 </div>
               </div>
             </div>

@@ -151,10 +151,10 @@ function Index() {
     <main className="bg-background text-foreground">
       {/* NAV */}
       <header className="absolute top-0 left-0 right-0 z-20">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
           <div className="flex items-center gap-2 text-cream">
             <Cross className="h-5 w-5 text-gold" />
-            <span className="font-display text-lg font-semibold">Jornada da Fé</span>
+            <span className="font-display text-base font-semibold sm:text-lg">Jornada da Fé</span>
           </div>
           <a
             href="#oferta"
@@ -166,7 +166,7 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-deep pb-24 pt-32 text-cream md:pb-32 md:pt-40">
+      <section className="relative overflow-hidden bg-deep pb-14 pt-24 text-cream sm:pb-20 sm:pt-28 md:pb-32 md:pt-40">
         <div
           aria-hidden
           className="absolute inset-0 opacity-40"
@@ -175,27 +175,27 @@ function Index() {
               "radial-gradient(circle at 20% 0%, oklch(0.45 0.15 75 / 0.45), transparent 50%), radial-gradient(circle at 90% 80%, oklch(0.35 0.12 260 / 0.6), transparent 55%)",
           }}
         />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <span className="chip">
+            <span className="chip text-[0.7rem] sm:text-sm">
               <Sparkles className="h-3.5 w-3.5 text-gold" /> Material digital cristão para crianças
             </span>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] md:text-6xl">
+            <h1 className="mt-5 text-3xl font-bold leading-[1.1] sm:mt-6 sm:text-4xl md:text-6xl">
               Jogos Bíblicos para crianças aprenderem sobre{" "}
               <span className="text-gold">Deus</span> longe das telas
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-cream/80">
+            <p className="mt-5 max-w-xl text-base text-cream/80 sm:mt-6 sm:text-lg">
               Um kit divertido e educativo para ensinar histórias, personagens e valores bíblicos em
               casa, na EBD, célula ou ministério infantil. Brincando, a criança aprende — e troca o
               celular por momentos cheios de propósito.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-7 flex flex-wrap items-center gap-4 sm:mt-9">
               <CTAButton />
               <div className="flex items-center gap-2 text-sm text-cream/70">
-                <Download className="h-4 w-4 text-gold" /> Acesso imediato após a compra
+                <Download className="h-4 w-4 shrink-0 text-gold" /> Acesso imediato após a compra
               </div>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-cream/70">
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-cream/70 sm:mt-10">
               <div className="flex items-center gap-1.5 text-gold">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
@@ -218,7 +218,7 @@ function Index() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 hidden rounded-2xl bg-cream p-4 text-deep shadow-xl sm:block">
+            <div className="absolute -bottom-4 -left-4 hidden rounded-2xl bg-cream p-4 text-deep shadow-xl sm:block">
               <div className="flex items-center gap-3">
                 <div className="rounded-xl bg-gold/20 p-2">
                   <Gamepad2 className="h-5 w-5 text-deep" />
@@ -236,19 +236,19 @@ function Index() {
       </section>
 
       {/* PROBLEM */}
-      <section className="px-6 py-24 md:py-32">
+      <section className="px-4 py-16 sm:px-6 sm:py-24 md:py-32">
         <div className="mx-auto max-w-4xl text-center">
           <span className="section-eyebrow">A realidade hoje</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+          <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
             As crianças estão sendo ensinadas todos os dias. <br className="hidden md:block" />
             <span className="italic text-gold">A pergunta é: por quem?</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground">
+          <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
             Cada vez mais comum ver crianças passando horas no celular, presas em telas e com pouca
             paciência para o que importa. A infância é o solo onde valores, hábitos e referências
             germinam — o que ela aprende agora pode acompanhá-la por muitos anos.
           </p>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             Ensinar sobre Deus, Jesus, amor, obediência, perdão e fé de uma forma leve e divertida
             planta sementes valiosas no coração dela.
           </p>
@@ -256,8 +256,8 @@ function Index() {
       </section>
 
       {/* SOLUTION */}
-      <section className="bg-secondary/60 px-6 py-24">
-        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-2 lg:items-center">
+      <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative">
             <img
               src={familyImg}
@@ -265,7 +265,7 @@ function Index() {
               loading="lazy"
               width={1280}
               height={896}
-              className="rounded-3xl shadow-xl"
+              className="w-full rounded-2xl shadow-xl sm:rounded-3xl"
             />
             <div className="absolute -bottom-6 -right-6 hidden max-w-[16rem] rounded-2xl border bg-card p-5 shadow-xl md:block">
               <Heart className="h-6 w-6 text-gold" />
@@ -276,18 +276,18 @@ function Index() {
           </div>
           <div>
             <span className="section-eyebrow">A solução</span>
-            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
               Uma forma divertida de ensinar a Bíblia sem depender do celular
             </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
+            <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
               O Kit de Jogos Bíblicos transforma o aprendizado em brincadeira. Em vez de só falar e
               esperar atenção, você oferece desafios, perguntas e dinâmicas que envolvem a criança
               naturalmente.
             </p>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               Ela brinca, participa, interage — e aprende sobre a Palavra de Deus ao mesmo tempo.
             </p>
-            <div className="mt-8">
+            <div className="mt-7 sm:mt-8">
               <CTAButton>Quero ensinar brincando</CTAButton>
             </div>
           </div>
@@ -295,15 +295,15 @@ function Index() {
       </section>
 
       {/* WHAT'S INSIDE */}
-      <section className="px-6 py-24 md:py-32">
+      <section className="px-4 py-16 sm:px-6 sm:py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <span className="section-eyebrow">O que vem no kit</span>
-              <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+              <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
                 9 jogos bíblicos, prontos para imprimir e brincar
               </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
+              <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
                 Perguntas, desafios, personagens, atividades visuais e dinâmicas — feitos para
                 deixar o aprendizado leve, divertido e participativo.
               </p>
@@ -314,28 +314,28 @@ function Index() {
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-deep px-6 py-24 text-cream md:py-32">
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-2xl">
             <span className="section-eyebrow text-gold">Muito mais que brincadeira</span>
-            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
               Cada jogo desenvolve algo valioso na criança
             </h2>
-            <p className="mt-5 text-cream/75">
+            <p className="mt-5 text-sm text-cream/75 sm:text-base">
               Enquanto muitos conteúdos digitais apenas distraem, esses jogos foram pensados para
               criar momentos com propósito.
             </p>
           </div>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-6 lg:grid-cols-3">
             {benefits.map(({ icon: Icon, text }) => (
               <div
                 key={text}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition hover:border-gold/50"
+                className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-sm transition hover:border-gold/50 sm:rounded-2xl sm:p-6"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/20">
-                  <Icon className="h-6 w-6 text-gold" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/20 sm:h-12 sm:w-12 sm:rounded-xl">
+                  <Icon className="h-4.5 w-4.5 text-gold sm:h-6 sm:w-6" />
                 </div>
-                <p className="mt-4 text-lg font-medium">{text}</p>
+                <p className="mt-3 text-sm font-medium leading-snug sm:mt-4 sm:text-lg">{text}</p>
               </div>
             ))}
           </div>
@@ -343,23 +343,23 @@ function Index() {
       </section>
 
       {/* AUDIENCE */}
-      <section className="px-6 py-24">
+      <section className="px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <span className="section-eyebrow">Ideal para</span>
-          <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+          <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
             Pensado para quem ensina com amor
           </h2>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-10 sm:gap-3">
             {audiences.map((a) => (
               <span
                 key={a}
-                className="rounded-full border bg-card px-5 py-2.5 text-sm font-medium text-card-foreground shadow-sm"
+                className="rounded-full border bg-card px-3.5 py-2 text-xs font-medium text-card-foreground shadow-sm sm:px-5 sm:py-2.5 sm:text-sm"
               >
                 {a}
               </span>
             ))}
           </div>
-          <p className="mt-10 text-lg text-muted-foreground">
+          <p className="mt-8 text-base text-muted-foreground sm:mt-10 sm:text-lg">
             Use em casa, na EBD, em encontros com crianças, brincadeiras em grupo ou atividades
             especiais na igreja.
           </p>
@@ -367,15 +367,15 @@ function Index() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="bg-secondary/60 px-6 py-24">
+      <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <span className="section-eyebrow">Como funciona</span>
-            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
               Simples. Imediato. Sem complicação.
             </h2>
           </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 md:grid-cols-3">
             {[
               {
                 step: "01",
@@ -396,22 +396,22 @@ function Index() {
                 icon: Gamepad2,
               },
             ].map((s) => (
-              <div key={s.step} className="relative rounded-3xl border bg-card p-7 shadow-sm">
-                <div className="font-display text-5xl text-gold/40">{s.step}</div>
-                <s.icon className="absolute right-6 top-6 h-6 w-6 text-deep/40" />
-                <h3 className="mt-2 text-xl font-semibold text-card-foreground">{s.title}</h3>
-                <p className="mt-2 text-muted-foreground">{s.desc}</p>
+              <div key={s.step} className="relative rounded-2xl border bg-card p-5 shadow-sm sm:rounded-3xl sm:p-7">
+                <div className="font-display text-4xl text-gold/40 sm:text-5xl">{s.step}</div>
+                <s.icon className="absolute right-5 top-5 h-5 w-5 text-deep/40 sm:right-6 sm:top-6 sm:h-6 sm:w-6" />
+                <h3 className="mt-2 text-lg font-semibold text-card-foreground sm:text-xl">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground sm:text-base">{s.desc}</p>
               </div>
             ))}
           </div>
-          <p className="mt-10 text-center text-sm text-muted-foreground">
+          <p className="mt-8 text-center text-xs text-muted-foreground sm:mt-10 sm:text-sm">
             Importante: este é um produto digital. Nenhum item físico será enviado.
           </p>
         </div>
       </section>
 
       {/* OFFER */}
-      <section id="oferta" className="relative overflow-hidden px-6 py-24 md:py-32">
+      <section id="oferta" className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 md:py-32">
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
@@ -421,21 +421,21 @@ function Index() {
           }}
         />
         <div className="mx-auto max-w-5xl">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center sm:mb-12">
             <span className="section-eyebrow">Oferta especial de lançamento</span>
-            <h2 className="mt-4 text-3xl font-bold md:text-5xl">
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
               Escolha o kit ideal para você
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-3 md:gap-6">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6">
             {/* Kit Básico */}
-            <div className="relative overflow-hidden rounded-2xl border-2 border-border bg-card p-4 text-center shadow-xl md:rounded-[2rem] md:p-10">
+            <div className="relative min-w-0 overflow-hidden rounded-xl border-2 border-border bg-card p-3 text-center shadow-xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
               <span className="section-eyebrow text-[0.6rem] md:text-xs">Kit Básico</span>
               <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">4 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Ideal para começar</p>
 
               <div className="mt-4 md:mt-8">
-                <span className="font-display text-2xl font-bold text-deep md:text-6xl">
+                <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
                   R$14,90
                 </span>
               </div>
@@ -473,7 +473,7 @@ function Index() {
             </div>
 
             {/* Kit Completo */}
-            <div className="relative overflow-hidden rounded-2xl border-2 border-gold/40 bg-card p-4 text-center shadow-2xl md:rounded-[2rem] md:p-10">
+            <div className="relative min-w-0 overflow-hidden rounded-xl border-2 border-gold/40 bg-card p-3 text-center shadow-2xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
               <div
                 aria-hidden
                 className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
@@ -486,7 +486,7 @@ function Index() {
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">O pacote completo</p>
 
               <div className="mt-4 md:mt-8">
-                <span className="font-display text-2xl font-bold text-deep md:text-6xl">
+                <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
                   R$19,90
                 </span>
               </div>
@@ -528,23 +528,23 @@ function Index() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-deep px-6 py-24 text-cream md:py-32">
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <Cross className="mx-auto h-8 w-8 text-gold" />
-          <h2 className="mt-6 text-3xl font-bold md:text-5xl">
+          <h2 className="mt-6 text-2xl font-bold sm:text-3xl md:text-5xl">
             Dê às crianças uma alternativa melhor do que apenas telas
           </h2>
-          <p className="mt-6 text-lg text-cream/75">
+          <p className="mt-5 text-base text-cream/75 sm:mt-6 sm:text-lg">
             A infância passa rápido. Cada momento pode ser uma oportunidade de ensinar algo bom,
             criar memórias e aproximar as crianças da Palavra de Deus.
           </p>
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <CTAButton>Sim, quero receber os Jogos Bíblicos</CTAButton>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-deep px-6 py-10 text-center text-sm text-cream/50">
+      <footer className="border-t border-white/5 bg-deep px-4 py-8 text-center text-sm text-cream/50 sm:px-6 sm:py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-2">
           <div className="flex items-center gap-2">
             <Cross className="h-4 w-4 text-gold" />

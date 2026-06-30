@@ -17,6 +17,21 @@ import {
   Cross,
 } from "lucide-react";
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
+function trackInitiateCheckout(contentName: string, value: number) {
+  window.fbq?.("track", "InitiateCheckout", {
+    value,
+    currency: "BRL",
+    content_name: contentName,
+    content_type: "product",
+  });
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -445,6 +460,7 @@ function Index() {
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDFEA"
                   rel="noopener noreferrer"
+                  onClick={() => trackInitiateCheckout("Kit 4 Jogos Bíblicos", 14.9)}
                   className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >
                   Quero esse
@@ -496,6 +512,7 @@ function Index() {
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDI55"
                   rel="noopener noreferrer"
+                  onClick={() => trackInitiateCheckout("Kit 8 Jogos Bíblicos", 19.9)}
                   className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >
                   Quero esse

@@ -147,11 +147,20 @@ fbq('init', '1686794639276837');
 fbq('track', 'PageView');
 `;
 
+const clarityScript = `
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "xg6jrgbnb6");
+`;
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: clarityScript }} />
         <script dangerouslySetInnerHTML={{ __html: metaPixelScript }} />
         <noscript>
           <img

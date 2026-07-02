@@ -3,6 +3,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroKids from "@/assets/hero-kids.jpg";
 import familyImg from "@/assets/family.jpg";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   BookOpen,
   Check,
   Gamepad2,
@@ -73,6 +79,37 @@ const benefits = [
   { icon: Users, text: "Interação em família" },
   { icon: Tv, text: "Menos tempo nas telas" },
   { icon: ShieldCheck, text: "Memória e raciocínio" },
+];
+
+const faqs = [
+  {
+    q: "O material é físico ou digital?",
+    a: "É 100% digital. Após a compra você recebe os arquivos na hora e pode imprimir quantas vezes quiser, em casa ou em gráfica. Nenhum item físico é enviado pelo correio.",
+  },
+  {
+    q: "Preciso de impressora para usar?",
+    a: "Não é obrigatório. Você pode imprimir em casa, em uma gráfica próxima ou usar os arquivos direto na tela do celular, tablet ou computador com as crianças.",
+  },
+  {
+    q: "Para qual idade os jogos são indicados?",
+    a: "Os jogos foram pensados para crianças em fase de alfabetização até a pré-adolescência, e também funcionam muito bem em atividades em grupo com idades variadas.",
+  },
+  {
+    q: "Qual a diferença entre o Kit Básico e o Kit Completo?",
+    a: "O Kit Básico traz 4 jogos, ideal para começar. O Kit Completo traz 8 jogos e mais variedade de dinâmicas, sendo a opção mais escolhida por quem quer aproveitar ao máximo em casa, na EBD ou no ministério infantil.",
+  },
+  {
+    q: "O pagamento é único ou tem mensalidade?",
+    a: "É um pagamento único. Você paga uma vez e tem acesso permanente aos jogos, sem cobranças recorrentes.",
+  },
+  {
+    q: "Em quanto tempo recebo o acesso?",
+    a: "Imediatamente após a confirmação do pagamento você recebe o link de acesso para baixar todos os arquivos.",
+  },
+  {
+    q: "E se eu não gostar do material?",
+    a: "A compra é processada em ambiente seguro e você pode entrar em contato com o suporte a qualquer momento para tirar dúvidas sobre o conteúdo antes ou depois de comprar.",
+  },
 ];
 
 const audiences = [
@@ -541,6 +578,28 @@ function Index() {
           <div className="mt-8 sm:mt-10">
             <CTAButton>Sim, quero receber os Jogos Bíblicos</CTAButton>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <span className="section-eyebrow">Dúvidas frequentes</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+              Ainda tem alguma dúvida?
+            </h2>
+          </div>
+          <Accordion type="single" collapsible className="mt-10 sm:mt-14">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={faq.q} value={`item-${i}`}>
+                <AccordionTrigger className="text-base sm:text-lg">{faq.q}</AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground sm:text-base">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 

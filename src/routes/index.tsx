@@ -251,6 +251,8 @@ function Index() {
                 alt="Crianças felizes jogando jogos bíblicos juntos"
                 width={1536}
                 height={1152}
+                fetchPriority="high"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -299,6 +301,7 @@ function Index() {
               src={familyImg}
               alt="Família reunida brincando e aprendendo a Bíblia"
               loading="lazy"
+              decoding="async"
               width={1280}
               height={896}
               className="w-full rounded-2xl shadow-xl sm:rounded-3xl"

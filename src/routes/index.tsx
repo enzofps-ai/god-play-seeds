@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import heroKids from "@/assets/hero-kids.jpg";
-import familyImg from "@/assets/family.jpg";
+import heroKids from "@/assets/hero-kids.webp";
+import familyImg from "@/assets/family.webp";
 import {
   Accordion,
   AccordionContent,
@@ -250,7 +250,9 @@ function Index() {
                 src={heroKids}
                 alt="Crianças felizes jogando jogos bíblicos juntos"
                 width={1536}
-                height={1152}
+                height={864}
+                fetchPriority="high"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -277,7 +279,7 @@ function Index() {
           <span className="section-eyebrow">A realidade hoje</span>
           <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
             As crianças estão sendo ensinadas todos os dias. <br className="hidden md:block" />
-            <span className="italic text-gold">A pergunta é: por quem?</span>
+            <span className="italic text-gold-ink">A pergunta é: por quem?</span>
           </h2>
           <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
             Cada vez mais comum ver crianças passando horas no celular, presas em telas e com pouca
@@ -433,7 +435,7 @@ function Index() {
               },
             ].map((s) => (
               <div key={s.step} className="relative rounded-2xl border bg-card p-5 shadow-sm sm:rounded-3xl sm:p-7">
-                <div className="font-display text-4xl text-gold/40 sm:text-5xl">{s.step}</div>
+                <div className="font-display text-4xl text-gold-ink/80 sm:text-5xl">{s.step}</div>
                 <s.icon className="absolute right-5 top-5 h-5 w-5 text-deep/40 sm:right-6 sm:top-6 sm:h-6 sm:w-6" />
                 <h3 className="mt-2 text-lg font-semibold text-card-foreground sm:text-xl">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground sm:text-base">{s.desc}</p>

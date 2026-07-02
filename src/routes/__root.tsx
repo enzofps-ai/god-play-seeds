@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import heroKids from "@/assets/hero-kids.webp";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -91,15 +92,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cd02c112-8b62-4603-be47-3b037221e978/id-preview-bc3ae144--3a38d8a4-7f23-4268-b99c-5c3c9d5b1f9a.lovable.app-1781705341849.png" },
     ],
     links: [
+      // Preload self-hosted fonts so they resolve in parallel with the CSS
+      // (removes the Google Fonts request chain that blocked the LCP).
+      {
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/fraunces-latin.woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/plus-jakarta-sans-latin.woff2",
+        crossOrigin: "anonymous",
+      },
+      // Preload the hero image (LCP element).
+      { rel: "preload", as: "image", href: heroKids, fetchPriority: "high" },
       {
         rel: "stylesheet",
         href: appCss,
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
       },
     ],
   }),
@@ -116,10 +129,17 @@ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];
-t=b.createElement(e);t.async=!0;
-t.src='https://connect.facebook.net/en_US/fbevents.js';
-s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s);
+// Defer the actual fbevents.js download until the page is idle so it never
+// competes with the initial render. fbq() calls made before then are queued.
+function load(){
+  if(f.__fbqLoaded)return;f.__fbqLoaded=!0;
+  t=b.createElement(e);t.async=!0;
+  t.src=v;
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s);
+}
+if(b.readyState==='complete'){load();}
+else{f.addEventListener('load',function(){setTimeout(load,1200);});}
 }(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 

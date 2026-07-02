@@ -465,7 +465,7 @@ function Index() {
           </div>
           <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6">
             {/* Kit Básico */}
-            <div className="relative min-w-0 overflow-hidden rounded-xl border-2 border-border bg-card p-3 text-center shadow-xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
+            <div className="relative flex min-w-0 flex-col overflow-hidden rounded-xl border-2 border-border bg-card p-3 text-center shadow-xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
               <span className="section-eyebrow text-[0.6rem] md:text-xs">Kit Básico</span>
               <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">4 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Ideal para começar</p>
@@ -480,8 +480,8 @@ function Index() {
               <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
                 {[
                   "4 jogos prontos para imprimir",
-                  "Acesso imediato digital",
-                  "Use em casa ou na EBD",
+                  "Acesso imediato após a compra",
+                  "Ideal para uso em casa ou na EBD",
                 ].map((b) => (
                   <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
                     <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
@@ -492,7 +492,7 @@ function Index() {
                 ))}
               </ul>
 
-              <div className="mt-4 flex flex-col items-center gap-2 md:mt-8 md:gap-3">
+              <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDFEA"
                   rel="noopener noreferrer"
@@ -509,7 +509,7 @@ function Index() {
             </div>
 
             {/* Kit Completo */}
-            <div className="relative min-w-0 overflow-hidden rounded-xl border-2 border-gold/40 bg-card p-3 text-center shadow-2xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
+            <div className="relative flex min-w-0 flex-col overflow-hidden rounded-xl border-2 border-gold/40 bg-card p-3 text-center shadow-2xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
               <div
                 aria-hidden
                 className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
@@ -531,9 +531,8 @@ function Index() {
               <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
                 {[
                   "8 jogos prontos para imprimir",
-                  "Todas as idades",
-                  "Acesso imediato digital",
-                  "Casa, EBD ou ministério",
+                  "Acesso imediato após a compra",
+                  "Ideal para casa, EBD ou ministério",
                 ].map((b) => (
                   <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
                     <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
@@ -544,7 +543,7 @@ function Index() {
                 ))}
               </ul>
 
-              <div className="mt-4 flex flex-col items-center gap-2 md:mt-8 md:gap-3">
+              <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDI55"
                   rel="noopener noreferrer"

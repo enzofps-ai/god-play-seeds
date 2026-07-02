@@ -45,13 +45,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Kit digital com 9 jogos bíblicos para ensinar histórias, valores e personagens da Palavra de forma divertida — longe das telas. Acesso imediato por R$9,90.",
+          "Kit digital com 8 jogos bíblicos para ensinar histórias, valores e personagens da Palavra de forma divertida — longe das telas. Acesso imediato por R$14,90.",
       },
       { property: "og:title", content: "Kit de Jogos Bíblicos — Aprenda sobre Deus brincando" },
       {
         property: "og:description",
         content:
-          "9 jogos prontos para imprimir e usar em casa, na EBD ou no ministério infantil. Acesso imediato por R$9,90.",
+          "8 jogos prontos para imprimir e usar em casa, na EBD ou no ministério infantil. Acesso imediato por R$14,90.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "" },
@@ -65,8 +65,7 @@ const games = [
   { name: "Jogo Mímico Bíblico", src: "/images/jogo-mimico-biblico.webp", alt: "Jogo Mímico Bíblico — atividade de mímica com histórias da Bíblia" },
   { name: "Passatempo Bíblico", src: "/images/passatempo-biblico.webp", alt: "Passatempo Bíblico — caça-palavras, labirinto e atividades cristãs" },
   { name: "Super Trunfo Personagens", src: "/images/super-trunfo-personagens.webp", alt: "Super Trunfo Personagens Bíblicos — cartas colecionáveis" },
-  { name: "Encontre", src: "/images/encontre.webp", alt: "Encontre — desafio bíblico de descobrir e aprender brincando" },
-  { name: "Spot It Bíblico", src: "/images/spot-it-biblico.webp", alt: "Spot It Bíblico — jogo de atenção com símbolos cristãos" },
+  { name: "Encontre - Spot It Bíblico", src: "/images/encontre.webp", alt: "Encontre - Spot It Bíblico — jogo de atenção e observação com símbolos cristãos" },
   { name: "Siga a Cristo", src: "/images/siga-a-cristo.webp", alt: "Siga a Cristo — jogo de tabuleiro cristão para crianças" },
   { name: "Quiz Bíblico", src: "/images/quiz-biblico.webp", alt: "Quiz Bíblico — perguntas e respostas sobre a Palavra de Deus" },
   { name: "Uno da Fé", src: "/images/uno-da-fe.webp", alt: "Uno da Fé — jogo cristão de cartas para toda a família" },
@@ -240,7 +239,7 @@ function Index() {
                 <span className="ml-1 text-cream/80">+1.200 famílias abençoadas</span>
               </div>
               <div className="hidden h-4 w-px bg-white/20 sm:block" />
-              <span>9 jogos prontos para imprimir</span>
+              <span>8 jogos prontos para imprimir</span>
             </div>
           </div>
 
@@ -264,7 +263,7 @@ function Index() {
                   <div className="text-xs uppercase tracking-widest text-muted-foreground">
                     Kit completo
                   </div>
-                  <div className="font-display text-lg font-semibold">9 Jogos Bíblicos</div>
+                  <div className="font-display text-lg font-semibold">8 Jogos Bíblicos</div>
                 </div>
               </div>
             </div>
@@ -338,7 +337,7 @@ function Index() {
             <div>
               <span className="section-eyebrow">O que vem no kit</span>
               <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-                9 jogos bíblicos, prontos para imprimir e brincar
+                8 jogos bíblicos, prontos para imprimir e brincar
               </h2>
               <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
                 Perguntas, desafios, personagens, atividades visuais e dinâmicas — feitos para

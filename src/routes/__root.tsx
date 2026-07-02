@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import heroKids from "@/assets/hero-kids.jpg";
 
 function NotFoundComponent() {
   return (
@@ -142,6 +143,7 @@ function RootShell({ children }: { children: ReactNode }) {
             alt=""
           />
         </noscript>
+        <link rel="preload" as="image" href={heroKids} />
       </head>
       <body>
         {children}

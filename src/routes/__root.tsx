@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import heroKids from "@/assets/hero-kids.webp";
+import heroKids700 from "@/assets/hero-kids-700.webp";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -108,8 +109,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "/fonts/plus-jakarta-sans-latin.woff2",
         crossOrigin: "anonymous",
       },
-      // Preload the hero image (LCP element).
-      { rel: "preload", as: "image", href: heroKids, fetchPriority: "high" },
+      // Preload the hero image (LCP element). imageSrcset/imageSizes mirror the
+      // <img> below so the browser preloads the same responsive candidate it renders.
+      {
+        rel: "preload",
+        as: "image",
+        href: heroKids,
+        imageSrcset: `${heroKids700} 700w, ${heroKids} 1000w`,
+        imageSizes: "(min-width: 1024px) 620px, 100vw",
+        fetchPriority: "high",
+      },
       // Warm up connections to third-party script origins (Clarity, Meta Pixel).
       { rel: "preconnect", href: "https://r.clarity.ms" },
       { rel: "preconnect", href: "https://connect.facebook.net" },

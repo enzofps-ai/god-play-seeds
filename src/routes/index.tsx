@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroKids from "@/assets/hero-kids.webp";
+import heroKids700 from "@/assets/hero-kids-700.webp";
 import familyImg from "@/assets/family.webp";
+import familyImg700 from "@/assets/family-700.webp";
 import {
   BookOpen,
   Check,
@@ -133,6 +135,8 @@ function GameSlideshow() {
             <div key={game.name} className="relative h-full w-full flex-shrink-0">
               <img
                 src={game.src}
+                srcSet={`${game.src.replace(/\.webp$/, "-640.webp")} 640w, ${game.src} 1000w`}
+                sizes="(min-width: 1024px) 560px, 90vw"
                 alt={game.alt}
                 loading="lazy"
                 decoding="async"
@@ -229,6 +233,8 @@ function Index() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
               <img
                 src={heroKids}
+                srcSet={`${heroKids700} 700w, ${heroKids} 1000w`}
+                sizes="(min-width: 1024px) 620px, 100vw"
                 alt="Crianças felizes jogando jogos bíblicos juntos"
                 width={1536}
                 height={864}
@@ -280,6 +286,8 @@ function Index() {
           <div className="relative">
             <img
               src={familyImg}
+              srcSet={`${familyImg700} 700w, ${familyImg} 1000w`}
+              sizes="(min-width: 1024px) 560px, 100vw"
               alt="Família reunida brincando e aprendendo a Bíblia"
               loading="lazy"
               width={1280}

@@ -1,13 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroKids from "@/assets/hero-kids.webp";
 import familyImg from "@/assets/family.webp";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import {
   BookOpen,
   Check,
@@ -22,6 +16,8 @@ import {
   ArrowRight,
   Cross,
 } from "lucide-react";
+
+const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -589,16 +585,9 @@ function Index() {
               Ainda tem alguma dúvida?
             </h2>
           </div>
-          <Accordion type="single" collapsible className="mt-10 sm:mt-14">
-            {faqs.map((faq, i) => (
-              <AccordionItem key={faq.q} value={`item-${i}`}>
-                <AccordionTrigger className="text-base sm:text-lg">{faq.q}</AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground sm:text-base">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <Suspense fallback={<div className="mt-10 sm:mt-14" />}>
+            <FaqAccordion faqs={faqs} />
+          </Suspense>
         </div>
       </section>
 

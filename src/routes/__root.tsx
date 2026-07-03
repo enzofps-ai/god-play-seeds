@@ -110,6 +110,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       // Preload the hero image (LCP element).
       { rel: "preload", as: "image", href: heroKids, fetchPriority: "high" },
+      // Warm up connections to third-party script origins (Clarity, Meta Pixel).
+      { rel: "preconnect", href: "https://r.clarity.ms" },
+      { rel: "preconnect", href: "https://connect.facebook.net" },
       {
         rel: "stylesheet",
         href: appCss,
@@ -150,8 +153,15 @@ fbq('track', 'PageView');
 const clarityScript = `
 (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    // Defer the actual clarity.js download until the page is idle so it never
+    // competes with the initial render, mirroring the Meta Pixel deferral above.
+    function load(){
+      if(c.__clarityLoaded)return;c.__clarityLoaded=true;
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    }
+    if(l.readyState==='complete'){load();}
+    else{c.addEventListener('load',function(){setTimeout(load,1200);});}
 })(window, document, "clarity", "script", "xg6jrgbnb6");
 `;
 

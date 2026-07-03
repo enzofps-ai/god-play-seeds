@@ -23,21 +23,6 @@ import {
   Cross,
 } from "lucide-react";
 
-declare global {
-  interface Window {
-    fbq?: (...args: unknown[]) => void;
-  }
-}
-
-function trackInitiateCheckout(contentName: string, value: number) {
-  window.fbq?.("track", "InitiateCheckout", {
-    value,
-    currency: "BRL",
-    content_name: contentName,
-    content_type: "product",
-  });
-}
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -472,7 +457,15 @@ function Index() {
               <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">4 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Ideal para começar</p>
 
-              <div className="mt-4 md:mt-8">
+              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-2 py-0.5 text-[0.6rem] font-bold text-red-600 md:mt-2 md:px-3 md:py-1 md:text-xs">
+                52% OFF hoje
+              </div>
+              <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
+                <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
+                  R$30,90
+                </span>
+              </div>
+              <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
                   R$14,90
                 </span>
@@ -498,7 +491,6 @@ function Index() {
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDFEA"
                   rel="noopener noreferrer"
-                  onClick={() => trackInitiateCheckout("Kit 4 Jogos Bíblicos", 14.9)}
                   className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >
                   Quero esse
@@ -523,7 +515,15 @@ function Index() {
               <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">8 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">O pacote completo</p>
 
-              <div className="mt-4 md:mt-8">
+              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-2 py-0.5 text-[0.6rem] font-bold text-red-600 md:mt-2 md:px-3 md:py-1 md:text-xs">
+                44% OFF hoje
+              </div>
+              <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
+                <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
+                  R$35,90
+                </span>
+              </div>
+              <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
                   R$19,90
                 </span>
@@ -549,7 +549,6 @@ function Index() {
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQDI55"
                   rel="noopener noreferrer"
-                  onClick={() => trackInitiateCheckout("Kit 8 Jogos Bíblicos", 19.9)}
                   className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >
                   Quero esse

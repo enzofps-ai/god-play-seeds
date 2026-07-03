@@ -9,6 +9,8 @@ import {
   Check,
   Gamepad2,
   Heart,
+  Lock,
+  RotateCcw,
   ShieldCheck,
   Sparkles,
   Tv,
@@ -61,6 +63,24 @@ const benefits = [
   { icon: Users, text: "Interação em família" },
   { icon: Tv, text: "Menos tempo nas telas" },
   { icon: ShieldCheck, text: "Memória e raciocínio" },
+];
+
+const trustSignals = [
+  {
+    icon: Lock,
+    title: "Pagamento 100% seguro",
+    text: "Processado pela PerfectPay com criptografia SSL de 256 bits. Seus dados de cartão nunca passam pelos nossos servidores.",
+  },
+  {
+    icon: RotateCcw,
+    title: "Garantia de 7 dias",
+    text: "Se não amar o material, é só pedir o estorno em até 7 dias após a compra e devolvemos 100% do valor pago.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Dados protegidos",
+    text: "Informações pessoais e de pagamento são criptografadas de ponta a ponta e tratadas conforme a LGPD.",
+  },
 ];
 
 const faqs = [
@@ -608,6 +628,28 @@ function Index() {
           <p>© {new Date().getFullYear()} Jornada da Fé · Todos os direitos reservados.</p>
         </div>
       </footer>
+
+      {/* TRUST BAR */}
+      <div className="border-t border-white/5 bg-deep px-4 py-8 sm:px-6 sm:py-10">
+        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-3 sm:gap-8">
+          {trustSignals.map(({ icon: Icon, title, text }, i) => (
+            <div
+              key={title}
+              className={`flex items-start gap-3 sm:gap-4 ${
+                i > 0 ? "sm:border-l sm:border-white/10 sm:pl-8" : ""
+              }`}
+            >
+              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold/15">
+                <Icon className="h-4 w-4 text-gold" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-cream">{title}</p>
+                <p className="mt-1 text-xs leading-relaxed text-cream/55">{text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </main>
   );
 }

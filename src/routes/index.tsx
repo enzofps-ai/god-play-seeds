@@ -384,25 +384,6 @@ function Index() {
         </div>
       </section>
 
-      {/* WHAT'S INSIDE */}
-      <section className="px-4 py-16 sm:px-6 sm:py-24 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <span className="section-eyebrow">O que vem no kit</span>
-              <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-                8 jogos bíblicos, prontos para imprimir e brincar
-              </h2>
-              <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
-                Perguntas, desafios, personagens, atividades visuais e dinâmicas — feitos para
-                deixar o aprendizado leve, divertido e participativo.
-              </p>
-            </div>
-            <GameSlideshow />
-          </div>
-        </div>
-      </section>
-
       {/* BENEFITS */}
       <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
@@ -428,6 +409,25 @@ function Index() {
                 <p className="mt-3 text-sm font-medium leading-snug sm:mt-4 sm:text-lg">{text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT'S INSIDE */}
+      <section className="px-4 py-16 sm:px-6 sm:py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <span className="section-eyebrow">O que vem no kit</span>
+              <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+                8 jogos bíblicos, prontos para imprimir e brincar
+              </h2>
+              <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
+                Perguntas, desafios, personagens, atividades visuais e dinâmicas — feitos para
+                deixar o aprendizado leve, divertido e participativo.
+              </p>
+            </div>
+            <GameSlideshow />
           </div>
         </div>
       </section>

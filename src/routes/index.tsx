@@ -357,11 +357,8 @@ function Index() {
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 lg:order-1">
             <RealProductSlideshow />
-            <div className="absolute -bottom-6 -right-6 hidden max-w-[16rem] rounded-2xl border bg-card p-5 shadow-xl md:block">
-              <Heart className="h-6 w-6 text-gold" />
-              <p className="mt-2 text-sm text-card-foreground">
-                "Em vez de tela, escolhemos a Palavra — em forma de brincadeira."
-              </p>
+            <div className="mt-7 sm:mt-8">
+              <CTAButton>Quero ensinar brincando</CTAButton>
             </div>
           </div>
           <div className="order-1 lg:order-2">
@@ -369,17 +366,6 @@ function Index() {
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
               Uma forma divertida de ensinar a Bíblia sem depender do celular
             </h2>
-            <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
-              O Kit de Jogos Bíblicos transforma o aprendizado em brincadeira. Em vez de só falar e
-              esperar atenção, você oferece desafios, perguntas e dinâmicas que envolvem a criança
-              naturalmente.
-            </p>
-            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-              Ela brinca, participa, interage — e aprende sobre a Palavra de Deus ao mesmo tempo.
-            </p>
-            <div className="mt-7 sm:mt-8">
-              <CTAButton>Quero ensinar brincando</CTAButton>
-            </div>
           </div>
         </div>
       </section>

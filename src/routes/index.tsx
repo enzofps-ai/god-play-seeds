@@ -619,6 +619,28 @@ function Index() {
         </div>
       </section>
 
+      {/* TRUST SIGNALS */}
+      <section className="bg-secondary/60 px-4 pb-16 sm:px-6 sm:pb-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
+            {trustSignals.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="group relative flex flex-col items-center gap-3 rounded-2xl border bg-card p-6 text-center shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:rounded-3xl sm:p-8"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 sm:h-14 sm:w-14">
+                  <Icon className="h-5 w-5 text-gold-ink sm:h-6 sm:w-6" />
+                </div>
+                <p className="font-display text-base font-semibold text-card-foreground sm:text-lg">
+                  {title}
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t border-white/5 bg-deep px-4 py-8 text-center text-sm text-cream/50 sm:px-6 sm:py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-2">
           <div className="flex items-center gap-2">
@@ -628,28 +650,6 @@ function Index() {
           <p>© {new Date().getFullYear()} Jornada da Fé · Todos os direitos reservados.</p>
         </div>
       </footer>
-
-      {/* TRUST BAR */}
-      <div className="border-t border-white/5 bg-deep px-4 py-8 sm:px-6 sm:py-10">
-        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-3 sm:gap-8">
-          {trustSignals.map(({ icon: Icon, title, text }, i) => (
-            <div
-              key={title}
-              className={`flex items-start gap-3 sm:gap-4 ${
-                i > 0 ? "sm:border-l sm:border-white/10 sm:pl-8" : ""
-              }`}
-            >
-              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold/15">
-                <Icon className="h-4 w-4 text-gold" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-cream">{title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-cream/55">{text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </main>
   );
 }

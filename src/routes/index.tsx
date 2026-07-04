@@ -2,8 +2,6 @@ import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroKids from "@/assets/hero-kids.webp";
 import heroKids700 from "@/assets/hero-kids-700.webp";
-import familyImg from "@/assets/family.webp";
-import familyImg700 from "@/assets/family-700.webp";
 import {
   BookOpen,
   Check,
@@ -187,6 +185,60 @@ function GameSlideshow() {
   );
 }
 
+const realProducts = [
+  { src: "/images/real-uno-mesa.webp", alt: "Uno Cristiano impresso sobre a mesa, pronto para jogar" },
+  { src: "/images/real-super-trunfo-mesa.webp", alt: "Super Trunfo Bíblico impresso e recortado sobre a mesa" },
+  { src: "/images/real-siga-cristo-mesa.webp", alt: "Tabuleiro Siga a Cristo impresso e montado sobre a mesa" },
+];
+
+function RealProductSlideshow() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % realProducts.length);
+    }, 1800);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl" style={{ aspectRatio: "1" }}>
+      <div
+        className="flex h-full transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${current * 100}%)` }}
+      >
+        {realProducts.map((p, i) => (
+          <img
+            key={p.src}
+            src={p.src}
+            srcSet={`${p.src.replace(/\.webp$/, "-640.webp")} 560w, ${p.src} 820w`}
+            sizes="(min-width: 1024px) 560px, 90vw"
+            alt={p.alt}
+            loading="lazy"
+            decoding="async"
+            width={820}
+            height={820}
+            className="h-full w-full flex-shrink-0 object-cover"
+            fetchPriority={i === 0 ? "high" : "low"}
+          />
+        ))}
+      </div>
+      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
+        {realProducts.map((p, i) => (
+          <button
+            key={p.src}
+            onClick={() => setCurrent(i)}
+            aria-label={`Ver imagem ${i + 1}`}
+            className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+              i === current ? "bg-cream" : "bg-cream/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Index() {
   return (
     <main className="bg-background text-foreground">
@@ -304,16 +356,7 @@ function Index() {
       <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative">
-            <img
-              src={familyImg}
-              srcSet={`${familyImg700} 700w, ${familyImg} 1000w`}
-              sizes="(min-width: 1024px) 560px, 100vw"
-              alt="Família reunida brincando e aprendendo a Bíblia"
-              loading="lazy"
-              width={1280}
-              height={896}
-              className="w-full rounded-2xl shadow-xl sm:rounded-3xl"
-            />
+            <RealProductSlideshow />
             <div className="absolute -bottom-6 -right-6 hidden max-w-[16rem] rounded-2xl border bg-card p-5 shadow-xl md:block">
               <Heart className="h-6 w-6 text-gold" />
               <p className="mt-2 text-sm text-card-foreground">

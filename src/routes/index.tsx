@@ -355,7 +355,7 @@ function Index() {
       {/* SOLUTION */}
       <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative">
+          <div className="relative order-2 lg:order-1">
             <RealProductSlideshow />
             <div className="absolute -bottom-6 -right-6 hidden max-w-[16rem] rounded-2xl border bg-card p-5 shadow-xl md:block">
               <Heart className="h-6 w-6 text-gold" />
@@ -364,7 +364,7 @@ function Index() {
               </p>
             </div>
           </div>
-          <div>
+          <div className="order-1 lg:order-2">
             <span className="section-eyebrow">A solução</span>
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
               Uma forma divertida de ensinar a Bíblia sem depender do celular

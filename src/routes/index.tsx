@@ -532,7 +532,7 @@ function Index() {
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
-                pagamento único · menos de R$3,73 por jogo
+                pagamento único
               </p>
 
               <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
@@ -592,7 +592,7 @@ function Index() {
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
-                pagamento único · menos de R$2,50 por jogo
+                pagamento único
               </p>
 
               <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">

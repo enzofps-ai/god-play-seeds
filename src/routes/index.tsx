@@ -67,17 +67,17 @@ const trustSignals = [
   {
     icon: Lock,
     title: "Pagamento 100% seguro",
-    text: "Processado pela PerfectPay com criptografia SSL de 256 bits. Seus dados de cartão nunca passam pelos nossos servidores.",
+    text: "Processado pela PerfectPay com criptografia SSL de 256 bits.",
   },
   {
     icon: RotateCcw,
     title: "Garantia de 7 dias",
-    text: "Se não amar o material, é só pedir o estorno em até 7 dias após a compra e devolvemos 100% do valor pago.",
+    text: "Não amou? Devolvemos 100% do valor em até 7 dias.",
   },
   {
     icon: ShieldCheck,
     title: "Dados protegidos",
-    text: "Informações pessoais e de pagamento são criptografadas de ponta a ponta e tratadas conforme a LGPD.",
+    text: "Seus dados são criptografados e tratados conforme a LGPD.",
   },
 ];
 
@@ -297,6 +297,10 @@ function Index() {
               </div>
               <div className="hidden h-4 w-px bg-white/20 sm:block" />
               <span>8 jogos prontos para imprimir</span>
+              <div className="hidden h-4 w-px bg-white/20 sm:block" />
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="h-4 w-4 text-gold" /> Garantia de 7 dias
+              </span>
             </div>
           </div>
 
@@ -337,7 +341,7 @@ function Index() {
         <div className="mx-auto max-w-4xl text-center">
           <span className="section-eyebrow">A realidade hoje</span>
           <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-            As crianças estão sendo ensinadas todos os dias. <br className="hidden md:block" />
+            As crianças estão sendo ensinadas todos os dias. <br />
             <span className="italic text-gold-ink">A pergunta é: por quem?</span>
           </h2>
           <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
@@ -451,7 +455,7 @@ function Index() {
               Simples. Imediato. Sem complicação.
             </h2>
           </div>
-          <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-3 gap-2.5 sm:mt-14 sm:gap-6">
             {[
               {
                 step: "01",
@@ -472,11 +476,11 @@ function Index() {
                 icon: Gamepad2,
               },
             ].map((s) => (
-              <div key={s.step} className="relative rounded-2xl border bg-card p-5 shadow-sm sm:rounded-3xl sm:p-7">
-                <div className="font-display text-4xl text-gold-ink/80 sm:text-5xl">{s.step}</div>
-                <s.icon className="absolute right-5 top-5 h-5 w-5 text-deep/40 sm:right-6 sm:top-6 sm:h-6 sm:w-6" />
-                <h3 className="mt-2 text-lg font-semibold text-card-foreground sm:text-xl">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground sm:text-base">{s.desc}</p>
+              <div key={s.step} className="relative rounded-xl border bg-card p-3 shadow-sm sm:rounded-3xl sm:p-7">
+                <div className="font-display text-2xl text-gold-ink/80 sm:text-5xl">{s.step}</div>
+                <s.icon className="absolute right-3 top-3 hidden h-5 w-5 text-deep/40 sm:right-6 sm:top-6 sm:block sm:h-6 sm:w-6" />
+                <h3 className="mt-1.5 text-sm font-semibold leading-tight text-card-foreground sm:mt-2 sm:text-xl">{s.title}</h3>
+                <p className="mt-1.5 text-[0.7rem] leading-snug text-muted-foreground sm:mt-2 sm:text-base sm:leading-normal">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -502,6 +506,10 @@ function Index() {
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
               Escolha o kit ideal para você
             </h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
+              Preço promocional de lançamento. Garanta o seu antes que volte ao valor
+              normal — e comece a ensinar ainda hoje.
+            </p>
           </div>
           <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6">
             {/* Kit Básico */}
@@ -523,7 +531,9 @@ function Index() {
                   R$14,90
                 </span>
               </div>
-              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">pagamento único</p>
+              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
+                pagamento único · menos de R$3,73 por jogo
+              </p>
 
               <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
                 {[
@@ -581,7 +591,9 @@ function Index() {
                   R$19,90
                 </span>
               </div>
-              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">pagamento único</p>
+              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
+                pagamento único · menos de R$2,50 por jogo
+              </p>
 
               <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
                 {[
@@ -612,6 +624,18 @@ function Index() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground sm:mt-8 sm:gap-x-7 sm:text-sm">
+            <span className="inline-flex items-center gap-1.5">
+              <RotateCcw className="h-4 w-4 text-gold-ink" /> Garantia de 7 dias
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Download className="h-4 w-4 text-gold-ink" /> Acesso imediato
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Lock className="h-4 w-4 text-gold-ink" /> Pagamento 100% seguro
+            </span>
           </div>
         </div>
       </section>
@@ -651,19 +675,21 @@ function Index() {
       {/* TRUST SIGNALS */}
       <section className="bg-secondary/60 px-4 pb-16 sm:px-6 sm:pb-24">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
+          <div className="grid grid-cols-3 gap-2.5 sm:gap-6">
             {trustSignals.map(({ icon: Icon, title, text }) => (
               <div
                 key={title}
-                className="group relative flex flex-col items-center gap-3 rounded-2xl border bg-card p-6 text-center shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:rounded-3xl sm:p-8"
+                className="group relative flex flex-col items-center gap-2 rounded-xl border bg-card p-3 text-center shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:gap-3 sm:rounded-3xl sm:p-8"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 sm:h-14 sm:w-14">
-                  <Icon className="h-5 w-5 text-gold-ink sm:h-6 sm:w-6" />
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold/15 sm:h-14 sm:w-14">
+                  <Icon className="h-4 w-4 text-gold-ink sm:h-6 sm:w-6" />
                 </div>
-                <p className="font-display text-base font-semibold text-card-foreground sm:text-lg">
+                <p className="font-display text-xs font-semibold leading-tight text-card-foreground sm:text-lg">
                   {title}
                 </p>
-                <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+                <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">
+                  {text}
+                </p>
               </div>
             ))}
           </div>

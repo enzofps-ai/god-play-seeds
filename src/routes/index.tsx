@@ -657,6 +657,40 @@ function Index() {
         </div>
       </section>
 
+      {/* TRUST SIGNALS */}
+      <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-8 text-center sm:mb-12">
+            <span className="section-eyebrow">Compre com tranquilidade</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              Sua compra 100% protegida
+            </h2>
+          </div>
+          <div className="grid grid-cols-3 gap-2.5 sm:gap-6">
+            {trustSignals.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="group relative flex flex-col items-center gap-2 overflow-hidden rounded-xl border border-gold/15 bg-card p-3.5 text-center shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:gap-3 sm:rounded-3xl sm:p-8"
+              >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent opacity-70"
+                />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold/25 to-gold/5 ring-1 ring-gold/20 transition-transform duration-300 group-hover:scale-110 sm:h-14 sm:w-14">
+                  <Icon className="h-5 w-5 text-gold-ink sm:h-6 sm:w-6" />
+                </div>
+                <p className="font-display text-xs font-semibold leading-tight text-card-foreground sm:text-lg">
+                  {title}
+                </p>
+                <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">
+                  {text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-3xl">
@@ -669,30 +703,6 @@ function Index() {
           <Suspense fallback={<div className="mt-10 sm:mt-14" />}>
             <FaqAccordion faqs={faqs} />
           </Suspense>
-        </div>
-      </section>
-
-      {/* TRUST SIGNALS */}
-      <section className="bg-secondary/60 px-4 pb-16 sm:px-6 sm:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-3 gap-2.5 sm:gap-6">
-            {trustSignals.map(({ icon: Icon, title, text }) => (
-              <div
-                key={title}
-                className="group relative flex flex-col items-center gap-2 rounded-xl border bg-card p-3 text-center shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:gap-3 sm:rounded-3xl sm:p-8"
-              >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold/15 sm:h-14 sm:w-14">
-                  <Icon className="h-4 w-4 text-gold-ink sm:h-6 sm:w-6" />
-                </div>
-                <p className="font-display text-xs font-semibold leading-tight text-card-foreground sm:text-lg">
-                  {title}
-                </p>
-                <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">
-                  {text}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

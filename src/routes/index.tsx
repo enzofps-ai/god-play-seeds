@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroKids from "@/assets/hero-kids.webp";
 import heroKids700 from "@/assets/hero-kids-700.webp";
@@ -131,20 +131,45 @@ function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: Reac
   );
 }
 
-function GameSlideshow() {
+// Runs an auto-advance interval only while the carousel is on screen, so it
+// never re-renders (or wastes CPU) behind the fold — freeing the main thread
+// during the initial hero paint and saving battery when scrolled past.
+function useAutoRotate<T extends HTMLElement>(length: number, delayMs: number) {
   const [current, setCurrent] = useState(0);
-
-  const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % games.length);
-  }, []);
+  const ref = useRef<T>(null);
 
   useEffect(() => {
-    const timer = setInterval(next, 1000);
-    return () => clearInterval(timer);
-  }, [next]);
+    const el = ref.current;
+    if (!el) return;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const stop = () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = undefined;
+      }
+    };
+    const start = () => {
+      if (!timer) timer = setInterval(() => setCurrent((prev) => (prev + 1) % length), delayMs);
+    };
+    const io = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { threshold: 0.2 },
+    );
+    io.observe(el);
+    return () => {
+      stop();
+      io.disconnect();
+    };
+  }, [length, delayMs]);
+
+  return { current, setCurrent, ref };
+}
+
+function GameSlideshow() {
+  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(games.length, 1000);
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div ref={ref} className="flex flex-col items-center gap-4">
       <div className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-lg" style={{ aspectRatio: "1" }}>
         <div
           className="flex h-full transition-transform duration-300 ease-in-out"
@@ -193,17 +218,10 @@ const realProducts = [
 ];
 
 function RealProductSlideshow() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % realProducts.length);
-    }, 1800);
-    return () => clearInterval(timer);
-  }, []);
+  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(realProducts.length, 1800);
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl" style={{ aspectRatio: "1" }}>
+    <div ref={ref} className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl" style={{ aspectRatio: "1" }}>
       <div
         className="flex h-full transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -316,7 +334,14 @@ function Index() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-gold/30 to-transparent blur-2xl" />
+            <div
+              aria-hidden
+              className="absolute -inset-6 rounded-[2rem]"
+              style={{
+                background:
+                  "radial-gradient(ellipse at 30% 25%, oklch(0.76 0.14 78 / 0.3), transparent 70%)",
+              }}
+            />
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
               <img
                 src={heroKids}

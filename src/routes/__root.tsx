@@ -1,15 +1,17 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
-  createRootRouteWithContext,
+  createRootRoute,
   useRouter,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
-import appCss from "../styles.css?url";
+// Import the compiled CSS as a string (not a URL) so it can be inlined into a
+// <style> tag in the document head. This removes the render-blocking stylesheet
+// request (~170ms on slow 4G) — the ~16 KiB gzipped CSS ships with the HTML.
+import appCss from "../styles.css?inline";
 import heroKids from "@/assets/hero-kids.webp";
 import heroKids700 from "@/assets/hero-kids-700.webp";
 import heroKids820 from "@/assets/hero-kids-820.webp";
@@ -75,7 +77,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -124,10 +126,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // Clarity: r.clarity.ms was unused — the tag loads from www.clarity.ms
       // and is deferred to idle, so a preconnect only wastes a connection.)
       { rel: "preconnect", href: "https://connect.facebook.net" },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
     ],
   }),
   shellComponent: RootShell,
@@ -181,6 +179,8 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Inlined critical CSS — replaces the render-blocking stylesheet link. */}
+        <style dangerouslySetInnerHTML={{ __html: appCss }} />
         <script dangerouslySetInnerHTML={{ __html: clarityScript }} />
         <script dangerouslySetInnerHTML={{ __html: metaPixelScript }} />
         <noscript>
@@ -202,12 +202,6 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-    </QueryClientProvider>
-  );
+  // Required: nested routes render here. Removing <Outlet /> breaks all child routes.
+  return <Outlet />;
 }

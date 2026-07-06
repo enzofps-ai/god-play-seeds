@@ -370,7 +370,7 @@ function Index() {
               &ldquo;
             </span>
             <blockquote className="relative font-display text-xl font-semibold italic leading-snug text-deep sm:text-2xl md:text-3xl">
-              Mãe, seu filho não acha a Bíblia chata — chato é o jeito que ensinam.
+              Agora meu filho fica triste se a gente não joga pelo menos 30 minutos por dia.
             </blockquote>
             <figcaption className="mt-4 flex items-center justify-center gap-1.5 text-gold-ink">
               {Array.from({ length: 5 }).map((_, i) => (

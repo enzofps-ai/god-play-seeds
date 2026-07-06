@@ -18,6 +18,7 @@ import {
   Star,
   ArrowRight,
   Cross,
+  Mail,
 } from "lucide-react";
 
 const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
@@ -799,13 +800,39 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-deep px-4 py-8 text-center text-sm text-cream/50 sm:px-6 sm:py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-2">
-          <div className="flex items-center gap-2">
-            <Cross className="h-4 w-4 text-gold" />
-            <span className="font-display text-cream">Jornada da Fé</span>
+      <footer className="border-t border-white/5 bg-deep px-4 py-10 text-center text-sm text-cream/50 sm:px-6 sm:py-14">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:gap-7">
+          {/* Suporte */}
+          <div className="flex flex-col items-center gap-3">
+            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-gold/80">
+              Suporte
+            </span>
+            <a
+              href="mailto:suporte@achadinhosbiblicos.com.br"
+              className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 py-2 pl-2 pr-4 backdrop-blur-sm transition duration-300 hover:border-gold/40 hover:bg-white/10 sm:pr-5"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-gold/30 to-gold/5 ring-1 ring-gold/30 transition-transform duration-300 group-hover:scale-110 sm:h-9 sm:w-9">
+                <Mail className="h-4 w-4 text-gold sm:h-4.5 sm:w-4.5" />
+              </span>
+              <span className="text-sm font-medium text-cream sm:text-base">
+                suporte@achadinhosbiblicos.com.br
+              </span>
+            </a>
+            <p className="text-xs text-cream/40">
+              Tiramos suas dúvidas antes e depois da compra.
+            </p>
           </div>
-          <p>© {new Date().getFullYear()} Jornada da Fé · Todos os direitos reservados.</p>
+
+          <div className="h-px w-full max-w-xs bg-white/10" />
+
+          {/* Marca + copyright */}
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex items-center gap-2">
+              <Cross className="h-4 w-4 text-gold" />
+              <span className="font-display text-cream">Jornada da Fé</span>
+            </div>
+            <p>© {new Date().getFullYear()} Jornada da Fé · Todos os direitos reservados.</p>
+          </div>
         </div>
       </footer>
     </main>

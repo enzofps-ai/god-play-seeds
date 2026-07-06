@@ -153,8 +153,15 @@ function load(){
   s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s);
 }
-if(b.readyState==='complete'){load();}
-else{f.addEventListener('load',function(){setTimeout(load,1200);});}
+// Load only when the main thread is genuinely idle so it never competes with
+// React hydration (the LCP "render delay"). Falls back to a timer where
+// requestIdleCallback is unavailable; the timeout caps how long tracking waits.
+function boot(){
+  if('requestIdleCallback' in f){f.requestIdleCallback(load,{timeout:2500});}
+  else{setTimeout(load,1200);}
+}
+if(b.readyState==='complete'){boot();}
+else{f.addEventListener('load',boot);}
 }(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
@@ -196,8 +203,12 @@ const clarityScript = `
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     }
-    if(l.readyState==='complete'){load();}
-    else{c.addEventListener('load',function(){setTimeout(load,1200);});}
+    function boot(){
+      if('requestIdleCallback' in c){c.requestIdleCallback(load,{timeout:2500});}
+      else{setTimeout(load,1200);}
+    }
+    if(l.readyState==='complete'){boot();}
+    else{c.addEventListener('load',boot);}
 })(window, document, "clarity", "script", "xg6jrgbnb6");
 `;
 

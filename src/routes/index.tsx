@@ -25,17 +25,17 @@ const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kit de Jogos Bíblicos — Aprenda sobre Deus brincando" },
+      { title: "Kit de Jogos Bíblicos — Seu filho aprende a Bíblia brincando" },
       {
         name: "description",
         content:
-          "Kit digital com 8 jogos bíblicos para ensinar histórias, valores e personagens da Palavra de forma divertida — longe das telas. Acesso imediato por R$14,90.",
+          "Seu filho não acha a Bíblia chata — chato é o jeito que ensinam. Kit digital com 8 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato por R$14,90.",
       },
-      { property: "og:title", content: "Kit de Jogos Bíblicos — Aprenda sobre Deus brincando" },
+      { property: "og:title", content: "Seu filho não acha a Bíblia chata — chato é o jeito que ensinam" },
       {
         property: "og:description",
         content:
-          "8 jogos prontos para imprimir e usar em casa, na EBD ou no ministério infantil. Acesso imediato por R$14,90.",
+          "8 jogos bíblicos prontos para imprimir. A criança pede para jogar de novo e aprende sobre Deus brincando — em casa, na EBD ou no ministério infantil.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "" },
@@ -272,16 +272,32 @@ function Index() {
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <span className="chip text-[0.7rem] sm:text-sm">
-              <Sparkles className="h-3.5 w-3.5 text-gold" /> Material digital cristão para crianças
+              <Sparkles className="h-3.5 w-3.5 text-gold" /> Para mães e pais que ensinam a fé em casa
             </span>
-            <h1 className="mt-5 text-3xl font-bold leading-[1.1] sm:mt-6 sm:text-4xl md:text-6xl">
-              Jogos Bíblicos para crianças aprenderem sobre{" "}
-              <span className="text-gold">Deus</span> longe das telas
+            <h1 className="mt-5 font-display text-[2rem] font-bold leading-[1.08] sm:mt-6 sm:text-5xl md:text-[3.75rem]">
+              Seu filho não acha a Bíblia chata.{" "}
+              <span className="relative inline-block text-gold">
+                Chato é o jeito que ensinam.
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 300 12"
+                  preserveAspectRatio="none"
+                  className="absolute -bottom-1 left-0 h-2.5 w-full text-gold/70"
+                >
+                  <path
+                    d="M2 8 C 80 2, 220 2, 298 7"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
             </h1>
-            <p className="mt-5 max-w-xl text-base text-cream/80 sm:mt-6 sm:text-lg">
-              Um kit divertido e educativo para ensinar histórias, personagens e valores bíblicos em
-              casa, na EBD, célula ou ministério infantil. Brincando, a criança aprende — e troca o
-              celular por momentos cheios de propósito.
+            <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">
+              Quando a Palavra vira brincadeira, a criança pede pra jogar de novo — e aprende sobre
+              Deus <span className="font-semibold text-cream">sem nem perceber</span>. São 8 jogos
+              bíblicos prontos pra usar em casa, na EBD, célula ou ministério infantil.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4 sm:mt-9">
               <CTAButton />
@@ -340,19 +356,39 @@ function Index() {
       {/* PROBLEM */}
       <section className="px-4 py-16 sm:px-6 sm:py-24 md:py-32">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="section-eyebrow">A realidade hoje</span>
+          <span className="section-eyebrow">A verdade que muda tudo</span>
           <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-            As crianças estão sendo ensinadas todos os dias. <br />
-            <span className="italic text-gold-ink">A pergunta é: por quem?</span>
+            O problema nunca foi a Bíblia. <br />
+            <span className="italic text-gold-ink">Foi o jeito de ensinar.</span>
           </h2>
           <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
-            Cada vez mais comum ver crianças passando horas no celular, presas em telas e com pouca
-            paciência para o que importa. A infância é o solo onde valores, hábitos e referências
-            germinam — o que ela aprende agora pode acompanhá-la por muitos anos.
+            Nenhuma criança rejeita histórias de coragem, aventura e heróis. O que ela cansa é de
+            decorar versículo, ficar sentada ouvindo e repetir sem entender. Não é a Palavra que é
+            chata — é o método.
           </p>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Ensinar sobre Deus, Jesus, amor, obediência, perdão e fé de uma forma leve e divertida
-            planta sementes valiosas no coração dela.
+
+          {/* Pull-quote — o criativo que virou a mensagem central da página. */}
+          <figure className="relative mx-auto mt-10 max-w-2xl rounded-2xl border border-gold/25 bg-secondary/50 px-6 py-8 shadow-sm sm:mt-12 sm:rounded-3xl sm:px-10 sm:py-10">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-4 top-1 select-none font-display text-6xl leading-none text-gold/40 sm:left-6 sm:text-7xl"
+            >
+              &ldquo;
+            </span>
+            <blockquote className="relative font-display text-xl font-semibold italic leading-snug text-deep sm:text-2xl md:text-3xl">
+              Mãe, seu filho não acha a Bíblia chata — chato é o jeito que ensinam.
+            </blockquote>
+            <figcaption className="mt-4 flex items-center justify-center gap-1.5 text-gold-ink">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-current" />
+              ))}
+            </figcaption>
+          </figure>
+
+          <p className="mt-8 text-base text-muted-foreground sm:mt-10 sm:text-lg">
+            Troque o método e tudo muda: quando a fé vira brincadeira, a criança{" "}
+            <span className="font-semibold text-foreground">pede pra jogar de novo</span> — e absorve
+            Deus, Jesus, amor, perdão e obediência sem nem perceber que está aprendendo.
           </p>
         </div>
       </section>
@@ -369,8 +405,28 @@ function Index() {
           <div className="order-1 lg:order-2">
             <span className="section-eyebrow">A solução</span>
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Uma forma divertida de ensinar a Bíblia sem depender do celular
+              Ensine brincando — e ela vai{" "}
+              <span className="text-gold-ink">querer aprender de novo</span>
             </h2>
+            <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
+              São jogos pensados por quem entende de criança: enquanto se diverte, ela memoriza
+              histórias, conhece personagens e vive valores da Palavra — do jeito leve que fica no
+              coração.
+            </p>
+            <ul className="mt-6 space-y-3 sm:mt-7">
+              {[
+                "A criança pede pra jogar — você não precisa insistir",
+                "Aprende a Bíblia sem perceber que está estudando",
+                "Momentos reais em família, longe da tela",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30">
+                    <Check className="h-3.5 w-3.5 text-gold-ink" />
+                  </span>
+                  <span className="text-base text-card-foreground sm:text-lg">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -381,11 +437,11 @@ function Index() {
           <div className="max-w-2xl">
             <span className="section-eyebrow text-gold">Muito mais que brincadeira</span>
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Cada jogo desenvolve algo valioso na criança
+              Enquanto brinca, seu filho desenvolve o que fica pra vida
             </h2>
             <p className="mt-5 text-sm text-cream/75 sm:text-base">
-              Enquanto muitos conteúdos digitais apenas distraem, esses jogos foram pensados para
-              criar momentos com propósito.
+              Cada jogo foi pensado para plantar fé e valores enquanto a criança se diverte — sem
+              cobrança, sem tédio, sem tela. Ela joga; o aprendizado acontece sozinho.
             </p>
           </div>
           <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-6 lg:grid-cols-3">
@@ -411,11 +467,12 @@ function Index() {
             <div>
               <span className="section-eyebrow">O que vem no kit</span>
               <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-                8 jogos bíblicos, prontos para imprimir e brincar
+                8 jogos bíblicos, prontos para imprimir e brincar hoje
               </h2>
               <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
-                Perguntas, desafios, personagens, atividades visuais e dinâmicas — feitos para
-                deixar o aprendizado leve, divertido e participativo.
+                Uno, trunfo, mímica, quiz, caça-palavras e mais — cada um com um jeito diferente de
+                ensinar a Palavra. Variedade que prende a atenção e faz a criança voltar pra
+                brincar de novo.
               </p>
             </div>
             <GameSlideshow />
@@ -428,7 +485,7 @@ function Index() {
         <div className="mx-auto max-w-5xl text-center">
           <span className="section-eyebrow">Ideal para</span>
           <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-            Pensado para quem ensina com amor
+            Feito para quem quer plantar a fé com leveza
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-10 sm:gap-3">
             {audiences.map((a) => (
@@ -505,11 +562,11 @@ function Index() {
           <div className="mb-8 text-center sm:mb-12">
             <span className="section-eyebrow">Oferta especial de lançamento</span>
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Escolha o kit ideal para você
+              Comece a ensinar brincando ainda hoje
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-              Preço promocional de lançamento. Garanta o seu antes que volte ao valor
-              normal — e comece a ensinar ainda hoje.
+              Menos que um lanche, uma vez só, acesso pra sempre. Garanta o preço de lançamento
+              antes que ele volte ao valor normal.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6">
@@ -646,11 +703,11 @@ function Index() {
         <div className="mx-auto max-w-3xl text-center">
           <Cross className="mx-auto h-8 w-8 text-gold" />
           <h2 className="mt-6 text-2xl font-bold sm:text-3xl md:text-5xl">
-            Dê às crianças uma alternativa melhor do que apenas telas
+            Faça seu filho amar a Bíblia — do jeito certo
           </h2>
           <p className="mt-5 text-base text-cream/75 sm:mt-6 sm:text-lg">
-            A infância passa rápido. Cada momento pode ser uma oportunidade de ensinar algo bom,
-            criar memórias e aproximar as crianças da Palavra de Deus.
+            A infância passa rápido. Você pode transformar esse tempo em brincadeira com propósito e
+            deixar a Palavra marcada no coração dele — começando hoje, em poucos minutos.
           </p>
           <div className="mt-8 sm:mt-10">
             <CTAButton>Sim, quero receber os Jogos Bíblicos</CTAButton>

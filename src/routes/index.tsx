@@ -567,49 +567,6 @@ function Index() {
         </div>
       </section>
 
-      {/* OUR STORY — autoridade e intenção */}
-      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
-        <div className="mx-auto max-w-3xl">
-          <div className="text-center">
-            <span className="section-eyebrow text-gold">Por que criamos isso</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Nasceu de uma inquietação simples
-            </h2>
-          </div>
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-cream/80 sm:mt-10 sm:text-lg">
-            <p>
-              A gente percebeu algo que incomoda: muita criança cresce achando que a Bíblia é
-              obrigação, não descoberta. Não por falta de fé em casa — mas porque o ensino virou
-              repetição, e repetição cansa.
-            </p>
-            <p>
-              Nós nos importamos de verdade com o que é plantado no coração das crianças. Por isso
-              unimos o que elas mais amam,{" "}
-              <span className="font-medium text-cream">brincar</span>, com o que mais importa,{" "}
-              <span className="font-medium text-cream">a Palavra</span>. O resultado é este kit: um
-              jeito de ensinar sobre Deus que a criança pede pra repetir.
-            </p>
-            <p>
-              Não é sobre vender um produto. É sobre ajudar mais lares a transformar a fé em algo
-              que a criança carrega com alegria — pra vida toda.
-            </p>
-          </div>
-          <div className="mt-8 flex items-center justify-center gap-3 sm:mt-10">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30">
-              <Cross className="h-5 w-5 text-gold" />
-            </div>
-            <div className="text-left">
-              <div className="font-display text-base font-semibold text-cream">Equipe Jornada da Fé</div>
-              <div className="text-sm text-cream/60">Feito por quem se preocupa com o ensino cristão</div>
-            </div>
-          </div>
-          <p className="mx-auto mt-8 max-w-xl border-t border-white/10 pt-6 text-center text-sm text-cream/70 sm:text-base">
-            Junte-se a <span className="font-semibold text-gold">mais de 1.200 famílias</span> que já
-            ensinam a fé brincando.
-          </p>
-        </div>
-      </section>
-
       {/* OFFER */}
       <section id="oferta" className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 md:py-32">
         <div

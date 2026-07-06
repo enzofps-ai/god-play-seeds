@@ -220,7 +220,7 @@ function RealProductSlideshow() {
             width={820}
             height={820}
             className="h-full w-full flex-shrink-0 object-cover"
-            fetchPriority={i === 0 ? "high" : "low"}
+            fetchPriority="low"
           />
         ))}
       </div>

@@ -96,24 +96,10 @@ export const Route = createRootRoute({
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cd02c112-8b62-4603-be47-3b037221e978/id-preview-bc3ae144--3a38d8a4-7f23-4268-b99c-5c3c9d5b1f9a.lovable.app-1781705341849.png" },
     ],
     links: [
-      // Preload self-hosted fonts so they resolve in parallel with the CSS
-      // (removes the Google Fonts request chain that blocked the LCP).
-      {
-        rel: "preload",
-        as: "font",
-        type: "font/woff2",
-        href: "/fonts/fraunces-latin.woff2",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "preload",
-        as: "font",
-        type: "font/woff2",
-        href: "/fonts/plus-jakarta-sans-latin.woff2",
-        crossOrigin: "anonymous",
-      },
-      // Preload the hero image (LCP element). imageSrcset/imageSizes mirror the
-      // <img> below so the browser preloads the same responsive candidate it renders.
+      // Preload the hero image FIRST — it's the LCP element, so it should win
+      // the connection ahead of the fonts on a bandwidth-constrained network.
+      // imageSrcset/imageSizes mirror the <img> below so the browser preloads
+      // the same responsive candidate it renders.
       {
         rel: "preload",
         as: "image",
@@ -121,6 +107,23 @@ export const Route = createRootRoute({
         imageSrcSet: `${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1000w`,
         imageSizes: "(min-width: 1024px) 620px, 100vw",
         fetchPriority: "high",
+      },
+      // Preload self-hosted fonts so they resolve in parallel with the CSS
+      // (removes the Google Fonts request chain that blocked the LCP). Body font
+      // first (drives FCP), then the heading display font.
+      {
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/plus-jakarta-sans-latin.woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/fraunces-latin.woff2",
+        crossOrigin: "anonymous",
       },
       // Warm up the connection to the Meta Pixel origin. (No preconnect for
       // Clarity: r.clarity.ms was unused — the tag loads from www.clarity.ms

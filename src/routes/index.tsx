@@ -73,7 +73,7 @@ const trustSignals = [
   {
     icon: RotateCcw,
     title: "Garantia de 7 dias",
-    text: "Não amou? Devolvemos 100% do valor em até 7 dias.",
+    text: "Não pediu pra jogar de novo? Devolvemos 100% do valor em até 7 dias.",
   },
   {
     icon: ShieldCheck,
@@ -542,6 +542,49 @@ function Index() {
         </div>
       </section>
 
+      {/* OUR STORY — autoridade e intenção */}
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <span className="section-eyebrow text-gold">Por que criamos isso</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+              Nasceu de uma inquietação simples
+            </h2>
+          </div>
+          <div className="mt-8 space-y-5 text-base leading-relaxed text-cream/80 sm:mt-10 sm:text-lg">
+            <p>
+              A gente percebeu algo que incomoda: muita criança cresce achando que a Bíblia é
+              obrigação, não descoberta. Não por falta de fé em casa — mas porque o ensino virou
+              repetição, e repetição cansa.
+            </p>
+            <p>
+              Nós nos importamos de verdade com o que é plantado no coração das crianças. Por isso
+              unimos o que elas mais amam,{" "}
+              <span className="font-medium text-cream">brincar</span>, com o que mais importa,{" "}
+              <span className="font-medium text-cream">a Palavra</span>. O resultado é este kit: um
+              jeito de ensinar sobre Deus que a criança pede pra repetir.
+            </p>
+            <p>
+              Não é sobre vender um produto. É sobre ajudar mais lares a transformar a fé em algo
+              que a criança carrega com alegria — pra vida toda.
+            </p>
+          </div>
+          <div className="mt-8 flex items-center justify-center gap-3 sm:mt-10">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30">
+              <Cross className="h-5 w-5 text-gold" />
+            </div>
+            <div className="text-left">
+              <div className="font-display text-base font-semibold text-cream">Equipe Jornada da Fé</div>
+              <div className="text-sm text-cream/60">Feito por quem se preocupa com o ensino cristão</div>
+            </div>
+          </div>
+          <p className="mx-auto mt-8 max-w-xl border-t border-white/10 pt-6 text-center text-sm text-cream/70 sm:text-base">
+            Junte-se a <span className="font-semibold text-gold">mais de 1.200 famílias</span> que já
+            ensinam a fé brincando.
+          </p>
+        </div>
+      </section>
+
       {/* OFFER */}
       <section id="oferta" className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 md:py-32">
         <div
@@ -676,6 +719,22 @@ function Index() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* GARANTIA — inversão de risco */}
+          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border-2 border-gold/40 bg-card/80 p-5 text-center shadow-lg backdrop-blur-sm sm:mt-10 sm:rounded-3xl sm:p-8">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gold/30 to-gold/5 ring-1 ring-gold/30 sm:h-16 sm:w-16">
+              <ShieldCheck className="h-7 w-7 text-gold-ink sm:h-8 sm:w-8" />
+            </div>
+            <h3 className="mt-4 font-display text-xl font-bold text-deep sm:text-2xl">
+              Garantia blindada de 7 dias
+            </h3>
+            <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground sm:text-base">
+              Teste o kit por 7 dias inteiros. Se o seu filho não pedir para jogar de novo — ou se
+              você simplesmente não amar o material — é só avisar que devolvemos{" "}
+              <span className="font-semibold text-foreground">100% do seu dinheiro</span>. Sem
+              perguntas, sem burocracia. O risco é todo nosso.
+            </p>
           </div>
 
           <div className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground sm:mt-8 sm:gap-x-7 sm:text-sm">

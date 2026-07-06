@@ -274,24 +274,18 @@ function Index() {
             <span className="chip text-[0.7rem] sm:text-sm">
               <Sparkles className="h-3.5 w-3.5 text-gold" /> Para mães e pais que ensinam a fé em casa
             </span>
-            <h1 className="mt-5 font-display text-[2rem] font-bold leading-[1.08] sm:mt-6 sm:text-5xl md:text-[3.75rem]">
-              Seu filho não acha a Bíblia chata.{" "}
-              <span className="relative inline-block text-gold">
-                Chato é o jeito que ensinam.
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 300 12"
-                  preserveAspectRatio="none"
-                  className="absolute -bottom-1 left-0 h-2.5 w-full text-gold/70"
-                >
-                  <path
-                    d="M2 8 C 80 2, 220 2, 298 7"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
-                </svg>
+            <h1 className="mt-5 font-display text-[2rem] font-bold leading-[1.12] tracking-tight sm:mt-6 sm:text-[2.6rem] md:text-[3.25rem]">
+              <span
+                className="block text-cream"
+                style={{ textShadow: "0 0 16px rgba(255, 248, 230, 0.22)" }}
+              >
+                A criança não acha a Bíblia chata
+              </span>
+              <span
+                className="mt-1 block text-gold"
+                style={{ textShadow: "0 0 1px rgba(255, 224, 158, 0.5), 0 0 20px rgba(230, 170, 60, 0.4)" }}
+              >
+                Chato é o jeito que ensinam
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">

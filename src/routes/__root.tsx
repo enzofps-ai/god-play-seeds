@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import heroKids from "@/assets/hero-kids.webp";
 import heroKids700 from "@/assets/hero-kids-700.webp";
+import heroKids820 from "@/assets/hero-kids-820.webp";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -115,12 +116,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "preload",
         as: "image",
         href: heroKids,
-        imageSrcset: `${heroKids700} 700w, ${heroKids} 1000w`,
+        imageSrcSet: `${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1000w`,
         imageSizes: "(min-width: 1024px) 620px, 100vw",
         fetchPriority: "high",
       },
-      // Warm up connections to third-party script origins (Clarity, Meta Pixel).
-      { rel: "preconnect", href: "https://r.clarity.ms" },
+      // Warm up the connection to the Meta Pixel origin. (No preconnect for
+      // Clarity: r.clarity.ms was unused — the tag loads from www.clarity.ms
+      // and is deferred to idle, so a preconnect only wastes a connection.)
       { rel: "preconnect", href: "https://connect.facebook.net" },
       {
         rel: "stylesheet",

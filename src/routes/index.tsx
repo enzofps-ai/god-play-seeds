@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroKids from "@/assets/hero-kids.webp";
 import heroKids700 from "@/assets/hero-kids-700.webp";
+import heroKids820 from "@/assets/hero-kids-820.webp";
 import {
   BookOpen,
   Check,
@@ -153,7 +154,7 @@ function GameSlideshow() {
             <div key={game.name} className="relative h-full w-full flex-shrink-0">
               <img
                 src={game.src}
-                srcSet={`${game.src.replace(/\.webp$/, "-640.webp")} 640w, ${game.src} 1000w`}
+                srcSet={`${game.src.replace(/\.webp$/, "-640.webp")} 640w, ${game.src.replace(/\.webp$/, "-700.webp")} 700w, ${game.src} 1000w`}
                 sizes="(min-width: 1024px) 560px, 90vw"
                 alt={game.alt}
                 loading="lazy"
@@ -211,7 +212,7 @@ function RealProductSlideshow() {
           <img
             key={p.src}
             src={p.src}
-            srcSet={`${p.src.replace(/\.webp$/, "-640.webp")} 560w, ${p.src} 820w`}
+            srcSet={`${p.src.replace(/\.webp$/, "-640.webp")} 560w, ${p.src.replace(/\.webp$/, "-700.webp")} 700w, ${p.src} 820w`}
             sizes="(min-width: 1024px) 560px, 90vw"
             alt={p.alt}
             loading="lazy"
@@ -309,7 +310,7 @@ function Index() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
               <img
                 src={heroKids}
-                srcSet={`${heroKids700} 700w, ${heroKids} 1000w`}
+                srcSet={`${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1000w`}
                 sizes="(min-width: 1024px) 620px, 100vw"
                 alt="Crianças felizes jogando jogos bíblicos juntos"
                 width={1536}

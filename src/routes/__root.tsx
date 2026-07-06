@@ -158,6 +158,30 @@ else{f.addEventListener('load',function(){setTimeout(load,1200);});}
 }(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
+// Capture the ad click id (fbclid) into the _fbc cookie as early as possible,
+// in the correct "fb.1.<ts>.<fbclid>" format, BEFORE the router hydrates and
+// possibly normalizes the URL and before the (deferred, blockable) fbevents.js
+// loads. Once _fbc exists the pixel attaches it to every event. A fbclid in the
+// URL is a fresh click, so it always wins — but we keep the original timestamp
+// when the same fbclid is re-seen (e.g. a refresh). 90-day cookie, scoped to the
+// root domain so it covers www + apex.
+(function(){
+  try{
+    var m = window.location.search.match(/[?&]fbclid=([^&]+)/);
+    if(m){
+      var fbclid = decodeURIComponent(m[1]);
+      var prev = document.cookie.match(/_fbc=fb\\.1\\.(\\d+)\\.([^;]+)/);
+      var ts = (prev && prev[2] === fbclid) ? prev[1] : Date.now();
+      var host = window.location.hostname;
+      var c = '_fbc=fb.1.' + ts + '.' + fbclid + ';path=/;max-age=7776000;SameSite=Lax';
+      if(host.indexOf('.') !== -1 && !/^\\d+(\\.\\d+){3}$/.test(host)){
+        c += ';domain=.' + host.replace(/^www\\./,'');
+      }
+      document.cookie = c;
+    }
+  }catch(e){}
+})();
+
 fbq('init', '1686794639276837');
 fbq('track', 'PageView');
 `;

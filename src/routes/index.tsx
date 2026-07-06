@@ -123,9 +123,34 @@ const audiences = [
   "Igrejas com atividades prontas",
 ];
 
+// Smoothly slides the page to the price cards and keeps a sliding shine on the
+// clicked button until the scroll settles. Native scroll + one CSS animation —
+// no libraries, no layout impact.
+function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
+  const target = document.getElementById("oferta");
+  if (!target) return; // fall back to the default anchor jump
+  e.preventDefault();
+
+  const btn = e.currentTarget;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  btn.classList.add("is-navigating");
+  target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    window.removeEventListener("scrollend", finish);
+    btn.classList.remove("is-navigating");
+  };
+  window.addEventListener("scrollend", finish, { once: true });
+  window.setTimeout(finish, 1200); // fallback for browsers without scrollend
+}
+
 function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: React.ReactNode }) {
   return (
-    <a href="#oferta" className="btn-cta">
+    <a href="#oferta" onClick={slideToOffer} className="btn-cta nav-cta">
       {children}
       <ArrowRight className="h-5 w-5" />
     </a>
@@ -271,7 +296,8 @@ function Index() {
           </div>
           <a
             href="#oferta"
-            className="hidden rounded-full border border-white/20 px-4 py-2 text-sm text-cream backdrop-blur-md hover:bg-white/10 sm:inline-flex"
+            onClick={slideToOffer}
+            className="nav-cta hidden rounded-full border border-white/20 px-4 py-2 text-sm text-cream backdrop-blur-md hover:bg-white/10 sm:inline-flex"
           >
             Garantir kit
           </a>

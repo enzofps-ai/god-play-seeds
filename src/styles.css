@@ -1,5 +1,12 @@
 @import "tailwindcss" source(none);
-@source "../src";
+/* Only scan the files that are actually reachable from the single route. The
+   src/components/ui/* shadcn scaffold is dead code (only `accordion` is used,
+   via FaqAccordion) — scanning all 46 of them bloated the inlined critical CSS
+   (~1170 rules), which ships in every HTML response and delays FCP/LCP. Scan
+   the real app surface explicitly instead. */
+@source "../src/routes";
+@source "../src/components/FaqAccordion.tsx";
+@source "../src/components/ui/accordion.tsx";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));

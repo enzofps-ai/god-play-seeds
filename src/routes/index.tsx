@@ -378,7 +378,7 @@ function Index() {
                 width={1536}
                 height={864}
                 fetchPriority="high"
-                decoding="async"
+                decoding="sync"
                 className="h-full w-full object-cover"
               />
             </div>

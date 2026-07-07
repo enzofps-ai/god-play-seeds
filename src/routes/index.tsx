@@ -761,20 +761,26 @@ function Index() {
                 pagamento único
               </p>
 
-              <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
-                {[
-                  "4 jogos prontos para imprimir",
-                  "Acesso imediato após a compra",
-                  "Ideal para uso em casa ou na EBD",
-                ].map((b) => (
-                  <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
-                    <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
-                      <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
-                    </div>
-                    <span className="text-[0.65rem] leading-tight text-card-foreground md:text-sm">{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-3 md:mt-6">
+                <p className="mb-2 text-[0.55rem] font-semibold uppercase tracking-wider text-gold-ink md:mb-3 md:text-xs">
+                  Jogos inclusos
+                </p>
+                <ul className="mx-auto space-y-1.5 text-left md:max-w-xs md:space-y-2.5">
+                  {[
+                    "Uno Bíblico",
+                    "Passatempo Bíblico",
+                    "Siga a Cristo",
+                    "Mico Bíblico",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
+                      <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
+                        <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
+                      </div>
+                      <span className="text-[0.65rem] leading-tight text-card-foreground md:text-sm">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a
@@ -821,20 +827,30 @@ function Index() {
                 pagamento único
               </p>
 
-              <ul className="mx-auto mt-3 space-y-1.5 text-left md:mt-6 md:max-w-xs md:space-y-2.5">
-                {[
-                  "8 jogos prontos para imprimir",
-                  "Acesso imediato após a compra",
-                  "Ideal para casa, EBD ou ministério",
-                ].map((b) => (
-                  <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
-                    <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
-                      <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
-                    </div>
-                    <span className="text-[0.65rem] leading-tight text-card-foreground md:text-sm">{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-3 md:mt-6">
+                <p className="mb-2 text-[0.55rem] font-semibold uppercase tracking-wider text-gold-ink md:mb-3 md:text-xs">
+                  Jogos inclusos
+                </p>
+                <ul className="mx-auto space-y-1.5 text-left md:max-w-xs md:space-y-2.5">
+                  {[
+                    "Uno Bíblico",
+                    "Passatempo Bíblico",
+                    "Siga a Cristo",
+                    "Mico Bíblico",
+                    "Super Trunfo — Personagens",
+                    "Encontre: Ache o Quadrado",
+                    "Uno da Fé",
+                    "Quiz Bíblico",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-1.5 md:gap-2.5">
+                      <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
+                        <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
+                      </div>
+                      <span className="text-[0.65rem] leading-tight text-card-foreground md:text-sm">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a

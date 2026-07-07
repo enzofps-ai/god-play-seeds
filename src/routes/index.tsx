@@ -123,6 +123,52 @@ const audiences = [
   "Igrejas com atividades prontas",
 ];
 
+const socialStats = [
+  { value: "+1.200", label: "famílias atendidas" },
+  { value: "4,9/5", label: "avaliação média" },
+  { value: "98%", label: "recomendam o kit" },
+  { value: "7 dias", label: "de garantia" },
+];
+
+const testimonials = [
+  {
+    name: "Juliana Mendes",
+    role: "Mãe do Théo, 7 anos",
+    initials: "JM",
+    text: "Meu filho largou o tablet sozinho pra jogar. Hoje ele conhece histórias da Bíblia que eu nem sabia como explicar. Foi a melhor compra que fiz esse ano.",
+  },
+  {
+    name: "Pr. Marcos Oliveira",
+    role: "Ministério Infantil",
+    initials: "MO",
+    text: "Levei pro culto das crianças e a diferença foi enorme. Elas participam, riem e aprendem de verdade. Material pronto pra usar e de altíssima qualidade.",
+  },
+  {
+    name: "Aline Ribeiro",
+    role: "Professora de EBD",
+    initials: "AR",
+    text: "Eu passava horas preparando aula. Agora é só imprimir e aplicar. Minha turma da EBD nunca esteve tão animada — e o conteúdo bíblico é impecável.",
+  },
+  {
+    name: "Carla Souza",
+    role: "Mãe de dois",
+    initials: "CS",
+    text: "Diminuiu o tempo de tela lá em casa de verdade. As noites viraram momento de família em volta da mesa. Recomendo de olhos fechados.",
+  },
+  {
+    name: "Fernanda Lima",
+    role: "Líder de célula infantil",
+    initials: "FL",
+    text: "Comprei, baixei e já usei no mesmo dia. Simples, bonito e as crianças pedem pra repetir toda semana. Valeu cada centavo.",
+  },
+  {
+    name: "Patrícia Gomes",
+    role: "Mãe da Sofia, 6 anos",
+    initials: "PG",
+    text: "A Sofia aprende brincando e nem percebe. Já decorou os personagens e as histórias… e sempre quer mais. Gratidão por esse material!",
+  },
+];
+
 // Smoothly slides the page to the price cards and keeps a sliding shine on the
 // clicked button until the scroll settles. Native scroll + one CSS animation —
 // no libraries, no layout impact.
@@ -591,6 +637,82 @@ function Index() {
           <p className="mt-8 text-center text-xs text-muted-foreground sm:mt-10 sm:text-sm">
             Importante: este é um produto digital. Nenhum item físico será enviado.
           </p>
+        </div>
+      </section>
+
+      {/* SOCIAL PROOF / DEPOIMENTOS */}
+      <section className="relative overflow-hidden bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-40"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 0%, oklch(0.45 0.15 75 / 0.35), transparent 55%), radial-gradient(circle at 85% 90%, oklch(0.35 0.12 260 / 0.5), transparent 50%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="section-eyebrow text-gold">Quem já usa, recomenda</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+              Mais de 1.200 famílias já ensinam a fé brincando
+            </h2>
+            <p className="mt-5 text-sm text-cream/75 sm:text-base">
+              Veja o que mães, pais e líderes falam depois de levar os jogos para casa e para a
+              igreja.
+            </p>
+          </div>
+
+          {/* Números de prova social */}
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-4 sm:gap-4">
+            {socialStats.map((s) => (
+              <div
+                key={s.label}
+                className="flex flex-col items-center gap-1 rounded-2xl border border-white/10 bg-white/5 px-3 py-5 text-center backdrop-blur-sm"
+              >
+                <span className="font-display text-2xl font-bold text-gold sm:text-3xl">
+                  {s.value}
+                </span>
+                <span className="text-[0.7rem] leading-tight text-cream/70 sm:text-sm">
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Cards de depoimentos */}
+          <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure
+                key={t.name}
+                className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-gold/40 sm:p-6"
+              >
+                <div className="flex items-center gap-0.5 text-gold">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-cream/85 sm:text-base">
+                  "{t.text}"
+                </blockquote>
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold/40 to-gold/10 font-display text-sm font-bold text-gold ring-1 ring-gold/30">
+                    {t.initials}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-semibold text-cream">{t.name}</span>
+                    <span className="block truncate text-xs text-cream/60">{t.role}</span>
+                  </span>
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-gold/10 px-2 py-1 text-[0.6rem] font-medium text-gold ring-1 ring-gold/20">
+                    <ShieldCheck className="h-3 w-3" /> Verificado
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center sm:mt-12">
+            <CTAButton>Quero esses jogos em casa</CTAButton>
+          </div>
         </div>
       </section>
 

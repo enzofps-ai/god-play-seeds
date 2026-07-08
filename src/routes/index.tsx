@@ -614,6 +614,17 @@ function Index() {
               Menos que um lanche, uma vez só, acesso pra sempre. Garanta o preço de lançamento
               antes que ele volte ao valor normal.
             </p>
+            <a
+              href="mailto:suporte@achadinhosbiblicos.com.br"
+              className="group mt-5 inline-flex items-center gap-2.5 rounded-full border border-gold/30 bg-card/70 py-1.5 pl-1.5 pr-4 shadow-sm backdrop-blur-sm transition duration-300 hover:border-gold/50 hover:bg-card sm:mt-6"
+            >
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-gold/30 to-gold/5 ring-1 ring-gold/30 transition-transform duration-300 group-hover:scale-110 sm:h-8 sm:w-8">
+                <Mail className="h-3.5 w-3.5 text-gold-ink sm:h-4 sm:w-4" />
+              </span>
+              <span className="text-xs font-medium text-foreground sm:text-sm">
+                suporte@achadinhosbiblicos.com.br
+              </span>
+            </a>
           </div>
           <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6">
             {/* Kit Básico */}

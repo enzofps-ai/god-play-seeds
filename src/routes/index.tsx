@@ -324,7 +324,7 @@ function Index() {
                 className="block text-cream"
                 style={{ textShadow: "0 0 16px rgba(255, 248, 230, 0.22)" }}
               >
-                A criança não acha a Bíblia entediante
+                A criança não acha a Bíblia chata
               </span>
               <span
                 className="mt-1 block text-gold"

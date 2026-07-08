@@ -618,6 +618,14 @@ function Index() {
           <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6">
             {/* Kit Básico */}
             <div className="relative flex min-w-0 flex-col overflow-hidden rounded-xl border-2 border-border bg-card p-3 text-center shadow-xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
+              {/* Invisible spacer mirroring the "Mais popular" badge on the Kit
+                  Completo card so every matching row lines up across both cards. */}
+              <div
+                aria-hidden
+                className="invisible mb-1.5 inline-block rounded-full px-2 py-0.5 text-[0.6rem] font-bold md:mb-3 md:px-3 md:py-1 md:text-xs"
+              >
+                Mais popular
+              </div>
               <span className="section-eyebrow text-[0.6rem] md:text-xs">Kit Básico</span>
               <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">4 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Ideal para começar</p>
@@ -657,9 +665,6 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-2.5 text-[0.6rem] text-muted-foreground md:mt-4 md:text-sm">
-                Prontos para imprimir · acesso imediato
-              </p>
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a
@@ -728,9 +733,6 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-2.5 text-[0.6rem] text-muted-foreground md:mt-4 md:text-sm">
-                Prontos para imprimir · acesso imediato
-              </p>
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a

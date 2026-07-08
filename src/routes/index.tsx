@@ -292,7 +292,7 @@ function Index() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
           <div className="flex items-center gap-2 text-cream">
             <Cross className="h-5 w-5 text-gold" />
-            <span className="font-display text-base font-semibold sm:text-lg">Jornada da Fé</span>
+            <span className="font-display text-base font-semibold sm:text-lg">Achadinhos Bíblicos</span>
           </div>
           <a
             href="#oferta"
@@ -873,9 +873,9 @@ function Index() {
           <div className="flex flex-col items-center gap-2">
             <div className="flex items-center gap-2">
               <Cross className="h-4 w-4 text-gold" />
-              <span className="font-display text-cream">Jornada da Fé</span>
+              <span className="font-display text-cream">Achadinhos Bíblicos</span>
             </div>
-            <p>© {new Date().getFullYear()} Jornada da Fé · Todos os direitos reservados.</p>
+            <p>© {new Date().getFullYear()} Achadinhos Bíblicos · Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

@@ -239,7 +239,7 @@ function GameSlideshow() {
 
 const realProducts = [
   { src: "/images/real-uno-mesa.webp", alt: "Uno Cristiano impresso sobre a mesa, pronto para jogar" },
-  { src: "/images/real-super-trunfo-mesa.webp", alt: "Super Trunfo Bíblico impresso e recortado sobre a mesa" },
+  { src: "/images/imprimindo-uno-biblico.webp", alt: "Uno Bíblico sendo impresso na impressora de casa" },
   { src: "/images/real-siga-cristo-mesa.webp", alt: "Tabuleiro Siga a Cristo impresso e montado sobre a mesa" },
 ];
 

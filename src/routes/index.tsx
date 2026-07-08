@@ -454,11 +454,6 @@ function Index() {
               Ensine brincando — e ela vai{" "}
               <span className="text-gold-ink">querer aprender de novo</span>
             </h2>
-            <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
-              São jogos pensados por quem entende de criança: enquanto se diverte, ela memoriza
-              histórias, conhece personagens e vive valores da Palavra — do jeito leve que fica no
-              coração.
-            </p>
             <ul className="mt-6 space-y-3 sm:mt-7">
               {[
                 "A criança pede pra jogar — você não precisa insistir",

@@ -153,12 +153,21 @@ function load(){
   s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s);
 }
-// Load only when the main thread is genuinely idle so it never competes with
-// React hydration (the LCP "render delay"). Falls back to a timer where
-// requestIdleCallback is unavailable; the timeout caps how long tracking waits.
+// Load on the first user interaction, or a timeout safely past the LCP paint —
+// whichever comes first. requestIdleCallback used to fire during an early idle
+// tick (~1.2s), landing fbevents.js' script eval right inside the LCP "render
+// delay" window. Interaction means the visitor is already engaged (the hero has
+// long since painted); the timeout guarantees PageView still fires for everyone.
 function boot(){
-  if('requestIdleCallback' in f){f.requestIdleCallback(load,{timeout:2500});}
-  else{setTimeout(load,1200);}
+  var started=false;
+  var evs=['scroll','pointerdown','keydown','touchstart','mousemove'];
+  function go(){
+    if(started)return;started=true;
+    for(var i=0;i<evs.length;i++)f.removeEventListener(evs[i],go);
+    load();
+  }
+  for(var i=0;i<evs.length;i++)f.addEventListener(evs[i],go,{passive:true});
+  setTimeout(go,3000);
 }
 if(b.readyState==='complete'){boot();}
 else{f.addEventListener('load',boot);}
@@ -203,9 +212,18 @@ const clarityScript = `
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     }
+    // Same interaction-or-timeout deferral as the Meta Pixel above, so clarity.js'
+    // ~280ms of script eval stays out of the LCP render window.
     function boot(){
-      if('requestIdleCallback' in c){c.requestIdleCallback(load,{timeout:2500});}
-      else{setTimeout(load,1200);}
+      var started=false;
+      var evs=['scroll','pointerdown','keydown','touchstart','mousemove'];
+      function go(){
+        if(started)return;started=true;
+        for(var i=0;i<evs.length;i++)c.removeEventListener(evs[i],go);
+        load();
+      }
+      for(var i=0;i<evs.length;i++)c.addEventListener(evs[i],go,{passive:true});
+      setTimeout(go,3000);
     }
     if(l.readyState==='complete'){boot();}
     else{c.addEventListener('load',boot);}

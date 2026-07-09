@@ -159,14 +159,20 @@ function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
 
   const startY = window.scrollY;
   const startTime = performance.now();
-  const duration = 600;
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+  // Ease-in-out (gentle start, gentle stop) with a distance-aware duration so
+  // both short and full-page slides feel equally smooth — never a jarring dash.
+  // Clamped tight enough to stay snappy on mobile.
+  const distance = Math.abs(destination() - startY);
+  const duration = Math.min(1000, Math.max(650, distance * 0.22));
+  const easeInOutCubic = (t: number) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
   const step = (now: number) => {
     const t = Math.min(1, (now - startTime) / duration);
     // Recompute the destination each frame so a mid-scroll layout shift can't
     // make us overshoot or stop short.
-    const y = startY + (destination() - startY) * easeOutCubic(t);
+    const y = startY + (destination() - startY) * easeInOutCubic(t);
     window.scrollTo(0, y);
     if (t < 1) {
       requestAnimationFrame(step);

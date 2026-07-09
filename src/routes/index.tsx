@@ -123,9 +123,16 @@ const audiences = [
   "Igrejas com atividades prontas",
 ];
 
-// Smoothly slides the page to the price cards and keeps a sliding shine on the
-// clicked button until the scroll settles. Native scroll + one CSS animation —
-// no libraries, no layout impact.
+// Smoothly slides the page to the offer section and keeps a sliding shine on the
+// clicked button until the scroll settles.
+//
+// We roll our own rAF tween instead of native `scrollIntoView({ behavior:
+// "smooth" })` because the native version locks onto a single target pixel at
+// click time. On slower devices, images above the fold finish loading mid-scroll
+// and shift the layout, so that pixel becomes stale and the page overshoots the
+// price cards — landing on the 7-day guarantee below. This tween re-reads the
+// target's live position every frame, so it always settles exactly at the top of
+// the offer section no matter how the layout shifts during the animation.
 function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
   const target = document.getElementById("oferta");
   if (!target) return; // fall back to the default anchor jump
@@ -133,19 +140,43 @@ function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
 
   const btn = e.currentTarget;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cleanup = () => btn.classList.remove("is-navigating");
 
   btn.classList.add("is-navigating");
-  target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
 
-  let done = false;
-  const finish = () => {
-    if (done) return;
-    done = true;
-    window.removeEventListener("scrollend", finish);
-    btn.classList.remove("is-navigating");
+  // Absolute Y so the target sits at the very top of the viewport, clamped so we
+  // never ask to scroll past the bottom of the page.
+  const destination = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    return Math.min(window.scrollY + target.getBoundingClientRect().top, Math.max(max, 0));
   };
-  window.addEventListener("scrollend", finish, { once: true });
-  window.setTimeout(finish, 1200); // fallback for browsers without scrollend
+
+  if (reduce) {
+    window.scrollTo(0, destination());
+    cleanup();
+    return;
+  }
+
+  const startY = window.scrollY;
+  const startTime = performance.now();
+  const duration = 600;
+  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+  const step = (now: number) => {
+    const t = Math.min(1, (now - startTime) / duration);
+    // Recompute the destination each frame so a mid-scroll layout shift can't
+    // make us overshoot or stop short.
+    const y = startY + (destination() - startY) * easeOutCubic(t);
+    window.scrollTo(0, y);
+    if (t < 1) {
+      requestAnimationFrame(step);
+    } else {
+      window.scrollTo(0, destination()); // snap to the exact final position
+      cleanup();
+    }
+  };
+
+  requestAnimationFrame(step);
 }
 
 function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: React.ReactNode }) {

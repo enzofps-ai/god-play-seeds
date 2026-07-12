@@ -30,13 +30,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Seu filho não acha a Bíblia chata — chato é o jeito que ensinam. Kit digital com 8 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato por R$14,90.",
+          "Seu filho não acha a Bíblia chata — chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$19,90.",
       },
       { property: "og:title", content: "Seu filho não acha a Bíblia chata — chato é o jeito que ensinam" },
       {
         property: "og:description",
         content:
-          "8 jogos bíblicos prontos para imprimir. A criança pede para jogar de novo e aprende sobre Deus brincando — em casa, na EBD ou no ministério infantil.",
+          "20 jogos bíblicos prontos para imprimir. A criança pede para jogar de novo e aprende sobre Deus brincando — em casa, na EBD ou no ministério infantil.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "" },
@@ -45,16 +45,10 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const games = [
-  { name: "Uno Bíblico 2.0", src: "/images/uno-biblico-2.webp", alt: "Jogo Uno Bíblico 2.0 — cartas bíblicas para crianças" },
-  { name: "Jogo Mímico Bíblico", src: "/images/jogo-mimico-biblico.webp", alt: "Jogo Mímico Bíblico — atividade de mímica com histórias da Bíblia" },
-  { name: "Passatempo Bíblico", src: "/images/passatempo-biblico.webp", alt: "Passatempo Bíblico — caça-palavras, labirinto e atividades cristãs" },
-  { name: "Super Trunfo Personagens", src: "/images/super-trunfo-personagens.webp", alt: "Super Trunfo Personagens Bíblicos — cartas colecionáveis" },
-  { name: "Encontre - Spot It Bíblico", src: "/images/encontre.webp", alt: "Encontre - Spot It Bíblico — jogo de atenção e observação com símbolos cristãos" },
-  { name: "Siga a Cristo", src: "/images/siga-a-cristo.webp", alt: "Siga a Cristo — jogo de tabuleiro cristão para crianças" },
-  { name: "Quiz Bíblico", src: "/images/quiz-biblico.webp", alt: "Quiz Bíblico — perguntas e respostas sobre a Palavra de Deus" },
-  { name: "Uno da Fé", src: "/images/uno-da-fe.webp", alt: "Uno da Fé — jogo cristão de cartas para toda a família" },
-];
+// Tipos de jogos que vêm no kit — selos compactos e sem imagem usados nos
+// cards de oferta (texto puro, custo zero de carregamento).
+const baseKinds = ["Uno & Cartas", "Quiz Bíblico", "Caça-palavras", "Mímica", "Tabuleiro"];
+const fullKinds = [...baseKinds, "Super Trunfo", "Encontre"];
 
 const benefits = [
   { icon: BookOpen, text: "Conhecimento bíblico" },
@@ -98,7 +92,7 @@ const faqs = [
   },
   {
     q: "Qual a diferença entre o Kit Básico e o Kit Completo?",
-    a: "O Kit Básico traz 4 jogos, ideal para começar. O Kit Completo traz 8 jogos e mais variedade de dinâmicas, sendo a opção mais escolhida por quem quer aproveitar ao máximo em casa, na EBD ou no ministério infantil.",
+    a: "O Kit Básico traz 10 jogos, ideal para começar. O Kit Completo traz todos os 20 jogos e mais variedade de dinâmicas, sendo a opção mais escolhida por quem quer aproveitar ao máximo em casa, na EBD ou no ministério infantil.",
   },
   {
     q: "O pagamento é único ou tem mensalidade?",
@@ -228,52 +222,6 @@ function useAutoRotate<T extends HTMLElement>(length: number, delayMs: number) {
   return { current, setCurrent, ref };
 }
 
-function GameSlideshow() {
-  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(games.length, 1000);
-
-  return (
-    <div ref={ref} className="flex flex-col items-center gap-4">
-      <div className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-lg" style={{ aspectRatio: "1" }}>
-        <div
-          className="flex h-full transition-transform duration-300 ease-in-out"
-          style={{ transform: `translateX(-${current * 100}%)` }}
-        >
-          {games.map((game) => (
-            <div key={game.name} className="relative h-full w-full flex-shrink-0">
-              <img
-                src={game.src}
-                srcSet={`${game.src.replace(/\.webp$/, "-640.webp")} 640w, ${game.src.replace(/\.webp$/, "-700.webp")} 700w, ${game.src} 1000w`}
-                sizes="(min-width: 1024px) 560px, 90vw"
-                alt={game.alt}
-                loading="lazy"
-                decoding="async"
-                width={400}
-                height={400}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep/80 to-transparent px-4 py-3">
-                <span className="text-sm font-semibold text-cream">{game.name}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="flex gap-2">
-        {games.map((game, i) => (
-          <button
-            key={game.name}
-            onClick={() => setCurrent(i)}
-            aria-label={`Ver ${game.name}`}
-            className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-              i === current ? "bg-muted-foreground" : "bg-border"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 const realProducts = [
   { src: "/images/real-uno-mesa.webp", alt: "Uno Cristiano impresso sobre a mesa, pronto para jogar" },
   { src: "/images/imprimindo-uno-biblico.webp", alt: "Uno Bíblico sendo impresso na impressora de casa" },
@@ -372,7 +320,7 @@ function Index() {
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">
               Quando a Palavra vira brincadeira, a criança pede pra jogar de novo — e aprende sobre
-              Deus <span className="font-semibold text-cream">sem nem perceber</span>. São 8 jogos
+              Deus <span className="font-semibold text-cream">sem nem perceber</span>. São 20 jogos
               bíblicos prontos pra usar em casa, na EBD, célula ou ministério infantil.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4 sm:mt-9">
@@ -389,7 +337,7 @@ function Index() {
                 <span className="ml-1 text-cream/80">+1.200 famílias abençoadas</span>
               </div>
               <div className="hidden h-4 w-px bg-white/20 sm:block" />
-              <span>8 jogos prontos para imprimir</span>
+              <span>20 jogos prontos para imprimir</span>
               <div className="hidden h-4 w-px bg-white/20 sm:block" />
               <span className="inline-flex items-center gap-1.5">
                 <ShieldCheck className="h-4 w-4 text-gold" /> Garantia de 7 dias
@@ -428,7 +376,7 @@ function Index() {
                   <div className="text-xs uppercase tracking-widest text-muted-foreground">
                     Kit completo
                   </div>
-                  <div className="font-display text-lg font-semibold">8 Jogos Bíblicos</div>
+                  <div className="font-display text-lg font-semibold">20 Jogos Bíblicos</div>
                 </div>
               </div>
             </div>
@@ -534,26 +482,6 @@ function Index() {
                 <p className="mt-3 text-sm font-medium leading-snug sm:mt-4 sm:text-lg">{text}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT'S INSIDE */}
-      <section className="px-4 py-16 sm:px-6 sm:py-24 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <span className="section-eyebrow">O que vem no kit</span>
-              <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-                8 jogos bíblicos, prontos para imprimir e brincar hoje
-              </h2>
-              <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
-                Uno, trunfo, mímica, quiz, caça-palavras e mais — cada um com um jeito diferente de
-                ensinar a Palavra. Variedade que prende a atenção e faz a criança voltar pra
-                brincar de novo.
-              </p>
-            </div>
-            <GameSlideshow />
           </div>
         </div>
       </section>
@@ -670,20 +598,20 @@ function Index() {
                 Mais popular
               </div>
               <span className="section-eyebrow text-[0.6rem] md:text-xs">Kit Básico</span>
-              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">4 Jogos Bíblicos</h3>
-              <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Ideal para começar</p>
+              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">10 Jogos Bíblicos</h3>
+              <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Metade da coleção</p>
 
               <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-2 py-0.5 text-[0.6rem] font-bold text-red-600 md:mt-2 md:px-3 md:py-1 md:text-xs">
-                52% OFF hoje
+                60% OFF hoje
               </div>
               <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
                 <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
-                  R$30,90
+                  R$49,90
                 </span>
               </div>
               <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$14,90
+                  R$19,90
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
@@ -691,27 +619,22 @@ function Index() {
               </p>
 
               <p className="mt-3 mb-1.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold-ink md:mt-6 md:mb-2.5 md:text-xs">
-                Os 4 jogos que você recebe
+                Tipos de jogos incluídos
               </p>
-              <ul className="mx-auto space-y-1 text-left md:max-w-xs md:space-y-2">
-                {[
-                  "Uno Bíblico",
-                  "Passatempo Bíblico",
-                  "Siga a Cristo",
-                  "Mico Bíblico",
-                ].map((b) => (
-                  <li key={b} className="flex items-center gap-1.5 md:gap-2.5">
-                    <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
-                      <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
-                    </div>
-                    <span className="min-w-0 break-words text-[0.65rem] font-medium leading-tight text-card-foreground md:text-sm">{b}</span>
-                  </li>
+              <div className="flex flex-wrap justify-center gap-1 md:gap-1.5">
+                {baseKinds.map((k) => (
+                  <span
+                    key={k}
+                    className="rounded-full bg-gold/10 px-2 py-0.5 text-[0.6rem] font-medium text-gold-ink ring-1 ring-gold/25 md:px-2.5 md:py-1 md:text-xs"
+                  >
+                    {k}
+                  </span>
                 ))}
-              </ul>
+              </div>
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a
-                  href="https://go.perfectpay.com.br/PPU38CQDFEA"
+                  href="https://go.perfectpay.com.br/PPU38CQE5MD"
                   rel="noopener noreferrer"
                   className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >
@@ -734,20 +657,20 @@ function Index() {
                 Mais popular
               </div>
               <span className="block section-eyebrow text-[0.6rem] md:text-xs">Kit Completo</span>
-              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">8 Jogos Bíblicos</h3>
+              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">20 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">O pacote completo</p>
 
               <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-2 py-0.5 text-[0.6rem] font-bold text-red-600 md:mt-2 md:px-3 md:py-1 md:text-xs">
-                44% OFF hoje
+                60% OFF hoje
               </div>
               <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
                 <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
-                  R$35,90
+                  R$69,90
                 </span>
               </div>
               <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$19,90
+                  R$27,90
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
@@ -755,31 +678,22 @@ function Index() {
               </p>
 
               <p className="mt-3 mb-1.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold-ink md:mt-6 md:mb-2.5 md:text-xs">
-                Os 8 jogos que você recebe
+                Todos os tipos de jogos
               </p>
-              <ul className="mx-auto space-y-1 text-left md:max-w-xs md:space-y-2">
-                {[
-                  "Uno Bíblico",
-                  "Passatempo Bíblico",
-                  "Siga a Cristo",
-                  "Mico Bíblico",
-                  "Super Trunfo — Personagens",
-                  "Encontre: Ache o Quadrado",
-                  "Uno da Fé",
-                  "Quiz Bíblico",
-                ].map((b) => (
-                  <li key={b} className="flex items-center gap-1.5 md:gap-2.5">
-                    <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-gold/30 md:h-5 md:w-5">
-                      <Check className="h-2.5 w-2.5 text-deep md:h-3.5 md:w-3.5" />
-                    </div>
-                    <span className="min-w-0 break-words text-[0.65rem] font-medium leading-tight text-card-foreground md:text-sm">{b}</span>
-                  </li>
+              <div className="flex flex-wrap justify-center gap-1 md:gap-1.5">
+                {fullKinds.map((k) => (
+                  <span
+                    key={k}
+                    className="rounded-full bg-gold/15 px-2 py-0.5 text-[0.6rem] font-medium text-gold-ink ring-1 ring-gold/30 md:px-2.5 md:py-1 md:text-xs"
+                  >
+                    {k}
+                  </span>
                 ))}
-              </ul>
+              </div>
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a
-                  href="https://go.perfectpay.com.br/PPU38CQDI55"
+                  href="https://go.perfectpay.com.br/PPU38CQE5FU"
                   rel="noopener noreferrer"
                   className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                 >

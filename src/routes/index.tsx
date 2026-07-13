@@ -7,6 +7,7 @@ import {
   BookOpen,
   Check,
   Gamepad2,
+  Gift,
   Heart,
   Lock,
   RotateCcw,
@@ -653,6 +654,16 @@ function Index() {
                     {k}
                   </span>
                 ))}
+              </div>
+
+              {/* Bônus exclusivo do Kit Completo */}
+              <div className="mt-3 rounded-lg border border-dashed border-gold/50 bg-gold/10 p-2 md:mt-5 md:rounded-xl md:p-3">
+                <div className="flex items-center justify-center gap-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:text-[0.7rem]">
+                  <Gift className="h-3 w-3 md:h-4 md:w-4" /> Bônus grátis
+                </div>
+                <p className="mt-0.5 text-[0.65rem] font-semibold leading-tight text-card-foreground md:mt-1 md:text-sm">
+                  30 Desenhos Bíblicos para Colorir
+                </p>
               </div>
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">

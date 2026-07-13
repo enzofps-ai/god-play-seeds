@@ -388,46 +388,6 @@ function Index() {
         </div>
       </section>
 
-      {/* PROBLEM */}
-      <section className="px-4 py-16 sm:px-6 sm:py-24 md:py-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <span className="section-eyebrow">A verdade que muda tudo</span>
-          <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-            O problema nunca foi a Bíblia. <br />
-            <span className="italic text-gold-ink">Foi o jeito de ensinar.</span>
-          </h2>
-          <p className="mt-5 text-base text-muted-foreground sm:mt-6 sm:text-lg">
-            Nenhuma criança rejeita histórias de coragem, aventura e heróis. O que ela cansa é de
-            decorar versículo, ficar sentada ouvindo e repetir sem entender. Não é a Palavra que é
-            chata — é o método.
-          </p>
-
-          {/* Pull-quote — o criativo que virou a mensagem central da página. */}
-          <figure className="relative mx-auto mt-10 max-w-2xl rounded-2xl border border-gold/25 bg-secondary/50 px-6 py-8 shadow-sm sm:mt-12 sm:rounded-3xl sm:px-10 sm:py-10">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute left-4 top-1 select-none font-display text-6xl leading-none text-gold/40 sm:left-6 sm:text-7xl"
-            >
-              &ldquo;
-            </span>
-            <blockquote className="relative font-display text-xl font-semibold italic leading-snug text-deep sm:text-2xl md:text-3xl">
-              Agora meu filho fica triste se a gente não joga pelo menos 30 minutos por dia.
-            </blockquote>
-            <figcaption className="mt-4 flex items-center justify-center gap-1.5 text-gold-ink">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-current" />
-              ))}
-            </figcaption>
-          </figure>
-
-          <p className="mt-8 text-base text-muted-foreground sm:mt-10 sm:text-lg">
-            Troque o método e tudo muda: quando a fé vira brincadeira, a criança{" "}
-            <span className="font-semibold text-foreground">pede pra jogar de novo</span> — e absorve
-            Deus, Jesus, amor, perdão e obediência sem nem perceber que está aprendendo.
-          </p>
-        </div>
-      </section>
-
       {/* SOLUTION */}
       <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">

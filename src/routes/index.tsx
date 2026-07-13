@@ -566,7 +566,7 @@ function Index() {
               <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">10 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Metade da coleção</p>
 
-              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-2 py-0.5 text-[0.6rem] font-bold text-red-600 md:mt-2 md:px-3 md:py-1 md:text-xs">
+              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/15 px-2 py-0.5 text-[0.6rem] font-bold text-red-700 md:mt-2 md:px-3 md:py-1 md:text-xs">
                 60% OFF hoje
               </div>
               <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
@@ -625,7 +625,7 @@ function Index() {
               <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">20 Jogos Bíblicos</h3>
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">O pacote completo</p>
 
-              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-2 py-0.5 text-[0.6rem] font-bold text-red-600 md:mt-2 md:px-3 md:py-1 md:text-xs">
+              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/15 px-2 py-0.5 text-[0.6rem] font-bold text-red-700 md:mt-2 md:px-3 md:py-1 md:text-xs">
                 60% OFF hoje
               </div>
               <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
@@ -778,7 +778,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-deep px-4 py-10 text-center text-sm text-cream/50 sm:px-6 sm:py-14">
+      <footer className="border-t border-white/5 bg-deep px-4 py-10 text-center text-sm text-cream/70 sm:px-6 sm:py-14">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:gap-7">
           {/* Suporte */}
           <div className="flex flex-col items-center gap-3">
@@ -796,7 +796,7 @@ function Index() {
                 suporte@achadinhosbiblicos.com.br
               </span>
             </a>
-            <p className="text-xs text-cream/40">
+            <p className="text-xs text-cream/70">
               Tiramos suas dúvidas antes e depois da compra.
             </p>
           </div>

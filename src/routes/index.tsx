@@ -6,6 +6,7 @@ import heroKids820 from "@/assets/hero-kids-820.webp";
 import {
   BookOpen,
   Check,
+  Clock,
   Gamepad2,
   Gift,
   Heart,
@@ -186,6 +187,49 @@ function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: Reac
       {children}
       <ArrowRight className="h-5 w-5" />
     </a>
+  );
+}
+
+// Contador de urgência do Kit Completo. Reinicia em 5h27m a cada visita (sem
+// persistência) — um único setInterval de 1s e nenhuma biblioteca, custo mínimo.
+// O estado inicial é o mesmo no servidor e no cliente (05:27:00), então não há
+// mismatch de hidratação; o relógio só começa a andar depois que monta.
+const COUNTDOWN_START = 5 * 3600 + 27 * 60;
+
+function OfferCountdown() {
+  const [left, setLeft] = useState(COUNTDOWN_START);
+
+  useEffect(() => {
+    const id = setInterval(() => setLeft((s) => (s <= 0 ? 0 : s - 1)), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const hh = pad(Math.floor(left / 3600));
+  const mm = pad(Math.floor((left % 3600) / 60));
+  const ss = pad(left % 60);
+  const box =
+    "rounded-md bg-deep px-1.5 py-1 text-xs font-bold tabular-nums text-cream md:px-2 md:py-1.5 md:text-lg";
+  const colon = "text-xs font-bold text-deep/70 md:text-lg";
+
+  return (
+    <div className="mt-2.5 md:mt-4">
+      <div className="flex items-center justify-center gap-1 text-[0.55rem] font-semibold uppercase tracking-wide text-red-700 md:text-[0.7rem]">
+        <Clock className="h-3 w-3 md:h-3.5 md:w-3.5" /> Essa oferta acaba em
+      </div>
+      <div
+        className="mt-1 flex items-center justify-center gap-0.5 font-display md:mt-1.5 md:gap-1"
+        role="timer"
+        aria-live="off"
+        aria-label={`Oferta acaba em ${hh}:${mm}:${ss}`}
+      >
+        <span className={box}>{hh}</span>
+        <span className={colon}>:</span>
+        <span className={box}>{mm}</span>
+        <span className={colon}>:</span>
+        <span className={box}>{ss}</span>
+      </div>
+    </div>
   );
 }
 
@@ -665,6 +709,8 @@ function Index() {
                   30 Desenhos Bíblicos para Colorir
                 </p>
               </div>
+
+              <OfferCountdown />
 
               <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                 <a

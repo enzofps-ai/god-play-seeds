@@ -641,17 +641,36 @@ function Index() {
                 ))}
               </div>
 
-              <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
-                <a
-                  href="https://go.perfectpay.com.br/PPU38CQE5MD"
-                  rel="noopener noreferrer"
-                  className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
+              {/* Bônus + contador + CTA ancorados no rodapé do card (mt-auto), para
+                  ficarem alinhados com o Kit Completo mesmo com menos selos acima.
+                  O bônus aqui é um espaçador invisível — o Kit Básico não tem bônus. */}
+              <div className="mt-auto flex flex-col pt-3 md:pt-5">
+                <div
+                  aria-hidden
+                  className="invisible rounded-lg border border-dashed border-gold/50 bg-gold/10 p-2 md:rounded-xl md:p-3"
                 >
-                  Quero esse
-                  <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
-                </a>
-                <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
-                  <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
+                  <div className="flex items-center justify-center gap-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:text-[0.7rem]">
+                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> Bônus grátis
+                  </div>
+                  <p className="mt-0.5 text-[0.65rem] font-semibold leading-tight text-card-foreground md:mt-1 md:text-sm">
+                    30 Desenhos Bíblicos para Colorir
+                  </p>
+                </div>
+
+                <OfferCountdown />
+
+                <div className="flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
+                  <a
+                    href="https://go.perfectpay.com.br/PPU38CQE5MD"
+                    rel="noopener noreferrer"
+                    className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
+                  >
+                    Quero esse
+                    <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
+                  </a>
+                  <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
+                    <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
+                  </div>
                 </div>
               </div>
             </div>
@@ -700,29 +719,32 @@ function Index() {
                 ))}
               </div>
 
-              {/* Bônus exclusivo do Kit Completo */}
-              <div className="mt-3 rounded-lg border border-dashed border-gold/50 bg-gold/10 p-2 md:mt-5 md:rounded-xl md:p-3">
-                <div className="flex items-center justify-center gap-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:text-[0.7rem]">
-                  <Gift className="h-3 w-3 md:h-4 md:w-4" /> Bônus grátis
+              {/* Bônus + contador + CTA ancorados no rodapé do card (mt-auto). */}
+              <div className="mt-auto flex flex-col pt-3 md:pt-5">
+                {/* Bônus exclusivo do Kit Completo */}
+                <div className="rounded-lg border border-dashed border-gold/50 bg-gold/10 p-2 md:rounded-xl md:p-3">
+                  <div className="flex items-center justify-center gap-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:text-[0.7rem]">
+                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> Bônus grátis
+                  </div>
+                  <p className="mt-0.5 text-[0.65rem] font-semibold leading-tight text-card-foreground md:mt-1 md:text-sm">
+                    30 Desenhos Bíblicos para Colorir
+                  </p>
                 </div>
-                <p className="mt-0.5 text-[0.65rem] font-semibold leading-tight text-card-foreground md:mt-1 md:text-sm">
-                  30 Desenhos Bíblicos para Colorir
-                </p>
-              </div>
 
-              <OfferCountdown />
+                <OfferCountdown />
 
-              <div className="mt-auto flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
-                <a
-                  href="https://go.perfectpay.com.br/PPU38CQE5FU"
-                  rel="noopener noreferrer"
-                  className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
-                >
-                  Quero esse
-                  <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
-                </a>
-                <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
-                  <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
+                <div className="flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
+                  <a
+                    href="https://go.perfectpay.com.br/PPU38CQE5FU"
+                    rel="noopener noreferrer"
+                    className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
+                  >
+                    Quero esse
+                    <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
+                  </a>
+                  <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
+                    <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
+                  </div>
                 </div>
               </div>
             </div>

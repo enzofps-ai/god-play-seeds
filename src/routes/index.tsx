@@ -271,8 +271,6 @@ const realProducts = [
   { src: "/images/real-uno-mesa.webp", alt: "Uno Cristiano impresso sobre a mesa, pronto para jogar" },
   { src: "/images/imprimindo-uno-biblico.webp", alt: "Uno Bíblico sendo impresso na impressora de casa" },
   { src: "/images/real-siga-cristo-mesa.webp", alt: "Tabuleiro Siga a Cristo impresso e montado sobre a mesa" },
-  { src: "/images/real-jogo-memoria.webp", alt: "Jogo da Memória bíblico impresso e recortado, espalhado para jogar" },
-  { src: "/images/real-uno-de-fe.webp", alt: "Carta do Uno da Fé impressa, com ilustração de Jesus" },
   { src: "/images/real-super-trunfo.webp", alt: "Cartas do Super Trunfo bíblico impressas, com a carta de Marcos 10.45 em destaque" },
   { src: "/images/real-quiz-biblico.webp", alt: "Cartas do Quiz Bíblico impressas e organizadas ao lado da caixinha do jogo" },
 ];

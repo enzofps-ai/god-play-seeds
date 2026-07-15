@@ -316,6 +316,12 @@ function RealProductSlideshow() {
   );
 }
 
+// Headline principal do hero (H1). Extraída em constantes para facilitar testes
+// A/B — troque APENAS estas duas strings; estrutura, cores (branca/dourada),
+// tamanho e peso da fonte permanecem inalterados.
+const HERO_HEADLINE_LIGHT = "Existe um truque que faz seu filho";
+const HERO_HEADLINE_GOLD = "largar a tela e querer a Bíblia";
+
 function Index() {
   return (
     <main className="bg-background text-foreground">
@@ -356,13 +362,13 @@ function Index() {
                 className="block text-cream"
                 style={{ textShadow: "0 0 16px rgba(255, 248, 230, 0.22)" }}
               >
-                A criança não acha a Bíblia chata
+                {HERO_HEADLINE_LIGHT}
               </span>
               <span
                 className="mt-1 block text-gold"
                 style={{ textShadow: "0 0 1px rgba(255, 224, 158, 0.5), 0 0 20px rgba(230, 170, 60, 0.4)" }}
               >
-                Chato é o jeito que ensinam
+                {HERO_HEADLINE_GOLD}
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">

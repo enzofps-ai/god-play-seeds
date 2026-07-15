@@ -61,22 +61,18 @@ const benefits = [
   { icon: ShieldCheck, text: "Memória e raciocínio" },
 ];
 
+// Liga/desliga a microcopy curta abaixo do título no card "Garantia de 7 dias".
+// Troque para true para exibi-la.
+const SHOW_GUARANTEE_MICROCOPY = false;
+
 const trustSignals = [
-  {
-    icon: Lock,
-    title: "Pagamento 100% seguro",
-    text: "Processado pela PerfectPay com criptografia SSL de 256 bits.",
-  },
+  { icon: Lock, title: "Pagamento 100% seguro" },
   {
     icon: RotateCcw,
     title: "Garantia de 7 dias",
-    text: "Não pediu pra jogar de novo? Devolvemos 100% do valor em até 7 dias.",
+    micro: "100% do valor de volta em até 7 dias.",
   },
-  {
-    icon: ShieldCheck,
-    title: "Dados protegidos",
-    text: "Seus dados são criptografados e tratados conforme a LGPD.",
-  },
+  { icon: ShieldCheck, title: "Dados protegidos" },
 ];
 
 const faqs = [
@@ -187,6 +183,17 @@ function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: Reac
       {children}
       <ArrowRight className="h-5 w-5" />
     </a>
+  );
+}
+
+// Badge discreto e monocromático de forma de pagamento — wordmark leve, sem
+// imagem externa (zero requisição de rede). Para trocar pelos logos oficiais das
+// bandeiras, basta substituir o conteúdo por um SVG inline aqui.
+function PayBadge({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex h-7 items-center rounded-md border border-[#E7D9B4] bg-white px-2.5 text-[0.7rem] font-semibold tracking-wide text-deep/80 shadow-sm sm:h-8 sm:text-xs">
+      {children}
+    </span>
   );
 }
 
@@ -534,30 +541,14 @@ function Index() {
           </div>
           <div className="mt-10 grid grid-cols-3 gap-2.5 sm:mt-14 sm:gap-6">
             {[
-              {
-                step: "01",
-                title: "Acesso imediato",
-                desc: "Após a compra, você recebe os arquivos digitais na hora.",
-                icon: Download,
-              },
-              {
-                step: "02",
-                title: "Imprima e prepare",
-                desc: "Baixe, imprima se desejar e separe os jogos para usar.",
-                icon: BookOpen,
-              },
-              {
-                step: "03",
-                title: "Brinque e ensine",
-                desc: "Reúna as crianças e transforme a Palavra em momento especial.",
-                icon: Gamepad2,
-              },
+              { step: "01", title: "Acesso imediato", icon: Download },
+              { step: "02", title: "Imprima e prepare", icon: BookOpen },
+              { step: "03", title: "Brinque e ensine", icon: Gamepad2 },
             ].map((s) => (
-              <div key={s.step} className="relative rounded-xl border bg-card p-3 shadow-sm sm:rounded-3xl sm:p-7">
+              <div key={s.step} className="relative rounded-xl border bg-card p-4 shadow-sm sm:rounded-3xl sm:p-6">
                 <div className="font-display text-2xl text-gold-ink/80 sm:text-5xl">{s.step}</div>
                 <s.icon className="absolute right-3 top-3 hidden h-5 w-5 text-deep/40 sm:right-6 sm:top-6 sm:block sm:h-6 sm:w-6" />
-                <h3 className="mt-1.5 text-sm font-semibold leading-tight text-card-foreground sm:mt-2 sm:text-xl">{s.title}</h3>
-                <p className="mt-1.5 text-[0.7rem] leading-snug text-muted-foreground sm:mt-2 sm:text-base sm:leading-normal">{s.desc}</p>
+                <h3 className="mt-2 text-sm font-semibold leading-tight text-card-foreground sm:mt-3 sm:text-xl">{s.title}</h3>
               </div>
             ))}
           </div>
@@ -811,26 +802,45 @@ function Index() {
             </h2>
           </div>
           <div className="grid grid-cols-3 gap-2.5 sm:gap-6">
-            {trustSignals.map(({ icon: Icon, title, text }) => (
+            {trustSignals.map(({ icon: Icon, title, micro }) => (
               <div
                 key={title}
-                className="group relative flex flex-col items-center gap-2 overflow-hidden rounded-xl border border-gold/15 bg-card p-3.5 text-center shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:gap-3 sm:rounded-3xl sm:p-8"
+                className="group relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl border border-[#E7D9B4]/70 bg-white px-3 py-6 text-center shadow-md shadow-black/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg sm:gap-4 sm:rounded-3xl sm:px-6 sm:py-9"
               >
+                {/* Acento: fino traço dourado no topo do card */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent opacity-70"
+                  className="pointer-events-none absolute left-1/2 top-0 h-[3px] w-[60px] -translate-x-1/2 rounded-b-full bg-gradient-to-r from-[#B8973E] to-[#8B6914]"
                 />
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold/25 to-gold/5 ring-1 ring-gold/20 transition-transform duration-300 group-hover:scale-110 sm:h-14 sm:w-14">
-                  <Icon className="h-5 w-5 text-gold-ink sm:h-6 sm:w-6" />
+                {/* Ícone em círculo dourado-clarinho */}
+                <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-[#E7D9B4] bg-[#F6EFDD] transition-transform duration-300 group-hover:scale-105 sm:h-[58px] sm:w-[58px]">
+                  <Icon className="h-6 w-6 text-[#8B6914] sm:h-7 sm:w-7" />
                 </div>
                 <p className="font-display text-xs font-semibold leading-tight text-card-foreground sm:text-lg">
                   {title}
                 </p>
-                <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">
-                  {text}
-                </p>
+                {SHOW_GUARANTEE_MICROCOPY && micro && (
+                  <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-sm">{micro}</p>
+                )}
               </div>
             ))}
+          </div>
+
+          {/* Prova visual de pagamento seguro (SVG/ícones inline, sem imagem externa) */}
+          <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-3 sm:mt-12 sm:gap-4">
+            <p className="inline-flex items-center gap-1.5 text-[0.7rem] text-muted-foreground sm:text-sm">
+              <Lock className="h-3.5 w-3.5 text-[#8B6914]" aria-hidden="true" />
+              Ambiente seguro · processado por PerfectPay
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              <PayBadge>VISA</PayBadge>
+              <PayBadge>Mastercard</PayBadge>
+              <PayBadge>Elo</PayBadge>
+              <PayBadge>Pix</PayBadge>
+              <span className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E7D9B4] bg-white px-2.5 text-[0.7rem] font-semibold text-deep/80 shadow-sm sm:h-8 sm:text-xs">
+                <Lock className="h-3 w-3 text-[#8B6914]" aria-hidden="true" /> SSL 256-bit
+              </span>
+            </div>
           </div>
         </div>
       </section>

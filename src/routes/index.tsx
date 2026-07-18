@@ -326,8 +326,8 @@ function RealProductSlideshow() {
 // Headline principal do hero (H1). Extraída em constantes para facilitar testes
 // A/B — troque APENAS estas duas strings; estrutura, cores (branca/dourada),
 // tamanho e peso da fonte permanecem inalterados.
-const HERO_HEADLINE_LIGHT = "Existe um truque que faz seu filho";
-const HERO_HEADLINE_GOLD = "largar a tela e querer a Bíblia";
+const HERO_HEADLINE_LIGHT = "Enquanto o TikTok cria seu filho";
+const HERO_HEADLINE_GOLD = "quem ensina a fé dentro de casa?";
 
 function Index() {
   return (
@@ -364,7 +364,7 @@ function Index() {
             <span className="chip text-[0.7rem] sm:text-sm">
               <Sparkles className="h-3.5 w-3.5 text-gold" /> Para mães e pais que ensinam a fé em casa
             </span>
-            <h1 className="mt-5 font-display text-[2rem] font-bold leading-[1.12] tracking-tight sm:mt-6 sm:text-[2.6rem] md:text-[3.25rem]">
+            <h1 className="mt-5 text-center font-display text-[2rem] font-bold leading-[1.12] tracking-tight sm:mt-6 sm:text-[2.6rem] md:text-[3.25rem]">
               <span
                 className="block text-cream"
                 style={{ textShadow: "0 0 16px rgba(255, 248, 230, 0.22)" }}

@@ -338,7 +338,7 @@ const HERO_HEADLINE_GOLD = "quem ensina a fé dentro de casa?";
 // único com acesso vitalício, garantia de 7 dias).
 const PROMO_ITEMS = [
   { icon: Flame, text: "Oferta de lançamento: 60% OFF só hoje" },
-  { icon: Clock, text: "Vagas limitadas pelo preço promocional" },
+  { icon: Clock, text: "Preço promocional por tempo limitado" },
   { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$69,90" },
   { icon: Gift, text: "Bônus grátis incluso na sua compra" },
   { icon: Zap, text: "Acesso imediato · pagamento único · para sempre" },

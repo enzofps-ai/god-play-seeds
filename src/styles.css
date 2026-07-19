@@ -247,6 +247,28 @@
   .nav-cta.is-navigating::after { animation: none; }
 }
 
+/* Faixa promocional deslizante (marquee) no topo da página. A track duplica o
+   conteúdo e corre de -50% até 0, criando um loop contínuo p/ a direita. Pausa
+   ao passar o mouse e respeita prefers-reduced-motion. */
+@keyframes promo-marquee {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.promo-track {
+  animation: promo-marquee 32s linear infinite;
+  will-change: transform;
+}
+/* Só pausa no hover em aparelhos com mouse — evita que um toque no celular
+   deixe o loop preso em pausa. */
+@media (hover: hover) {
+  .promo-bar:hover .promo-track {
+    animation-play-state: paused;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-track { animation: none; }
+}
+
 @utility section-eyebrow {
   display: inline-block;
   font-family: var(--font-sans);

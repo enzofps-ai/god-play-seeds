@@ -22,6 +22,8 @@ import {
   Cross,
   Mail,
   TriangleAlert,
+  Flame,
+  Zap,
 } from "lucide-react";
 
 const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
@@ -327,31 +329,71 @@ function RealProductSlideshow() {
 // Headline principal do hero (H1). Extraída em constantes para facilitar testes
 // A/B — troque APENAS estas duas strings; estrutura, cores (branca/dourada),
 // tamanho e peso da fonte permanecem inalterados.
-const HERO_HEADLINE_LIGHT = "O que seu filho aprende hoje";
-const HERO_HEADLINE_GOLD = "fica para a vida toda";
+const HERO_HEADLINE_LIGHT = "Enquanto o TikTok cria seu filho";
+const HERO_HEADLINE_GOLD = "quem ensina a fé dentro de casa?";
+
+// Faixa promocional fixa no topo — marquee com gatilhos de urgência deslizando
+// para a direita em loop contínuo. Os textos refletem exatamente a oferta dos
+// cards (60% OFF hoje, Kit Completo R$27,90 de R$69,90, bônus grátis, pagamento
+// único com acesso vitalício, garantia de 7 dias).
+const PROMO_ITEMS = [
+  { icon: Flame, text: "Oferta de lançamento: 60% OFF só hoje" },
+  { icon: Clock, text: "Vagas limitadas pelo preço promocional" },
+  { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$69,90" },
+  { icon: Gift, text: "Bônus grátis incluso na sua compra" },
+  { icon: Zap, text: "Acesso imediato · pagamento único · para sempre" },
+  { icon: ShieldCheck, text: "Garantia de 7 dias, sem risco" },
+];
+
+function PromoBar() {
+  // Duplicamos a lista para o loop ser contínuo: a track tem 2x a largura do
+  // conteúdo e a animação corre de translateX(-50%) até 0 (movimento p/ direita).
+  const items = [...PROMO_ITEMS, ...PROMO_ITEMS];
+  return (
+    <div
+      className="promo-bar sticky top-0 z-50 overflow-hidden border-b border-gold/40 text-deep shadow-sm"
+      style={{ background: "linear-gradient(135deg, oklch(0.85 0.13 82), oklch(0.76 0.15 75))" }}
+    >
+      <div className="promo-track flex w-max items-center py-2">
+        {items.map((item, i) => (
+          <span
+            key={i}
+            className="flex items-center gap-2 whitespace-nowrap px-5 text-[0.7rem] font-bold uppercase tracking-wide sm:px-7 sm:text-sm"
+          >
+            <item.icon className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" />
+            {item.text}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function Index() {
   return (
     <main className="bg-background text-foreground">
-      {/* NAV */}
-      <header className="absolute top-0 left-0 right-0 z-20">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
-          <div className="flex items-center gap-2 text-cream">
-            <Cross className="h-5 w-5 text-gold" />
-            <span className="font-display text-base font-semibold sm:text-lg">Achadinhos Bíblicos</span>
-          </div>
-          <a
-            href="#oferta"
-            onClick={slideToOffer}
-            className="nav-cta hidden rounded-full border border-white/20 px-4 py-2 text-sm text-cream backdrop-blur-md hover:bg-white/10 sm:inline-flex"
-          >
-            Garantir kit
-          </a>
-        </div>
-      </header>
+      {/* PROMO — faixa de urgência deslizante no topo */}
+      <PromoBar />
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-deep pb-14 pt-24 text-cream sm:pb-20 sm:pt-28 md:pb-32 md:pt-40">
+        {/* NAV (sobreposto ao hero, abaixo da faixa promocional) */}
+        <header className="absolute top-0 left-0 right-0 z-20">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
+            <div className="flex items-center gap-2 text-cream">
+              <Cross className="h-5 w-5 text-gold" />
+              <span className="font-display text-base font-semibold sm:text-lg">Achadinhos Bíblicos</span>
+            </div>
+            <a
+              href="#oferta"
+              onClick={slideToOffer}
+              className="nav-cta hidden rounded-full border border-white/20 px-4 py-2 text-sm text-cream backdrop-blur-md hover:bg-white/10 sm:inline-flex"
+            >
+              Garantir kit
+            </a>
+          </div>
+        </header>
+
         <div
           aria-hidden
           className="absolute inset-0 opacity-40"

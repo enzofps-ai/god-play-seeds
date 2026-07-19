@@ -327,8 +327,8 @@ function RealProductSlideshow() {
 // Headline principal do hero (H1). Extraída em constantes para facilitar testes
 // A/B — troque APENAS estas duas strings; estrutura, cores (branca/dourada),
 // tamanho e peso da fonte permanecem inalterados.
-const HERO_HEADLINE_LIGHT = "Enquanto o TikTok cria seu filho";
-const HERO_HEADLINE_GOLD = "quem ensina a fé dentro de casa?";
+const HERO_HEADLINE_LIGHT = "O que seu filho aprende hoje";
+const HERO_HEADLINE_GOLD = "fica para a vida toda";
 
 function Index() {
   return (

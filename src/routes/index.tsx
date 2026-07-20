@@ -718,11 +718,18 @@ function Index() {
                   className="invisible rounded-lg border border-dashed border-gold/50 bg-gold/10 p-2 md:rounded-xl md:p-3"
                 >
                   <div className="flex items-center justify-center gap-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:text-[0.7rem]">
-                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> Bônus grátis
+                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 2 Bônus grátis
                   </div>
-                  <p className="mt-0.5 text-[0.65rem] font-semibold leading-tight text-card-foreground md:mt-1 md:text-sm">
-                    30 Desenhos Bíblicos para Colorir
-                  </p>
+                  <ul className="mt-1 space-y-0.5 md:mt-1.5 md:space-y-1">
+                    <li className="flex items-start justify-center gap-1 text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
+                      <Check className="mt-px h-3 w-3 shrink-0 text-gold-ink md:h-3.5 md:w-3.5" />
+                      <span>30 Desenhos Bíblicos para Colorir</span>
+                    </li>
+                    <li className="flex items-start justify-center gap-1 text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
+                      <Check className="mt-px h-3 w-3 shrink-0 text-gold-ink md:h-3.5 md:w-3.5" />
+                      <span>+100 Versículos organizados por temas</span>
+                    </li>
+                  </ul>
                 </div>
 
                 <OfferCountdown />
@@ -789,14 +796,24 @@ function Index() {
 
               {/* Bônus + contador + CTA ancorados no rodapé do card (mt-auto). */}
               <div className="mt-auto flex flex-col pt-3 md:pt-5">
-                {/* Bônus exclusivo do Kit Completo */}
+                {/* Bônus exclusivos do Kit Completo. IMPORTANTE: qualquer mudança
+                    aqui deve ser espelhada no espaçador invisível do Kit Básico
+                    (mesmo markup) para os rodapés dos dois cards continuarem
+                    alinhados. */}
                 <div className="rounded-lg border border-dashed border-gold/50 bg-gold/10 p-2 md:rounded-xl md:p-3">
                   <div className="flex items-center justify-center gap-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:text-[0.7rem]">
-                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> Bônus grátis
+                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 2 Bônus grátis
                   </div>
-                  <p className="mt-0.5 text-[0.65rem] font-semibold leading-tight text-card-foreground md:mt-1 md:text-sm">
-                    30 Desenhos Bíblicos para Colorir
-                  </p>
+                  <ul className="mt-1 space-y-0.5 md:mt-1.5 md:space-y-1">
+                    <li className="flex items-start justify-center gap-1 text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
+                      <Check className="mt-px h-3 w-3 shrink-0 text-gold-ink md:h-3.5 md:w-3.5" />
+                      <span>30 Desenhos Bíblicos para Colorir</span>
+                    </li>
+                    <li className="flex items-start justify-center gap-1 text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
+                      <Check className="mt-px h-3 w-3 shrink-0 text-gold-ink md:h-3.5 md:w-3.5" />
+                      <span>+100 Versículos organizados por temas</span>
+                    </li>
+                  </ul>
                 </div>
 
                 <OfferCountdown />

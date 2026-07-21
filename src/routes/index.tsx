@@ -649,8 +649,9 @@ function Index() {
               Comece a ensinar brincando ainda hoje
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-              Menos que um lanche, uma vez só, acesso pra sempre. Garanta o preço de lançamento
-              antes que ele volte ao valor normal.
+              São 20 jogos por menos de R$1 cada, e ainda leva 2 bônus grátis inclusos. Pagamento
+              único, acesso pra sempre. Garanta o preço de lançamento antes que ele volte ao valor
+              normal.
             </p>
             <a
               href="mailto:suporte@achadinhosbiblicos.com.br"

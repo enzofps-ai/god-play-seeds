@@ -689,7 +689,7 @@ function Index() {
               </div>
               <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$19,90
+                  R$12,90
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
@@ -778,7 +778,7 @@ function Index() {
               </div>
               <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$27,90
+                  R$19,90
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">

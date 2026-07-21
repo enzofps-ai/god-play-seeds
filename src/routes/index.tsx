@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$19,90.",
+          "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$12,90.",
       },
       { property: "og:title", content: "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam" },
       {
@@ -335,12 +335,12 @@ const HERO_HEADLINE_GOLD = "quem ensina a fé dentro de casa?";
 
 // Faixa promocional fixa no topo — marquee com gatilhos de urgência deslizando
 // para a direita em loop contínuo. Os textos refletem exatamente a oferta dos
-// cards (60% OFF hoje, Kit Completo R$27,90 de R$69,90, bônus grátis, pagamento
+// cards (60% OFF hoje, Kit Completo R$19,90 de R$69,90, bônus grátis, pagamento
 // único com acesso vitalício, garantia de 7 dias).
 const PROMO_ITEMS = [
   { icon: Flame, text: "Oferta de lançamento: 60% OFF só hoje" },
   { icon: Clock, text: "Preço promocional por tempo limitado" },
-  { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$69,90" },
+  { icon: Sparkles, text: "Kit Completo por R$19,90 — de R$69,90" },
   { icon: Gift, text: "Bônus grátis incluso na sua compra" },
   { icon: Zap, text: "Acesso imediato · pagamento único · para sempre" },
   { icon: ShieldCheck, text: "Garantia de 7 dias, sem risco" },

@@ -330,8 +330,8 @@ function RealProductSlideshow() {
 // Headline principal do hero (H1). Extraída em constantes para facilitar testes
 // A/B — troque APENAS estas duas strings; estrutura, cores (branca/dourada),
 // tamanho e peso da fonte permanecem inalterados.
-const HERO_HEADLINE_LIGHT = "Enquanto o TikTok cria seu filho";
-const HERO_HEADLINE_GOLD = "quem ensina a fé dentro de casa?";
+const HERO_HEADLINE_LIGHT = "Daqui a 10 anos, o que seu filho vai lembrar";
+const HERO_HEADLINE_GOLD = "da fé que você ensinou em casa?";
 
 // Faixa promocional fixa no topo — marquee com gatilhos de urgência deslizando
 // para a direita em loop contínuo. Os textos refletem exatamente a oferta dos
@@ -423,9 +423,10 @@ function Index() {
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">
-              Quando a Palavra vira brincadeira, a criança pede pra jogar de novo e aprende sobre
-              Deus <span className="font-semibold text-cream">sem nem perceber</span>. São 20 jogos
-              bíblicos prontos pra usar em casa, na EBD, célula ou ministério infantil.
+              Transforme alguns minutos do dia em momentos que seu filho pode{" "}
+              <span className="font-semibold text-cream">levar para a vida toda</span>. Conheça o
+              kit com 20 jogos bíblicos prontos para imprimir que torna o aprendizado da Palavra
+              leve, divertido e natural.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4 sm:mt-9">
               <CTAButton />
@@ -508,10 +509,10 @@ function Index() {
                 Atenção
               </span>
               <p className="mt-3 text-base leading-relaxed text-cream/85 sm:text-lg">
-                As telas competem pela atenção do seu filho{" "}
-                <span className="font-semibold text-cream">todos os dias</span>. Muitos apps e
-                redes são feitos para manter a criança conectada o máximo de tempo possível. E
-                quando isso vira rotina, a infância vai sendo moldada por essas influências.
+                A infância passa rápido. A fé e os valores que seu filho leva pra vida são
+                plantados <span className="font-semibold text-cream">agora</span>, nos pequenos
+                momentos do dia a dia — e cada semana que passa é uma chance a menos de criar
+                essas lembranças em casa.
               </p>
             </div>
           </div>

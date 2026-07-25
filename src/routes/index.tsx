@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$12,90.",
+          "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$15,90.",
       },
       { property: "og:title", content: "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam" },
       {
@@ -201,11 +201,11 @@ function PayBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Contador de urgência do Kit Completo. Reinicia em 5h27m a cada visita (sem
+// Contador de urgência do Kit Completo. Reinicia em 1h23m a cada visita (sem
 // persistência) — um único setInterval de 1s e nenhuma biblioteca, custo mínimo.
-// O estado inicial é o mesmo no servidor e no cliente (05:27:00), então não há
+// O estado inicial é o mesmo no servidor e no cliente (01:23:00), então não há
 // mismatch de hidratação; o relógio só começa a andar depois que monta.
-const COUNTDOWN_START = 5 * 3600 + 27 * 60;
+const COUNTDOWN_START = 1 * 3600 + 23 * 60;
 
 function OfferCountdown() {
   const [left, setLeft] = useState(COUNTDOWN_START);
@@ -650,7 +650,7 @@ function Index() {
               Comece a ensinar brincando ainda hoje
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-              São 20 jogos por menos de R$1 cada, e ainda leva 2 bônus grátis inclusos. Pagamento
+              São 20 jogos por menos de R$1 cada, e ainda leva 1 bônus grátis incluso. Pagamento
               único, acesso pra sempre. Garanta o preço de lançamento antes que ele volte ao valor
               normal.
             </p>
@@ -691,7 +691,7 @@ function Index() {
               </div>
               <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$12,90
+                  R$15,90
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
@@ -721,15 +721,9 @@ function Index() {
                   className="invisible rounded-lg border border-dashed border-gold/50 bg-gold/10 p-1.5 md:rounded-xl md:p-2.5"
                 >
                   <div className="flex items-center justify-center gap-1 pb-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:pb-1.5 md:text-[0.7rem]">
-                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 2 Bônus grátis inclusos
+                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 1 Bônus grátis incluso
                   </div>
                   <div className="space-y-1 md:space-y-1.5">
-                    <div className="flex items-center gap-1.5 rounded-md bg-card px-2 py-1 shadow-sm ring-1 ring-gold/15 md:gap-2 md:rounded-lg md:px-2.5 md:py-1.5">
-                      <Palette className="h-3.5 w-3.5 shrink-0 text-gold-ink md:h-4 md:w-4" />
-                      <span className="text-left text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
-                        30 Desenhos Bíblicos para Colorir
-                      </span>
-                    </div>
                     <div className="flex items-center gap-1.5 rounded-md bg-card px-2 py-1 shadow-sm ring-1 ring-gold/15 md:gap-2 md:rounded-lg md:px-2.5 md:py-1.5">
                       <BookOpen className="h-3.5 w-3.5 shrink-0 text-gold-ink md:h-4 md:w-4" />
                       <span className="text-left text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
@@ -809,15 +803,9 @@ function Index() {
                     alinhados. */}
                 <div className="rounded-lg border border-dashed border-gold/50 bg-gold/10 p-1.5 md:rounded-xl md:p-2.5">
                   <div className="flex items-center justify-center gap-1 pb-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:pb-1.5 md:text-[0.7rem]">
-                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 2 Bônus grátis inclusos
+                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 1 Bônus grátis incluso
                   </div>
                   <div className="space-y-1 md:space-y-1.5">
-                    <div className="flex items-center gap-1.5 rounded-md bg-card px-2 py-1 shadow-sm ring-1 ring-gold/15 md:gap-2 md:rounded-lg md:px-2.5 md:py-1.5">
-                      <Palette className="h-3.5 w-3.5 shrink-0 text-gold-ink md:h-4 md:w-4" />
-                      <span className="text-left text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
-                        30 Desenhos Bíblicos para Colorir
-                      </span>
-                    </div>
                     <div className="flex items-center gap-1.5 rounded-md bg-card px-2 py-1 shadow-sm ring-1 ring-gold/15 md:gap-2 md:rounded-lg md:px-2.5 md:py-1.5">
                       <BookOpen className="h-3.5 w-3.5 shrink-0 text-gold-ink md:h-4 md:w-4" />
                       <span className="text-left text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">

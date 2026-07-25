@@ -119,6 +119,33 @@ const audiences = [
   "Igrejas com atividades prontas",
 ];
 
+// Os 20 jogos do kit, na mesma ordem das artes do produto. Os BASIC_GAME_COUNT
+// primeiros compõem o Kit Básico; todos os 20, o Kit Completo. Lista em texto
+// puro (sem imagens) para manter o carregamento leve.
+const kitGames = [
+  "(Casais) Quem Sou Eu?",
+  "3 Pistas",
+  "Alfabeto de Versículos",
+  "Biblicamente",
+  "Bingo de Jesus",
+  "Bônus",
+  "Dominó",
+  "Jogo da Memória",
+  "Mico Bíblico",
+  "Passatempo",
+  "Que Livro é Esse?",
+  "Quem Sou Eu?",
+  "Quiz Bíblico",
+  "Siga a Cristo",
+  "Spot It",
+  "Tá na Bíblia ou Tá Amarrado?",
+  "Tabuleiro (Plano de Salvação)",
+  "Trunfo Bíblico",
+  "Uno da Fé",
+  "Verdade ou Mentira",
+];
+const BASIC_GAME_COUNT = 10;
+
 // Smoothly slides the page to the offer section and keeps a sliding shine on the
 // clicked button until the scroll settles.
 //
@@ -630,6 +657,72 @@ function Index() {
           <p className="mt-8 text-center text-xs text-muted-foreground sm:mt-10 sm:text-sm">
             Importante: este é um produto digital. Nenhum item físico será enviado.
           </p>
+        </div>
+      </section>
+
+      {/* GAMES — mostra visualmente os 20 jogos e quais entram em cada kit,
+          respondendo à objeção "o que exatamente eu recebo?". Texto puro, sem
+          imagens, para não pesar no carregamento. */}
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="section-eyebrow text-gold">Conteúdo do kit</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+              Veja todos os jogos inclusos no kit
+            </h2>
+            <p className="mt-5 text-sm text-cream/75 sm:text-base">
+              Receba na hora um acervo completo com 20 jogos diferentes, prontos para imprimir —
+              pra nunca faltar atividade com as crianças, na igreja, em casa ou na escola bíblica.
+            </p>
+          </div>
+
+          {/* Legenda: quais jogos entram em cada kit */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-cream/80 sm:mt-10 sm:text-sm">
+            <span className="inline-flex items-center gap-2">
+              <span className="h-3.5 w-3.5 shrink-0 rounded-full bg-gold" aria-hidden />
+              Já no Kit Básico <span className="text-cream/55">(10 jogos)</span>
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <span
+                className="h-3.5 w-3.5 shrink-0 rounded-full bg-white/20 ring-1 ring-white/30"
+                aria-hidden
+              />
+              Só no Kit Completo <span className="text-cream/55">(todos os 20)</span>
+            </span>
+          </div>
+
+          {/* Grade dos 20 jogos */}
+          <ul className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-8 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+            {kitGames.map((name, i) => {
+              const n = i + 1;
+              const inBasic = n <= BASIC_GAME_COUNT;
+              return (
+                <li
+                  key={name}
+                  className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 p-2.5 backdrop-blur-sm transition hover:border-gold/40 sm:gap-3 sm:rounded-2xl sm:p-3.5"
+                >
+                  <span
+                    className={
+                      "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[0.7rem] font-bold sm:h-7 sm:w-7 sm:text-xs " +
+                      (inBasic ? "bg-gold text-deep" : "bg-white/15 text-cream ring-1 ring-white/25")
+                    }
+                  >
+                    {n}
+                  </span>
+                  <span className="text-left text-xs font-medium leading-tight text-cream sm:text-sm">
+                    {name}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-8 flex flex-col items-center gap-4 text-center sm:mt-10">
+            <p className="text-sm text-cream/70 sm:text-base">
+              Um kit completo, pronto para imprimir quantas vezes quiser.
+            </p>
+            <CTAButton>Quero receber o kit</CTAButton>
+          </div>
         </div>
       </section>
 

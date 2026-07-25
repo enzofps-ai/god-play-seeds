@@ -912,7 +912,7 @@ function Index() {
 
                 <div className="flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
                   <a
-                    href="https://go.perfectpay.com.br/PPU38CQEFQD"
+                    href="https://go.perfectpay.com.br/PPU38CQELK5"
                     rel="noopener noreferrer"
                     className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
                   >

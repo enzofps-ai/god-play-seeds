@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$15,90.",
+          "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$17,90.",
       },
       { property: "og:title", content: "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam" },
       {
@@ -362,12 +362,12 @@ const HERO_HEADLINE_GOLD = "da fé que você ensinou em casa?";
 
 // Faixa promocional fixa no topo — marquee com gatilhos de urgência deslizando
 // para a direita em loop contínuo. Os textos refletem exatamente a oferta dos
-// cards (60% OFF hoje, Kit Completo R$19,90 de R$69,90, bônus grátis, pagamento
+// cards (60% OFF hoje, Kit Completo R$27,90 de R$69,90, bônus grátis, pagamento
 // único com acesso vitalício, garantia de 7 dias).
 const PROMO_ITEMS = [
   { icon: Flame, text: "Oferta de lançamento: 60% OFF só hoje" },
   { icon: Clock, text: "Preço promocional por tempo limitado" },
-  { icon: Sparkles, text: "Kit Completo por R$19,90 — de R$69,90" },
+  { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$69,90" },
   { icon: Gift, text: "Bônus grátis incluso na sua compra" },
   { icon: Zap, text: "Acesso imediato · pagamento único · para sempre" },
   { icon: ShieldCheck, text: "Garantia de 7 dias, sem risco" },
@@ -784,7 +784,7 @@ function Index() {
               </div>
               <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$15,90
+                  R$17,90
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
@@ -867,7 +867,7 @@ function Index() {
               </div>
               <div className="mt-1 md:mt-2">
                 <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$19,90
+                  R$27,90
                 </span>
               </div>
               <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">

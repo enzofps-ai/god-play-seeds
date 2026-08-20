@@ -362,12 +362,12 @@ const HERO_HEADLINE_GOLD = "da fé que você ensinou em casa?";
 
 // Faixa promocional fixa no topo — marquee com gatilhos de urgência deslizando
 // para a direita em loop contínuo. Os textos refletem exatamente a oferta dos
-// cards (60% OFF hoje, Kit Completo R$27,90 de R$69,90, bônus grátis, pagamento
+// cards (70% OFF hoje, Kit Completo R$27,90 de R$93,00, bônus grátis, pagamento
 // único com acesso vitalício, garantia de 7 dias).
 const PROMO_ITEMS = [
-  { icon: Flame, text: "Oferta de lançamento: 60% OFF só hoje" },
+  { icon: Flame, text: "Oferta de lançamento: 70% OFF só hoje" },
   { icon: Clock, text: "Preço promocional por tempo limitado" },
-  { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$69,90" },
+  { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$93,00" },
   { icon: Gift, text: "Bônus grátis incluso na sua compra" },
   { icon: Zap, text: "Acesso imediato · pagamento único · para sempre" },
   { icon: ShieldCheck, text: "Garantia de 7 dias, sem risco" },
@@ -775,11 +775,11 @@ function Index() {
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Metade da coleção</p>
 
               <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/15 px-2 py-0.5 text-[0.6rem] font-bold text-red-700 md:mt-2 md:px-3 md:py-1 md:text-xs">
-                60% OFF hoje
+                70% OFF hoje
               </div>
               <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
                 <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
-                  R$49,90
+                  R$59,67
                 </span>
               </div>
               <div className="mt-1 md:mt-2">
@@ -858,11 +858,11 @@ function Index() {
               <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">O pacote completo</p>
 
               <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/15 px-2 py-0.5 text-[0.6rem] font-bold text-red-700 md:mt-2 md:px-3 md:py-1 md:text-xs">
-                60% OFF hoje
+                70% OFF hoje
               </div>
               <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
                 <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
-                  R$69,90
+                  R$93,00
                 </span>
               </div>
               <div className="mt-1 md:mt-2">

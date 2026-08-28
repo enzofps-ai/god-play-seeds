@@ -176,20 +176,6 @@ const realProducts = [
   },
 ];
 
-// Jogos com melhor apelo visual, destacados com a arte real na seção "Conteúdo
-// do kit" (plano seção 7: "dê mais destaque visual para 6–8 jogos"). A lista
-// completa dos 20 aparece logo abaixo.
-const highlightGames = [
-  { name: "Uno da Fé", src: "/images/uno-da-fe.webp" },
-  { name: "Super Trunfo Bíblico", src: "/images/super-trunfo-personagens.webp" },
-  { name: "Quiz Bíblico", src: "/images/quiz-biblico.webp" },
-  { name: "Siga a Cristo", src: "/images/siga-a-cristo.webp" },
-  { name: "Spot It Bíblico", src: "/images/spot-it-biblico.webp" },
-  { name: "Mímica Bíblica", src: "/images/jogo-mimico-biblico.webp" },
-  { name: "Passatempo", src: "/images/passatempo-biblico.webp" },
-  { name: "Encontre", src: "/images/encontre.webp" },
-];
-
 // Smoothly slides the page to the offer section and keeps a sliding shine on the
 // clicked button until the scroll settles.
 //
@@ -790,33 +776,6 @@ function Index() {
               Para não faltar ideia quando você quiser tirar a tela e colocar algo com propósito no
               lugar.
             </p>
-          </div>
-
-          {/* Destaques visuais — 6 a 8 jogos com a arte real */}
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-            {highlightGames.map((g) => (
-              <div
-                key={g.name}
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lg"
-              >
-                <div className="overflow-hidden">
-                  <img
-                    src={g.src}
-                    srcSet={srcSetFor(g.src)}
-                    sizes="(min-width: 1024px) 260px, (min-width: 640px) 30vw, 45vw"
-                    alt={`Jogo ${g.name} do kit bíblico`}
-                    loading="lazy"
-                    decoding="async"
-                    width={820}
-                    height={820}
-                    className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <p className="px-3 py-2.5 text-center text-xs font-semibold text-cream sm:text-sm">
-                  {g.name}
-                </p>
-              </div>
-            ))}
           </div>
 
           {/* Legenda: quais jogos entram em cada kit */}

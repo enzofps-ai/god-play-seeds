@@ -1020,7 +1020,7 @@ function Index() {
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQELK5"
                   rel="noopener noreferrer"
-                  className="btn-cta w-full justify-center"
+                  className="btn-cta btn-pulse w-full justify-center"
                 >
                   Quero o Kit Completo
                   <ArrowRight className="h-5 w-5" />
@@ -1031,46 +1031,86 @@ function Index() {
               </div>
             </div>
 
-            {/* Kit Básico (ponto de entrada / secundário) — md:order-1 */}
-            <div className="relative order-2 flex flex-col overflow-hidden rounded-[1.75rem] border border-border bg-card/70 p-6 text-center shadow-md md:order-1 md:p-9">
-              <h3 className="font-display text-xl font-bold text-deep">Kit Básico</h3>
-              <p className="mt-1 text-sm text-muted-foreground">10 jogos — para começar</p>
+            {/* Kit Básico — mesmo template do Kit Completo para ficar simétrico
+                (mesmo tamanho, fontes, selos e botão). Difere só no conteúdo real:
+                10 jogos, preço e sem bônus. O selo "Recomendado" e a caixa de bônus
+                entram como espaçadores invisíveis para alinhar linha a linha com o
+                Completo — md:order-1 */}
+            <div className="relative order-2 flex flex-col overflow-hidden rounded-[1.75rem] border-2 border-gold/50 bg-card p-6 text-center shadow-2xl md:order-1 md:p-9">
+              <div
+                aria-hidden
+                className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
+              />
+              <div className="relative">
+                {/* Espaçador invisível do selo "Recomendado" (só o Completo exibe).
+                    Só ocupa espaço no desktop, onde os cards ficam lado a lado e
+                    precisam alinhar linha a linha; no mobile empilhado é removido
+                    para não deixar vão vazio. */}
+                <div
+                  aria-hidden
+                  className="hidden items-center gap-1.5 rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase tracking-wide text-deep shadow-sm md:inline-flex md:invisible"
+                >
+                  <Star className="h-3.5 w-3.5 fill-current" /> Recomendado
+                </div>
+                <h3 className="mt-4 font-display text-2xl font-bold text-deep">Kit Básico</h3>
+                <p className="mt-1 text-sm text-muted-foreground">10 jogos — para começar</p>
 
-              <div className="mt-4 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-bold text-red-700">
-                60% OFF de lançamento
-              </div>
-              <div className="mt-3 flex items-end justify-center gap-2">
-                <span className="text-base font-medium text-muted-foreground line-through decoration-red-500/60">
-                  R$49,90
-                </span>
-                <span className="font-display text-4xl font-bold text-deep">R$17,90</span>
-              </div>
-              <p className="mt-1 text-sm text-muted-foreground">
-                pagamento único · acesso para sempre
-              </p>
-
-              <p className="mt-6 text-xs font-bold uppercase tracking-wide text-gold-ink">
-                Tipos de jogos incluídos
-              </p>
-              <div className="mt-2 flex flex-wrap justify-center gap-1.5">
-                {baseKinds.map((k) => (
-                  <span
-                    key={k}
-                    className="rounded-full bg-gold/10 px-2.5 py-1 text-xs font-medium text-gold-ink ring-1 ring-gold/25"
-                  >
-                    {k}
+                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-bold text-red-700">
+                  <Flame className="h-3.5 w-3.5" /> 60% OFF de lançamento
+                </div>
+                <div className="mt-3 flex items-end justify-center gap-2">
+                  <span className="text-lg font-medium text-muted-foreground line-through decoration-red-500/70">
+                    R$49,90
                   </span>
-                ))}
+                  <span className="font-display text-5xl font-bold text-deep md:text-6xl">
+                    R$17,90
+                  </span>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  pagamento único · acesso para sempre
+                </p>
+
+                <p className="mt-6 text-xs font-bold uppercase tracking-wide text-gold-ink">
+                  Tipos de jogos incluídos
+                </p>
+                <div className="mt-2 flex flex-wrap justify-center gap-1.5">
+                  {baseKinds.map((k) => (
+                    <span
+                      key={k}
+                      className="rounded-full bg-gold/15 px-2.5 py-1 text-xs font-medium text-gold-ink ring-1 ring-gold/30"
+                    >
+                      {k}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Espaçador invisível espelhando o bônus do Completo (o Básico não
+                    inclui bônus) — mantém os cards simétricos no desktop. Removido
+                    no mobile empilhado para não deixar um vão branco no card. */}
+                <div
+                  aria-hidden
+                  className="hidden mt-5 rounded-xl border border-dashed border-gold/50 bg-gold/10 p-3 md:block md:invisible"
+                >
+                  <div className="flex items-center justify-center gap-1.5 pb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-gold-ink">
+                    <Gift className="h-4 w-4" /> Bônus grátis incluso
+                  </div>
+                  <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                    <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
+                    <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                      +100 Versículos organizados por temas
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-auto flex flex-col items-center gap-3 pt-6">
+              <div className="relative mt-auto flex flex-col items-center gap-3 pt-6">
                 <a
                   href="https://go.perfectpay.com.br/PPU38CQE5MD"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-deep/20 bg-transparent px-6 py-3 text-sm font-bold text-deep transition hover:border-deep/40 hover:bg-deep/5"
+                  className="btn-cta btn-pulse w-full justify-center"
                 >
                   Quero o Kit Básico
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-5 w-5" />
                 </a>
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <ShieldCheck className="h-4 w-4 text-gold" /> Compra segura · garantia de 7 dias

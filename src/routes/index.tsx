@@ -466,7 +466,7 @@ function Index() {
           }}
         />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
+          <div className="flex flex-col items-center text-center">
             <span className="chip text-[0.7rem] sm:text-sm">
               <Sparkles className="h-3.5 w-3.5 text-gold" /> Para mães cristãs que ensinam a fé no
               dia a dia
@@ -503,20 +503,20 @@ function Index() {
               ].map((t) => (
                 <li
                   key={t}
-                  className="flex items-center gap-2.5 text-sm text-cream/85 sm:text-base"
+                  className="flex items-center justify-center gap-2.5 text-sm text-cream/85 sm:text-base"
                 >
                   <Check className="h-4 w-4 shrink-0 text-gold" /> {t}
                 </li>
               ))}
             </ul>
-            <div className="mt-7 flex flex-col items-start gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
+            <div className="mt-7 flex flex-col items-center gap-3 sm:mt-9 sm:flex-row sm:justify-center sm:gap-4">
               <CTAButton />
               <div className="flex items-center gap-2 text-sm text-cream/70">
                 <ShieldCheck className="h-4 w-4 shrink-0 text-gold" /> Garantia de 7 dias · 100%
                 digital
               </div>
             </div>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-cream/70 sm:mt-10">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-cream/70 sm:mt-10">
               <div className="flex items-center gap-1.5 text-gold">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
@@ -659,7 +659,7 @@ function Index() {
           <div className="relative order-2 lg:order-1">
             <RealProductSlideshow />
           </div>
-          <div className="order-1 lg:order-2">
+          <div className="order-1 flex flex-col items-center text-center lg:order-2">
             <span className="section-eyebrow">A solução</span>
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
               A Bíblia não precisa virar aula para{" "}
@@ -670,7 +670,7 @@ function Index() {
               encontra personagens, histórias, perguntas e valores bíblicos de um jeito natural, e
               o aprendizado acontece no meio de um momento que ela realmente quer repetir.
             </p>
-            <ul className="mt-6 space-y-3 sm:mt-7">
+            <ul className="mt-6 inline-block space-y-3 text-left sm:mt-7">
               {[
                 "Ela brinca sem sentir que está “estudando”.",
                 "Você participa sem precisar preparar uma aula.",

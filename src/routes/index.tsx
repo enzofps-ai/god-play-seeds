@@ -35,11 +35,11 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Um kit digital com 20 jogos bíblicos prontos para imprimir, feito para a mãe cristã transformar alguns minutos da rotina em uma brincadeira que ensina a Palavra, reduz tela e cria conexão com o filho — sem virar aula. Acesso imediato a partir de R$17,90.",
+          "Um kit digital com 20 jogos bíblicos prontos para imprimir, feito para a mãe cristã transformar alguns minutos da rotina em uma brincadeira que ensina a Palavra, reduz tela e cria conexão com o filho, sem virar aula. Acesso imediato a partir de R$17,90.",
       },
       {
         property: "og:title",
-        content: "Faça seu filho aprender a Bíblia brincando — e querer jogar de novo",
+        content: "Faça seu filho aprender a Bíblia brincando e querer jogar de novo",
       },
       {
         property: "og:description",
@@ -82,11 +82,11 @@ const faqs = [
   },
   {
     q: "Preciso de impressora para usar?",
-    a: "Para jogar no papel, sim — você imprime em casa ou em uma gráfica próxima. Alguns jogos também podem ser abertos direto na tela do celular, tablet ou computador para brincar com seu filho.",
+    a: "Para jogar no papel, sim. Você imprime em casa ou em uma gráfica próxima. Alguns jogos também podem ser abertos direto na tela do celular, tablet ou computador para brincar com seu filho.",
   },
   {
     q: "Preciso de papel especial ou plastificar?",
-    a: "Não é obrigatório. Papel comum já funciona bem. Se quiser mais durabilidade para usar várias vezes, você pode imprimir em papel mais grosso ou plastificar — mas isso é totalmente opcional.",
+    a: "Não é obrigatório. Papel comum já funciona bem. Se quiser mais durabilidade para usar várias vezes, você pode imprimir em papel mais grosso ou plastificar, mas isso é totalmente opcional.",
   },
   {
     q: "Para qual idade os jogos são indicados?",
@@ -98,7 +98,7 @@ const faqs = [
   },
   {
     q: "Qual a diferença entre o Kit Básico e o Kit Completo?",
-    a: "O Kit Básico traz 10 jogos, ideal para começar. O Kit Completo traz todos os 20 jogos e mais variedade de dinâmicas — é a opção mais escolhida por quem quer ter sempre uma brincadeira nova à mão em casa.",
+    a: "O Kit Básico traz 10 jogos, ideal para começar. O Kit Completo traz todos os 20 jogos e mais variedade de dinâmicas. É a opção mais escolhida por quem quer ter sempre uma brincadeira nova à mão em casa.",
   },
   {
     q: "O pagamento é único ou tem mensalidade?",
@@ -339,7 +339,7 @@ function useAutoRotate<T extends HTMLElement>(length: number, delayMs: number) {
 // Completo R$27,90, bônus grátis, pagamento único vitalício, garantia de 7 dias).
 const PROMO_ITEMS = [
   { icon: Flame, text: "Oferta de lançamento: 60% OFF" },
-  { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$69,90" },
+  { icon: Sparkles, text: "Kit Completo por R$27,90 (de R$69,90)" },
   { icon: Gift, text: "Bônus grátis incluso na sua compra" },
   { icon: Zap, text: "Acesso imediato · pagamento único · para sempre" },
   { icon: ShieldCheck, text: "Garantia de 7 dias, sem risco" },
@@ -423,7 +423,7 @@ function StickyMobileCTA() {
         onClick={slideToOffer}
         className="btn-cta nav-cta w-full justify-center !py-3"
       >
-        Ver os kits — a partir de R$17,90
+        Ver os kits a partir de R$17,90
         <ArrowRight className="h-4 w-4" />
       </a>
     </div>
@@ -484,7 +484,7 @@ function Index() {
                   textShadow: "0 0 1px rgba(255, 224, 158, 0.5), 0 0 20px rgba(230, 170, 60, 0.4)",
                 }}
               >
-                — e querer jogar de novo.
+                E querer jogar de novo.
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">
@@ -575,7 +575,7 @@ function Index() {
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               Você recebe os arquivos e pode colocar a brincadeira na mesa ainda hoje. Estas são
-              fotos reais do material impresso — do jeitinho que ele chega até o seu filho.
+              fotos reais do material impresso, do jeitinho que ele chega até o seu filho.
             </p>
           </div>
 
@@ -642,7 +642,7 @@ function Index() {
               hero, como manda o plano — sem monopolizar o primeiro scroll. */}
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-gold/25 bg-white/[0.04] p-6 text-center backdrop-blur-sm sm:mt-12 sm:p-8">
             <p className="text-base leading-relaxed text-cream/85 sm:text-lg">
-              A infância passa rápido — e a fé que fica é plantada{" "}
+              A infância passa rápido, e a fé que fica é plantada{" "}
               <span className="font-semibold text-cream">agora</span>, nos pequenos momentos do dia
               a dia.
             </p>
@@ -667,7 +667,7 @@ function Index() {
             </h2>
             <p className="mt-5 text-base text-card-foreground sm:text-lg">
               Quando a criança entra pela brincadeira, a atenção vem primeiro. Enquanto joga, ela
-              encontra personagens, histórias, perguntas e valores bíblicos de um jeito natural — e
+              encontra personagens, histórias, perguntas e valores bíblicos de um jeito natural, e
               o aprendizado acontece no meio de um momento que ela realmente quer repetir.
             </p>
             <ul className="mt-6 space-y-3 sm:mt-7">
@@ -740,7 +740,7 @@ function Index() {
               {
                 step: "03",
                 title: "Sente e jogue",
-                desc: "Sem aula pronta, sem roteiro complicado — só você e seu filho.",
+                desc: "Sem aula pronta, sem roteiro complicado. Só você e seu filho.",
                 icon: Gamepad2,
               },
             ].map((s) => (
@@ -840,7 +840,7 @@ function Index() {
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               Material real, impresso em casa e usado na mesa. Variedade de jogos para a brincadeira
-              não cansar — e a fé continuar presente na rotina.
+              não cansar e a fé continuar presente na rotina.
             </p>
           </div>
 
@@ -864,7 +864,7 @@ function Index() {
               {
                 icon: RotateCcw,
                 title: "Pra jogar de novo",
-                desc: "A criança pede para repetir — e a Palavra volta com ela.",
+                desc: "A criança pede para repetir, e a Palavra volta com ela.",
               },
             ].map((c) => (
               <div key={c.title} className="rounded-3xl border bg-card p-6 text-center shadow-sm">
@@ -930,7 +930,7 @@ function Index() {
                   <Star className="h-3.5 w-3.5 fill-current" /> Recomendado
                 </div>
                 <h3 className="mt-4 font-display text-2xl font-bold text-deep">Kit Completo</h3>
-                <p className="mt-1 text-sm text-muted-foreground">20 jogos — a coleção completa</p>
+                <p className="mt-1 text-sm text-muted-foreground">20 jogos, a coleção completa</p>
 
                 <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-bold text-red-700">
                   <Flame className="h-3.5 w-3.5" /> 60% OFF de lançamento
@@ -1012,7 +1012,7 @@ function Index() {
                   <Star className="h-3.5 w-3.5 fill-current" /> Recomendado
                 </div>
                 <h3 className="mt-4 font-display text-2xl font-bold text-deep">Kit Básico</h3>
-                <p className="mt-1 text-sm text-muted-foreground">10 jogos — para começar</p>
+                <p className="mt-1 text-sm text-muted-foreground">10 jogos, para começar</p>
 
                 <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-bold text-red-700">
                   <Flame className="h-3.5 w-3.5" /> 60% OFF de lançamento

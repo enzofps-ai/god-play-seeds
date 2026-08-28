@@ -21,10 +21,9 @@ import {
   ArrowRight,
   Cross,
   Mail,
-  TriangleAlert,
+  Printer,
   Flame,
   Zap,
-  Palette,
 } from "lucide-react";
 
 const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
@@ -32,17 +31,20 @@ const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kit de Jogos Bíblicos: Seu filho aprende a Bíblia brincando" },
+      { title: "Kit de Jogos Bíblicos: seu filho aprende a Bíblia brincando" },
       {
         name: "description",
         content:
-          "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam. Kit digital com 20 jogos bíblicos que transformam a Palavra em brincadeira: a criança aprende sobre Deus sem perceber. Acesso imediato a partir de R$17,90.",
+          "Um kit digital com 20 jogos bíblicos prontos para imprimir, feito para a mãe cristã transformar alguns minutos da rotina em uma brincadeira que ensina a Palavra, reduz tela e cria conexão com o filho — sem virar aula. Acesso imediato a partir de R$17,90.",
       },
-      { property: "og:title", content: "Seu filho não acha a Bíblia chata. Chato é o jeito que ensinam" },
+      {
+        property: "og:title",
+        content: "Faça seu filho aprender a Bíblia brincando — e querer jogar de novo",
+      },
       {
         property: "og:description",
         content:
-          "20 jogos bíblicos prontos para imprimir. A criança pede para jogar de novo e aprende sobre Deus brincando, em casa, na EBD ou no ministério infantil.",
+          "20 jogos bíblicos prontos para imprimir. A criança se diverte e aprende sobre Deus, longe das telas e perto de você. Acesso imediato, pagamento único, garantia de 7 dias.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "" },
@@ -51,50 +53,52 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+// ---------------------------------------------------------------------------
+// Dados da página. Persona única: a mãe cristã. Sem linguagem de EBD / igreja /
+// professora / ministério — toda a copy fala com "seu filho", "em casa", "com
+// você" (ver plano LP-MAE-V1.0, seção 2).
+// ---------------------------------------------------------------------------
+
 // Tipos de jogos que vêm no kit — selos compactos e sem imagem usados nos
 // cards de oferta (texto puro, custo zero de carregamento).
 const baseKinds = ["Uno & Cartas", "Quiz Bíblico", "Caça-palavras", "Mímica", "Tabuleiro"];
 const fullKinds = [...baseKinds, "Super Trunfo", "Encontre"];
 
+// Benefícios essenciais (plano, seção 5) — ícone simples + frase curta. Seis no
+// total, leves no mobile (grade 2 colunas).
 const benefits = [
-  { icon: BookOpen, text: "Conhecimento bíblico" },
-  { icon: Sparkles, text: "Atenção e concentração" },
-  { icon: Heart, text: "Valores cristãos" },
-  { icon: Users, text: "Interação em família" },
-  { icon: Tv, text: "Menos tempo nas telas" },
-  { icon: ShieldCheck, text: "Memória e raciocínio" },
-];
-
-// Liga/desliga a microcopy curta abaixo do título no card "Garantia de 7 dias".
-// Troque para true para exibi-la.
-const SHOW_GUARANTEE_MICROCOPY = false;
-
-const trustSignals = [
-  { icon: Lock, title: "Pagamento 100% seguro" },
-  {
-    icon: RotateCcw,
-    title: "Garantia de 7 dias",
-    micro: "100% do valor de volta em até 7 dias.",
-  },
-  { icon: ShieldCheck, title: "Dados protegidos" },
+  { icon: BookOpen, text: "Conhecimento bíblico de forma leve" },
+  { icon: Tv, text: "Menos minutos de tela" },
+  { icon: Sparkles, text: "Mais atenção, memória e raciocínio" },
+  { icon: Cross, text: "Valores cristãos presentes na rotina" },
+  { icon: Heart, text: "Interação real entre mãe e filho" },
+  { icon: Clock, text: "Uma atividade pronta quando você precisa" },
 ];
 
 const faqs = [
   {
     q: "O material é físico ou digital?",
-    a: "É 100% digital. Após a compra você recebe os arquivos na hora e pode imprimir quantas vezes quiser, em casa ou em gráfica. Nenhum item físico é enviado pelo correio.",
+    a: "É 100% digital. Nenhum item físico é enviado pelo correio. Após a compra você recebe os arquivos na hora e pode imprimir quantas vezes quiser, em casa ou em uma gráfica.",
   },
   {
     q: "Preciso de impressora para usar?",
-    a: "Não é obrigatório. Você pode imprimir em casa, em uma gráfica próxima ou usar os arquivos direto na tela do celular, tablet ou computador com as crianças.",
+    a: "Para jogar no papel, sim — você imprime em casa ou em uma gráfica próxima. Alguns jogos também podem ser abertos direto na tela do celular, tablet ou computador para brincar com seu filho.",
+  },
+  {
+    q: "Preciso de papel especial ou plastificar?",
+    a: "Não é obrigatório. Papel comum já funciona bem. Se quiser mais durabilidade para usar várias vezes, você pode imprimir em papel mais grosso ou plastificar — mas isso é totalmente opcional.",
   },
   {
     q: "Para qual idade os jogos são indicados?",
-    a: "Os jogos foram pensados para crianças em fase de alfabetização até a pré-adolescência, e também funcionam muito bem em atividades em grupo com idades variadas.",
+    a: "Foram pensados para crianças em fase de alfabetização até a pré-adolescência, e funcionam bem também em brincadeiras com irmãos de idades diferentes.",
+  },
+  {
+    q: "Posso imprimir novamente depois?",
+    a: "Pode. O material fica com você: sempre que quiser, é só abrir o arquivo e imprimir de novo para uso pessoal com seu filho.",
   },
   {
     q: "Qual a diferença entre o Kit Básico e o Kit Completo?",
-    a: "O Kit Básico traz 10 jogos, ideal para começar. O Kit Completo traz todos os 20 jogos e mais variedade de dinâmicas, sendo a opção mais escolhida por quem quer aproveitar ao máximo em casa, na EBD ou no ministério infantil.",
+    a: "O Kit Básico traz 10 jogos, ideal para começar. O Kit Completo traz todos os 20 jogos e mais variedade de dinâmicas — é a opção mais escolhida por quem quer ter sempre uma brincadeira nova à mão em casa.",
   },
   {
     q: "O pagamento é único ou tem mensalidade?",
@@ -102,21 +106,12 @@ const faqs = [
   },
   {
     q: "Em quanto tempo recebo o acesso?",
-    a: "Imediatamente após a confirmação do pagamento você recebe o link de acesso para baixar todos os arquivos.",
+    a: "Imediatamente após a confirmação do pagamento você recebe o link para baixar todos os arquivos.",
   },
   {
     q: "E se eu não gostar do material?",
-    a: "A compra é processada em ambiente seguro e você pode entrar em contato com o suporte a qualquer momento para tirar dúvidas sobre o conteúdo antes ou depois de comprar.",
+    a: "Você tem a garantia de 7 dias. Se o material não fizer sentido para a sua família, é só falar com o suporte dentro do prazo que devolvemos 100% do valor.",
   },
-];
-
-const audiences = [
-  "Mães e pais cristãos",
-  "Professoras de EBD",
-  "Líderes de célula infantil",
-  "Ministério infantil",
-  "Famílias que querem menos telas",
-  "Igrejas com atividades prontas",
 ];
 
 // Os 20 jogos do kit, na mesma ordem das artes do produto. Os BASIC_GAME_COUNT
@@ -146,6 +141,55 @@ const kitGames = [
 ];
 const BASIC_GAME_COUNT = 10;
 
+// Constrói o srcSet responsivo de uma imagem de /images seguindo o padrão de
+// variantes do projeto: "<nome>-640.webp" e "<nome>-700.webp" + o arquivo base
+// (maior). Centraliza a regra usada na galeria e nos destaques de jogos.
+function srcSetFor(src: string) {
+  const b640 = src.replace(/\.webp$/, "-640.webp");
+  const b700 = src.replace(/\.webp$/, "-700.webp");
+  return `${b640} 640w, ${b700} 700w, ${src} 820w`;
+}
+
+// Fotos reais do produto impresso/em uso — a prova visual da seção 2 e da seção
+// de confiança. São imagens reais do cliente (plano: "não substituir por fotos
+// genéricas de banco de imagens").
+const realProducts = [
+  {
+    src: "/images/real-uno-mesa.webp",
+    alt: "Uno da Fé impresso sobre a mesa, pronto para jogar em família",
+  },
+  {
+    src: "/images/imprimindo-uno-biblico.webp",
+    alt: "Cartas do Uno bíblico saindo da impressora de casa",
+  },
+  {
+    src: "/images/real-siga-cristo-mesa.webp",
+    alt: "Tabuleiro Siga a Cristo impresso e montado sobre a mesa",
+  },
+  {
+    src: "/images/real-super-trunfo.webp",
+    alt: "Cartas do Super Trunfo bíblico impressas, com a carta de Marcos 10.45 em destaque",
+  },
+  {
+    src: "/images/real-quiz-biblico.webp",
+    alt: "Cartas do Quiz Bíblico impressas e organizadas ao lado da caixinha do jogo",
+  },
+];
+
+// Jogos com melhor apelo visual, destacados com a arte real na seção "Conteúdo
+// do kit" (plano seção 7: "dê mais destaque visual para 6–8 jogos"). A lista
+// completa dos 20 aparece logo abaixo.
+const highlightGames = [
+  { name: "Uno da Fé", src: "/images/uno-da-fe.webp" },
+  { name: "Super Trunfo Bíblico", src: "/images/super-trunfo-personagens.webp" },
+  { name: "Quiz Bíblico", src: "/images/quiz-biblico.webp" },
+  { name: "Siga a Cristo", src: "/images/siga-a-cristo.webp" },
+  { name: "Spot It Bíblico", src: "/images/spot-it-biblico.webp" },
+  { name: "Mímica Bíblica", src: "/images/jogo-mimico-biblico.webp" },
+  { name: "Passatempo", src: "/images/passatempo-biblico.webp" },
+  { name: "Encontre", src: "/images/encontre.webp" },
+];
+
 // Smoothly slides the page to the offer section and keeps a sliding shine on the
 // clicked button until the scroll settles.
 //
@@ -153,9 +197,9 @@ const BASIC_GAME_COUNT = 10;
 // "smooth" })` because the native version locks onto a single target pixel at
 // click time. On slower devices, images above the fold finish loading mid-scroll
 // and shift the layout, so that pixel becomes stale and the page overshoots the
-// price cards — landing on the 7-day guarantee below. This tween re-reads the
-// target's live position every frame, so it always settles exactly at the top of
-// the offer section no matter how the layout shifts during the animation.
+// price cards. This tween re-reads the target's live position every frame, so it
+// always settles exactly at the top of the offer section no matter how the
+// layout shifts during the animation.
 function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
   const target = document.getElementById("oferta");
   if (!target) return; // fall back to the default anchor jump
@@ -185,11 +229,9 @@ function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
 
   // Ease-in-out (gentle start, gentle stop) with a distance-aware duration so
   // both short and full-page slides feel equally smooth — never a jarring dash.
-  // Clamped tight enough to stay snappy on mobile.
   const distance = Math.abs(destination() - startY);
   const duration = Math.min(1000, Math.max(650, distance * 0.22));
-  const easeInOutCubic = (t: number) =>
-    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
   const step = (now: number) => {
     const t = Math.min(1, (now - startTime) / duration);
@@ -208,7 +250,10 @@ function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
   requestAnimationFrame(step);
 }
 
-function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: React.ReactNode }) {
+// CTA guarda-chuva: rola até a oferta (#oferta). Não é um botão de checkout — os
+// botões que levam ao PerfectPay ficam só nos cards de oferta, para não
+// interferir na mensuração de InitiateCheckout (disparada do lado do checkout).
+function CTAButton({ children = "Quero conhecer os jogos" }: { children?: React.ReactNode }) {
   return (
     <a href="#oferta" onClick={slideToOffer} className="btn-cta nav-cta">
       {children}
@@ -218,8 +263,7 @@ function CTAButton({ children = "Quero Receber o Kit Agora" }: { children?: Reac
 }
 
 // Badge discreto e monocromático de forma de pagamento — wordmark leve, sem
-// imagem externa (zero requisição de rede). Para trocar pelos logos oficiais das
-// bandeiras, basta substituir o conteúdo por um SVG inline aqui.
+// imagem externa (zero requisição de rede).
 function PayBadge({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex h-7 items-center rounded-md border border-[#E7D9B4] bg-white px-2.5 text-[0.7rem] font-semibold tracking-wide text-deep/80 shadow-sm sm:h-8 sm:text-xs">
@@ -228,7 +272,7 @@ function PayBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Contador de urgência do Kit Completo. Reinicia em 1h23m a cada visita (sem
+// Contador da oferta de lançamento. Reinicia em 1h23m a cada visita (sem
 // persistência) — um único setInterval de 1s e nenhuma biblioteca, custo mínimo.
 // O estado inicial é o mesmo no servidor e no cliente (01:23:00), então não há
 // mismatch de hidratação; o relógio só começa a andar depois que monta.
@@ -247,16 +291,16 @@ function OfferCountdown() {
   const mm = pad(Math.floor((left % 3600) / 60));
   const ss = pad(left % 60);
   const box =
-    "rounded-md bg-deep px-1.5 py-1 text-xs font-bold tabular-nums text-cream md:px-2 md:py-1.5 md:text-lg";
-  const colon = "text-xs font-bold text-deep/70 md:text-lg";
+    "rounded-lg bg-deep px-2 py-1.5 text-sm font-bold tabular-nums text-cream md:px-2.5 md:text-lg";
+  const colon = "text-sm font-bold text-deep/60 md:text-lg";
 
   return (
-    <div className="mt-2.5 md:mt-4">
-      <div className="flex items-center justify-center gap-1 text-[0.55rem] font-semibold uppercase tracking-wide text-red-700 md:text-[0.7rem]">
-        <Clock className="h-3 w-3 md:h-3.5 md:w-3.5" /> Essa oferta acaba em
+    <div className="flex flex-col items-center">
+      <div className="flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-wide text-red-700 md:text-xs">
+        <Clock className="h-3.5 w-3.5" /> A oferta de lançamento acaba em
       </div>
       <div
-        className="mt-1 flex items-center justify-center gap-0.5 font-display md:mt-1.5 md:gap-1"
+        className="mt-1.5 flex items-center gap-1 font-display"
         role="timer"
         aria-live="off"
         aria-label={`Oferta acaba em ${hh}:${mm}:${ss}`}
@@ -291,10 +335,9 @@ function useAutoRotate<T extends HTMLElement>(length: number, delayMs: number) {
     const start = () => {
       if (!timer) timer = setInterval(() => setCurrent((prev) => (prev + 1) % length), delayMs);
     };
-    const io = new IntersectionObserver(
-      ([entry]) => (entry.isIntersecting ? start() : stop()),
-      { threshold: 0.2 },
-    );
+    const io = new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()), {
+      threshold: 0.2,
+    });
     io.observe(el);
     return () => {
       stop();
@@ -305,68 +348,11 @@ function useAutoRotate<T extends HTMLElement>(length: number, delayMs: number) {
   return { current, setCurrent, ref };
 }
 
-const realProducts = [
-  { src: "/images/real-uno-mesa.webp", alt: "Uno Cristiano impresso sobre a mesa, pronto para jogar" },
-  { src: "/images/imprimindo-uno-biblico.webp", alt: "Uno Bíblico sendo impresso na impressora de casa" },
-  { src: "/images/real-siga-cristo-mesa.webp", alt: "Tabuleiro Siga a Cristo impresso e montado sobre a mesa" },
-  { src: "/images/real-super-trunfo.webp", alt: "Cartas do Super Trunfo bíblico impressas, com a carta de Marcos 10.45 em destaque" },
-  { src: "/images/real-quiz-biblico.webp", alt: "Cartas do Quiz Bíblico impressas e organizadas ao lado da caixinha do jogo" },
-];
-
-function RealProductSlideshow() {
-  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(realProducts.length, 1800);
-
-  return (
-    <div ref={ref} className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl" style={{ aspectRatio: "1" }}>
-      <div
-        className="flex h-full transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)` }}
-      >
-        {realProducts.map((p, i) => (
-          <img
-            key={p.src}
-            src={p.src}
-            srcSet={`${p.src.replace(/\.webp$/, "-640.webp")} 560w, ${p.src.replace(/\.webp$/, "-700.webp")} 700w, ${p.src} 820w`}
-            sizes="(min-width: 1024px) 560px, 90vw"
-            alt={p.alt}
-            loading="lazy"
-            decoding="async"
-            width={820}
-            height={820}
-            className="h-full w-full flex-shrink-0 object-cover"
-            fetchPriority="low"
-          />
-        ))}
-      </div>
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
-        {realProducts.map((p, i) => (
-          <button
-            key={p.src}
-            onClick={() => setCurrent(i)}
-            aria-label={`Ver imagem ${i + 1}`}
-            className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-              i === current ? "bg-cream" : "bg-cream/50"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Headline principal do hero (H1). Extraída em constantes para facilitar testes
-// A/B — troque APENAS estas duas strings; estrutura, cores (branca/dourada),
-// tamanho e peso da fonte permanecem inalterados.
-const HERO_HEADLINE_LIGHT = "Daqui a 10 anos, o que seu filho vai lembrar";
-const HERO_HEADLINE_GOLD = "da fé que você ensinou em casa?";
-
-// Faixa promocional fixa no topo — marquee com gatilhos de urgência deslizando
-// para a direita em loop contínuo. Os textos refletem exatamente a oferta dos
-// cards (60% OFF hoje, Kit Completo R$27,90 de R$69,90, bônus grátis, pagamento
-// único com acesso vitalício, garantia de 7 dias).
+// Faixa promocional fixa no topo — marquee com os gatilhos da oferta deslizando
+// em loop contínuo. Reflete a oferta real dos cards (60% OFF de lançamento, Kit
+// Completo R$27,90, bônus grátis, pagamento único vitalício, garantia de 7 dias).
 const PROMO_ITEMS = [
-  { icon: Flame, text: "Oferta de lançamento: 60% OFF só hoje" },
-  { icon: Clock, text: "Preço promocional por tempo limitado" },
+  { icon: Flame, text: "Oferta de lançamento: 60% OFF" },
   { icon: Sparkles, text: "Kit Completo por R$27,90 — de R$69,90" },
   { icon: Gift, text: "Bônus grátis incluso na sua compra" },
   { icon: Zap, text: "Acesso imediato · pagamento único · para sempre" },
@@ -397,27 +383,90 @@ function PromoBar() {
   );
 }
 
+// Item de checklist reutilizável (marca dourada + texto). Usado nas seções de
+// identificação, mecanismo e no hero.
+function CheckItem({
+  children,
+  tone = "dark",
+}: {
+  children: React.ReactNode;
+  tone?: "dark" | "light";
+}) {
+  const ring =
+    tone === "light"
+      ? "bg-gold/20 ring-gold/40 text-gold"
+      : "bg-gold/20 ring-gold/30 text-gold-ink";
+  const text = tone === "light" ? "text-cream/90" : "text-card-foreground";
+  return (
+    <li className="flex items-start gap-3">
+      <span
+        className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ring-1 ${ring}`}
+      >
+        <Check className="h-3.5 w-3.5" />
+      </span>
+      <span className={`text-base sm:text-lg ${text}`}>{children}</span>
+    </li>
+  );
+}
+
+// CTA fixo no rodapé apenas no mobile. Rola para a oferta (#oferta) — como há
+// dois kits, ele leva à seção de escolha, não a um checkout específico (plano
+// seção 8). Some quando a própria oferta está visível para não cobrir os cards
+// nem o botão do navegador (respeita a safe-area inferior).
+function StickyMobileCTA() {
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    const target = document.getElementById("oferta");
+    if (!target) return;
+    const io = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), {
+      threshold: 0.15,
+    });
+    io.observe(target);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-gold/30 bg-cream/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 sm:hidden ${
+        hidden ? "translate-y-full" : "translate-y-0"
+      }`}
+      style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
+    >
+      <a
+        href="#oferta"
+        onClick={slideToOffer}
+        className="btn-cta nav-cta w-full justify-center !py-3"
+      >
+        Ver os kits — a partir de R$17,90
+        <ArrowRight className="h-4 w-4" />
+      </a>
+    </div>
+  );
+}
+
 function Index() {
   return (
     <main className="bg-background text-foreground">
-      {/* PROMO — faixa de urgência deslizante no topo */}
+      {/* 0 — BARRA SUPERIOR (valor + oferta) */}
       <PromoBar />
 
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-deep pb-14 pt-24 text-cream sm:pb-20 sm:pt-28 md:pb-32 md:pt-40">
+      {/* 1 — HERO GUARDA-CHUVA: promessa ampla + produto + CTA + trust bar */}
+      <section className="relative overflow-hidden bg-deep pb-14 pt-24 text-cream sm:pb-20 sm:pt-28 md:pb-28 md:pt-36">
         {/* NAV (sobreposto ao hero, abaixo da faixa promocional) */}
         <header className="absolute top-0 left-0 right-0 z-20">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
             <div className="flex items-center gap-2 text-cream">
               <Cross className="h-5 w-5 text-gold" />
-              <span className="font-display text-base font-semibold sm:text-lg">Achadinhos Bíblicos</span>
+              <span className="font-display text-base font-semibold sm:text-lg">
+                Achadinhos Bíblicos
+              </span>
             </div>
             <a
               href="#oferta"
               onClick={slideToOffer}
               className="nav-cta hidden rounded-full border border-white/20 px-4 py-2 text-sm text-cream backdrop-blur-md hover:bg-white/10 sm:inline-flex"
             >
-              Garantir kit
+              Ver os kits
             </a>
           </div>
         </header>
@@ -433,32 +482,52 @@ function Index() {
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <span className="chip text-[0.7rem] sm:text-sm">
-              <Sparkles className="h-3.5 w-3.5 text-gold" /> Para mães e pais que ensinam a fé em casa
+              <Sparkles className="h-3.5 w-3.5 text-gold" /> Para mães cristãs que ensinam a fé no
+              dia a dia
             </span>
-            <h1 className="mt-5 text-center font-display text-[2rem] font-bold leading-[1.12] tracking-tight sm:mt-6 sm:text-[2.6rem] md:text-[3.25rem]">
+            <h1 className="mt-5 font-display text-[2rem] font-bold leading-[1.12] tracking-tight sm:mt-6 sm:text-[2.6rem] md:text-[3.1rem]">
               <span
                 className="block text-cream"
                 style={{ textShadow: "0 0 16px rgba(255, 248, 230, 0.22)" }}
               >
-                {HERO_HEADLINE_LIGHT}
+                Faça seu filho aprender a Bíblia brincando
               </span>
               <span
                 className="mt-1 block text-gold"
-                style={{ textShadow: "0 0 1px rgba(255, 224, 158, 0.5), 0 0 20px rgba(230, 170, 60, 0.4)" }}
+                style={{
+                  textShadow: "0 0 1px rgba(255, 224, 158, 0.5), 0 0 20px rgba(230, 170, 60, 0.4)",
+                }}
               >
-                {HERO_HEADLINE_GOLD}
+                — e querer jogar de novo.
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">
-              Transforme alguns minutos do dia em momentos que seu filho pode{" "}
-              <span className="font-semibold text-cream">levar para a vida toda</span>. Conheça o
-              kit com 20 jogos bíblicos prontos para imprimir que torna o aprendizado da Palavra
-              leve, divertido e natural.
+              Um kit digital com{" "}
+              <span className="font-semibold text-cream">
+                20 jogos bíblicos prontos para imprimir
+              </span>
+              , feito para transformar alguns minutos longe das telas em momentos leves de fé,
+              diversão e conexão com você.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-4 sm:mt-9">
+            <ul className="mt-6 space-y-2.5 sm:mt-7">
+              {[
+                "20 jogos prontos para imprimir",
+                "Acesso imediato após a compra",
+                "Pagamento único e acesso para sempre",
+              ].map((t) => (
+                <li
+                  key={t}
+                  className="flex items-center gap-2.5 text-sm text-cream/85 sm:text-base"
+                >
+                  <Check className="h-4 w-4 shrink-0 text-gold" /> {t}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-7 flex flex-col items-start gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
               <CTAButton />
               <div className="flex items-center gap-2 text-sm text-cream/70">
-                <Download className="h-4 w-4 shrink-0 text-gold" /> Acesso imediato após a compra
+                <ShieldCheck className="h-4 w-4 shrink-0 text-gold" /> Garantia de 7 dias · 100%
+                digital
               </div>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-cream/70 sm:mt-10">
@@ -468,12 +537,6 @@ function Index() {
                 ))}
                 <span className="ml-1 text-cream/80">+1.200 famílias abençoadas</span>
               </div>
-              <div className="hidden h-4 w-px bg-white/20 sm:block" />
-              <span>20 jogos prontos para imprimir</span>
-              <div className="hidden h-4 w-px bg-white/20 sm:block" />
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-4 w-4 text-gold" /> Garantia de 7 dias
-              </span>
             </div>
           </div>
 
@@ -491,7 +554,7 @@ function Index() {
                 src={heroKids}
                 srcSet={`${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1000w`}
                 sizes="(min-width: 1024px) 620px, 100vw"
-                alt="Crianças felizes jogando jogos bíblicos juntos"
+                alt="Mãe e filhos felizes jogando jogos bíblicos juntos sobre a mesa"
                 width={1536}
                 height={864}
                 fetchPriority="high"
@@ -516,168 +579,248 @@ function Index() {
         </div>
       </section>
 
-      {/* ALERTA */}
-      <section className="bg-deep px-4 pb-16 pt-4 text-cream sm:px-6 sm:pb-24">
-        <div className="mx-auto max-w-2xl">
-          <div className="relative overflow-hidden rounded-[1.5rem] border border-gold/25 bg-white/[0.035] p-6 shadow-2xl backdrop-blur-sm sm:p-9">
-            <div
-              aria-hidden
-              className="absolute inset-0 opacity-70"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 0%, oklch(0.45 0.15 75 / 0.3), transparent 62%)",
-              }}
-            />
-            <div className="relative flex flex-col items-center text-center">
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/15 ring-1 ring-gold/30">
-                <TriangleAlert className="h-7 w-7 text-gold" />
-              </span>
-              <span className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-gold">
-                Atenção
-              </span>
-              <p className="mt-3 text-base leading-relaxed text-cream/85 sm:text-lg">
-                A infância passa rápido. A fé e os valores que seu filho leva pra vida são
-                plantados <span className="font-semibold text-cream">agora</span>, nos pequenos
-                momentos do dia a dia — e cada semana que passa é uma chance a menos de criar
-                essas lembranças em casa.
-              </p>
-            </div>
+      {/* 2 — PROVA VISUAL IMEDIATA: o que a mãe recebe e como fica impresso */}
+      <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="section-eyebrow">Veja o produto de verdade</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              Não é mais uma atividade esquecida no celular
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+              Você recebe os arquivos e pode colocar a brincadeira na mesa ainda hoje. Estas são
+              fotos reais do material impresso — do jeitinho que ele chega até o seu filho.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-2.5 sm:mt-12 sm:gap-4 lg:grid-cols-3">
+            {realProducts.map((p, i) => (
+              <div
+                key={p.src}
+                className={`overflow-hidden rounded-2xl border bg-card shadow-md sm:rounded-3xl ${
+                  i === 0 ? "col-span-2 lg:col-span-1 lg:row-span-2" : ""
+                }`}
+              >
+                <img
+                  src={p.src}
+                  srcSet={srcSetFor(p.src)}
+                  sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+                  alt={p.alt}
+                  loading="lazy"
+                  decoding="async"
+                  width={820}
+                  height={820}
+                  className={`w-full object-cover ${i === 0 ? "h-full lg:aspect-auto" : ""}`}
+                  style={i === 0 ? undefined : { aspectRatio: "1" }}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col items-center gap-4 text-center sm:mt-10">
+            <p className="inline-flex items-center gap-2 text-sm text-muted-foreground sm:text-base">
+              <Printer className="h-4 w-4 text-gold-ink" /> Arquivo → impressora → mesa. Simples
+              assim.
+            </p>
+            <CTAButton>Quero conhecer os jogos</CTAButton>
           </div>
         </div>
       </section>
 
-      {/* SOLUTION */}
+      {/* 3 — IDENTIFICAÇÃO: a rotina real de uma mãe (tela, cansaço, falta de tempo) */}
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <span className="section-eyebrow text-gold">A rotina real de uma mãe</span>
+            <h2 className="mx-auto mt-4 max-w-2xl text-2xl font-bold sm:text-3xl md:text-4xl">
+              Você quer ensinar mais sobre Deus. O difícil é fazer isso caber no dia a dia.
+            </h2>
+          </div>
+          <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-cream/80 sm:text-lg">
+            Entre trabalho, casa, cansaço e uma tela que prende a atenção em segundos, transformar o
+            momento da Bíblia em algo que a criança queira participar nem sempre é simples.
+          </p>
+          <ul className="mx-auto mt-8 grid max-w-2xl gap-3 sm:mt-10">
+            {[
+              "Você não quer transformar a fé em cobrança.",
+              "Não quer passar horas preparando atividade.",
+              "E também não quer que toda alternativa ao celular vire uma briga.",
+            ].map((t) => (
+              <CheckItem key={t} tone="light">
+                {t}
+              </CheckItem>
+            ))}
+          </ul>
+
+          {/* Beat emocional (legado + "a infância passa"): reposicionado abaixo da
+              hero, como manda o plano — sem monopolizar o primeiro scroll. */}
+          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-gold/25 bg-white/[0.04] p-6 text-center backdrop-blur-sm sm:mt-12 sm:p-8">
+            <p className="text-base leading-relaxed text-cream/85 sm:text-lg">
+              A infância passa rápido — e a fé que fica é plantada{" "}
+              <span className="font-semibold text-cream">agora</span>, nos pequenos momentos do dia
+              a dia.
+            </p>
+            <p className="mt-4 font-display text-lg font-semibold text-gold sm:text-xl">
+              Foi exatamente por isso que os jogos foram criados.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4 — MECANISMO: ensinar brincando */}
       <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 lg:order-1">
             <RealProductSlideshow />
-            <div className="mt-7 sm:mt-8">
-              <CTAButton>Quero ensinar brincando</CTAButton>
-            </div>
           </div>
           <div className="order-1 lg:order-2">
             <span className="section-eyebrow">A solução</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Ensine brincando, e ela vai{" "}
-              <span className="text-gold-ink">querer aprender de novo</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              A Bíblia não precisa virar aula para{" "}
+              <span className="text-gold-ink">fazer parte da infância</span>
             </h2>
+            <p className="mt-5 text-base text-card-foreground sm:text-lg">
+              Quando a criança entra pela brincadeira, a atenção vem primeiro. Enquanto joga, ela
+              encontra personagens, histórias, perguntas e valores bíblicos de um jeito natural — e
+              o aprendizado acontece no meio de um momento que ela realmente quer repetir.
+            </p>
             <ul className="mt-6 space-y-3 sm:mt-7">
               {[
-                "A criança pede pra jogar, sem você precisar insistir",
-                "Aprende a Bíblia sem perceber que está estudando",
-                "Momentos reais em família, longe da tela",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30">
-                    <Check className="h-3.5 w-3.5 text-gold-ink" />
-                  </span>
-                  <span className="text-base text-card-foreground sm:text-lg">{item}</span>
-                </li>
+                "Ela brinca sem sentir que está “estudando”.",
+                "Você participa sem precisar preparar uma aula.",
+                "A repetição do jogo cria novas conversas sobre a fé.",
+              ].map((t) => (
+                <CheckItem key={t}>{t}</CheckItem>
               ))}
             </ul>
+            <div className="mt-8">
+              <CTAButton>Quero ensinar brincando</CTAButton>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
+      {/* 5 — BENEFÍCIOS ESSENCIAIS */}
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="max-w-2xl">
+          <div className="mx-auto max-w-2xl text-center">
             <span className="section-eyebrow text-gold">Muito mais que brincadeira</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Enquanto brinca, seu filho desenvolve o que fica pra vida
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              Alguns minutos de brincadeira. Muito mais acontecendo ao mesmo tempo.
             </h2>
-            <p className="mt-5 text-sm text-cream/75 sm:text-base">
-              Cada jogo foi pensado para plantar fé e valores enquanto a criança se diverte, sem
-              cobrança, sem tédio, sem tela. Ela joga; o aprendizado acontece sozinho.
-            </p>
           </div>
           <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-6 lg:grid-cols-3">
             {benefits.map(({ icon: Icon, text }) => (
               <div
                 key={text}
-                className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-sm transition hover:border-gold/50 sm:rounded-2xl sm:p-6"
+                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition hover:border-gold/50 sm:p-6"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/20 sm:h-12 sm:w-12 sm:rounded-xl">
-                  <Icon className="h-4.5 w-4.5 text-gold sm:h-6 sm:w-6" />
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold/20 sm:h-11 sm:w-11 sm:rounded-xl">
+                  <Icon className="h-4.5 w-4.5 text-gold sm:h-5 sm:w-5" />
                 </div>
-                <p className="mt-3 text-sm font-medium leading-snug sm:mt-4 sm:text-lg">{text}</p>
+                <p className="text-sm font-medium leading-snug sm:text-base">{text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AUDIENCE */}
+      {/* 6 — COMO FUNCIONA: recebe → imprime → joga */}
       <section className="px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-5xl text-center">
-          <span className="section-eyebrow">Ideal para</span>
-          <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-            Feito para quem quer plantar a fé com leveza
-          </h2>
-          <div className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-10 sm:gap-3">
-            {audiences.map((a) => (
-              <span
-                key={a}
-                className="rounded-full border bg-card px-3.5 py-2 text-xs font-medium text-card-foreground shadow-sm sm:px-5 sm:py-2.5 sm:text-sm"
-              >
-                {a}
-              </span>
-            ))}
-          </div>
-          <p className="mt-8 text-base text-muted-foreground sm:mt-10 sm:text-lg">
-            Use em casa, na EBD, em encontros com crianças, brincadeiras em grupo ou atividades
-            especiais na igreja.
-          </p>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <span className="section-eyebrow">Como funciona</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
               Simples. Imediato. Sem complicação.
             </h2>
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+              Da compra para a mesa em 3 passos.
+            </p>
           </div>
-          <div className="mt-10 grid grid-cols-3 gap-2.5 sm:mt-14 sm:gap-6">
+          <div className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-3 sm:gap-6">
             {[
-              { step: "01", title: "Acesso imediato", icon: Download },
-              { step: "02", title: "Imprima e prepare", icon: BookOpen },
-              { step: "03", title: "Brinque e ensine", icon: Gamepad2 },
+              {
+                step: "01",
+                title: "Receba o acesso",
+                desc: "O material digital chega logo após a confirmação do pagamento.",
+                icon: Download,
+              },
+              {
+                step: "02",
+                title: "Escolha e imprima",
+                desc: "Abra o jogo que quiser usar e prepare as peças necessárias.",
+                icon: Printer,
+              },
+              {
+                step: "03",
+                title: "Sente e jogue",
+                desc: "Sem aula pronta, sem roteiro complicado — só você e seu filho.",
+                icon: Gamepad2,
+              },
             ].map((s) => (
-              <div key={s.step} className="relative rounded-xl border bg-card p-4 shadow-sm sm:rounded-3xl sm:p-6">
-                <div className="font-display text-2xl text-gold-ink/80 sm:text-5xl">{s.step}</div>
-                <s.icon className="absolute right-3 top-3 hidden h-5 w-5 text-deep/40 sm:right-6 sm:top-6 sm:block sm:h-6 sm:w-6" />
-                <h3 className="mt-2 text-sm font-semibold leading-tight text-card-foreground sm:mt-3 sm:text-xl">{s.title}</h3>
+              <div key={s.step} className="relative rounded-3xl border bg-card p-6 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-4xl text-gold-ink/70 sm:text-5xl">
+                    {s.step}
+                  </span>
+                  <s.icon className="h-6 w-6 text-deep/40" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-card-foreground sm:text-xl">
+                  {s.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground sm:text-base">{s.desc}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-xs text-muted-foreground sm:mt-10 sm:text-sm">
-            Importante: este é um produto digital. Nenhum item físico será enviado.
+          <p className="mt-8 text-center text-sm text-muted-foreground sm:mt-10">
+            Produto digital. Nenhum item físico será enviado.
           </p>
         </div>
       </section>
 
-      {/* GAMES — mostra visualmente os 20 jogos e quais entram em cada kit,
-          respondendo à objeção "o que exatamente eu recebo?". Texto puro, sem
-          imagens, para não pesar no carregamento. */}
-      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
+      {/* 7 — CONTEÚDO DO KIT: 20 jogos, com destaque visual + lista completa */}
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-eyebrow text-gold">Conteúdo do kit</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Veja todos os jogos inclusos no kit
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              20 formas diferentes de aprender brincando
             </h2>
-            <p className="mt-5 text-sm text-cream/75 sm:text-base">
-              Receba na hora um acervo completo com 20 jogos diferentes, prontos para imprimir —
-              pra nunca faltar atividade com as crianças, na igreja, em casa ou na escola bíblica.
+            <p className="mt-4 text-base text-cream/75 sm:text-lg">
+              Para não faltar ideia quando você quiser tirar a tela e colocar algo com propósito no
+              lugar.
             </p>
           </div>
 
+          {/* Destaques visuais — 6 a 8 jogos com a arte real */}
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+            {highlightGames.map((g) => (
+              <div
+                key={g.name}
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lg"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={g.src}
+                    srcSet={srcSetFor(g.src)}
+                    sizes="(min-width: 1024px) 260px, (min-width: 640px) 30vw, 45vw"
+                    alt={`Jogo ${g.name} do kit bíblico`}
+                    loading="lazy"
+                    decoding="async"
+                    width={820}
+                    height={820}
+                    className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <p className="px-3 py-2.5 text-center text-xs font-semibold text-cream sm:text-sm">
+                  {g.name}
+                </p>
+              </div>
+            ))}
+          </div>
+
           {/* Legenda: quais jogos entram em cada kit */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-cream/80 sm:mt-10 sm:text-sm">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-cream/80 sm:text-sm">
             <span className="inline-flex items-center gap-2">
               <span className="h-3.5 w-3.5 shrink-0 rounded-full bg-gold" aria-hidden />
               Já no Kit Básico <span className="text-cream/55">(10 jogos)</span>
@@ -691,8 +834,8 @@ function Index() {
             </span>
           </div>
 
-          {/* Grade dos 20 jogos */}
-          <ul className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-8 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+          {/* Lista completa dos 20 jogos */}
+          <ul className="mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
             {kitGames.map((name, i) => {
               const n = i + 1;
               const inBasic = n <= BASIC_GAME_COUNT;
@@ -704,7 +847,9 @@ function Index() {
                   <span
                     className={
                       "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[0.7rem] font-bold sm:h-7 sm:w-7 sm:text-xs " +
-                      (inBasic ? "bg-gold text-deep" : "bg-white/15 text-cream ring-1 ring-white/25")
+                      (inBasic
+                        ? "bg-gold text-deep"
+                        : "bg-white/15 text-cream ring-1 ring-white/25")
                     }
                   >
                     {n}
@@ -717,17 +862,75 @@ function Index() {
             })}
           </ul>
 
-          <div className="mt-8 flex flex-col items-center gap-4 text-center sm:mt-10">
+          <div className="mt-10 flex flex-col items-center gap-4 text-center">
             <p className="text-sm text-cream/70 sm:text-base">
-              Um kit completo, pronto para imprimir quantas vezes quiser.
+              Um acervo que fica com você para acessar e imprimir novamente quando quiser.
             </p>
             <CTAButton>Quero receber o kit</CTAButton>
           </div>
         </div>
       </section>
 
-      {/* OFFER */}
-      <section id="oferta" className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 md:py-32">
+      {/* 8 — PROVA / CONFIANÇA: prova de produto (sem depoimentos inventados) */}
+      <section className="px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="section-eyebrow">O que realmente importa</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              O melhor sinal não é a criança terminar. É ela querer repetir.
+            </h2>
+            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+              Material real, impresso em casa e usado na mesa. Variedade de jogos para a brincadeira
+              não cansar — e a fé continuar presente na rotina.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Printer,
+                title: "Impressão em casa",
+                desc: "Papel comum já funciona. Imprima quantas vezes quiser.",
+              },
+              {
+                icon: Gamepad2,
+                title: "Variedade real",
+                desc: "20 dinâmicas diferentes para não repetir sempre o mesmo jogo.",
+              },
+              {
+                icon: Users,
+                title: "Momento em família",
+                desc: "Feito para jogar junto, não só para ocupar a criança.",
+              },
+              {
+                icon: RotateCcw,
+                title: "Pra jogar de novo",
+                desc: "A criança pede para repetir — e a Palavra volta com ela.",
+              },
+            ].map((c) => (
+              <div key={c.title} className="rounded-3xl border bg-card p-6 text-center shadow-sm">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 ring-1 ring-gold/25">
+                  <c.icon className="h-6 w-6 text-gold-ink" />
+                </div>
+                <h3 className="mt-4 text-base font-semibold text-card-foreground">{c.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground sm:mt-10">
+            <div className="flex items-center gap-1 text-gold-ink">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-current" />
+              ))}
+            </div>
+            <span>+1.200 famílias já levaram os jogos para casa</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 9 — OFERTA: Kit Básico + Kit Completo (Completo dominante) */}
+      <section id="oferta" className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24">
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
@@ -737,280 +940,148 @@ function Index() {
           }}
         />
         <div className="mx-auto max-w-5xl">
-          <div className="mb-8 text-center sm:mb-12">
-            <span className="section-eyebrow">Oferta especial de lançamento</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
-              Comece a ensinar brincando ainda hoje
+          <div className="mb-6 text-center sm:mb-8">
+            <span className="section-eyebrow">Escolha o kit</span>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              Comece hoje com uma atividade pronta para fazer com seu filho
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-              São 20 jogos por menos de R$1 cada, e ainda leva 1 bônus grátis incluso. Pagamento
-              único, acesso pra sempre. Garanta o preço de lançamento antes que ele volte ao valor
-              normal.
+            <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
+              Pagamento único, acesso para sempre. Garanta o preço de lançamento antes que ele volte
+              ao valor normal.
             </p>
-            <a
-              href="mailto:suporte@achadinhosbiblicos.com.br"
-              className="group mt-5 inline-flex items-center gap-2.5 rounded-full border border-gold/30 bg-card/70 py-1.5 pl-1.5 pr-4 shadow-sm backdrop-blur-sm transition duration-300 hover:border-gold/50 hover:bg-card sm:mt-6"
-            >
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-gold/30 to-gold/5 ring-1 ring-gold/30 transition-transform duration-300 group-hover:scale-110 sm:h-8 sm:w-8">
-                <Mail className="h-3.5 w-3.5 text-gold-ink sm:h-4 sm:w-4" />
-              </span>
-              <span className="text-xs font-medium text-foreground sm:text-sm">
-                suporte@achadinhosbiblicos.com.br
-              </span>
-            </a>
           </div>
-          <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:gap-6">
-            {/* Kit Básico */}
-            <div className="relative flex min-w-0 flex-col overflow-hidden rounded-xl border-2 border-border bg-card p-3 text-center shadow-xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
-              {/* Invisible spacer mirroring the "Mais popular" badge on the Kit
-                  Completo card so every matching row lines up across both cards. */}
-              <div
-                aria-hidden
-                className="invisible mb-1.5 inline-block rounded-full px-2 py-0.5 text-[0.6rem] font-bold md:mb-3 md:px-3 md:py-1 md:text-xs"
-              >
-                Mais popular
-              </div>
-              <span className="section-eyebrow text-[0.6rem] md:text-xs">Kit Básico</span>
-              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">10 Jogos Bíblicos</h3>
-              <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">Metade da coleção</p>
 
-              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/15 px-2 py-0.5 text-[0.6rem] font-bold text-red-700 md:mt-2 md:px-3 md:py-1 md:text-xs">
-                60% OFF hoje
-              </div>
-              <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
-                <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
-                  R$49,90
-                </span>
-              </div>
-              <div className="mt-1 md:mt-2">
-                <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$17,90
-                </span>
-              </div>
-              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
-                pagamento único
-              </p>
+          {/* Contador único de lançamento acima dos cards — mantém a urgência sem
+              poluir os dois cards com relógios repetidos. */}
+          <div className="mx-auto mb-8 w-full max-w-sm rounded-2xl border border-gold/30 bg-card/80 px-5 py-4 shadow-sm backdrop-blur-sm sm:mb-10">
+            <OfferCountdown />
+          </div>
 
-              <p className="mt-3 mb-1.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold-ink md:mt-6 md:mb-2.5 md:text-xs">
-                Tipos de jogos incluídos
-              </p>
-              <div className="flex flex-wrap justify-center gap-1 md:gap-1.5">
-                {baseKinds.map((k) => (
-                  <span
-                    key={k}
-                    className="rounded-full bg-gold/10 px-2 py-0.5 text-[0.6rem] font-medium text-gold-ink ring-1 ring-gold/25 md:px-2.5 md:py-1 md:text-xs"
-                  >
-                    {k}
-                  </span>
-                ))}
-              </div>
-
-              {/* Bônus + contador + CTA ancorados no rodapé do card (mt-auto), para
-                  ficarem alinhados com o Kit Completo mesmo com menos selos acima.
-                  O bônus aqui é um espaçador invisível — o Kit Básico não tem bônus. */}
-              <div className="mt-auto flex flex-col pt-3 md:pt-5">
-                <div
-                  aria-hidden
-                  className="invisible rounded-lg border border-dashed border-gold/50 bg-gold/10 p-1.5 md:rounded-xl md:p-2.5"
-                >
-                  <div className="flex items-center justify-center gap-1 pb-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:pb-1.5 md:text-[0.7rem]">
-                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 1 Bônus grátis incluso
-                  </div>
-                  <div className="space-y-1 md:space-y-1.5">
-                    <div className="flex items-center gap-1.5 rounded-md bg-card px-2 py-1 shadow-sm ring-1 ring-gold/15 md:gap-2 md:rounded-lg md:px-2.5 md:py-1.5">
-                      <BookOpen className="h-3.5 w-3.5 shrink-0 text-gold-ink md:h-4 md:w-4" />
-                      <span className="text-left text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
-                        +100 Versículos organizados por temas
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <OfferCountdown />
-
-                <div className="flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
-                  <a
-                    href="https://go.perfectpay.com.br/PPU38CQE5MD"
-                    rel="noopener noreferrer"
-                    className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
-                  >
-                    Quero esse
-                    <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
-                  </a>
-                  <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
-                    <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Kit Completo */}
-            <div className="relative flex min-w-0 flex-col overflow-hidden rounded-xl border-2 border-gold/40 bg-card p-3 text-center shadow-2xl sm:rounded-2xl sm:p-5 md:rounded-[2rem] md:p-10">
+          {/* Mobile: empilhados com o Kit Completo em cima (dominante). Desktop:
+              Básico à esquerda, Completo à direita e em destaque. */}
+          <div className="grid gap-5 md:grid-cols-2 md:items-stretch md:gap-6">
+            {/* Kit Completo (principal / recomendado) — md:order-2 */}
+            <div className="relative order-1 flex flex-col overflow-hidden rounded-[1.75rem] border-2 border-gold/50 bg-card p-6 text-center shadow-2xl md:order-2 md:p-9">
               <div
                 aria-hidden
                 className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
               />
-              <div className="mb-1.5 inline-block rounded-full bg-gold/20 px-2 py-0.5 text-[0.6rem] font-bold text-deep md:mb-3 md:px-3 md:py-1 md:text-xs">
-                Mais popular
-              </div>
-              <span className="block section-eyebrow text-[0.6rem] md:text-xs">Kit Completo</span>
-              <h3 className="mt-2 text-base font-bold md:mt-3 md:text-2xl">20 Jogos Bíblicos</h3>
-              <p className="mt-1 text-[0.65rem] text-muted-foreground md:mt-2 md:text-sm">O pacote completo</p>
+              <div className="relative">
+                <div className="inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase tracking-wide text-deep shadow-sm">
+                  <Star className="h-3.5 w-3.5 fill-current" /> Recomendado
+                </div>
+                <h3 className="mt-4 font-display text-2xl font-bold text-deep">Kit Completo</h3>
+                <p className="mt-1 text-sm text-muted-foreground">20 jogos — a coleção completa</p>
 
-              <div className="mt-1 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/15 px-2 py-0.5 text-[0.6rem] font-bold text-red-700 md:mt-2 md:px-3 md:py-1 md:text-xs">
-                60% OFF hoje
+                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-bold text-red-700">
+                  <Flame className="h-3.5 w-3.5" /> 60% OFF de lançamento
+                </div>
+                <div className="mt-3 flex items-end justify-center gap-2">
+                  <span className="text-lg font-medium text-muted-foreground line-through decoration-red-500/70">
+                    R$69,90
+                  </span>
+                  <span className="font-display text-5xl font-bold text-deep md:text-6xl">
+                    R$27,90
+                  </span>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  pagamento único · acesso para sempre
+                </p>
+
+                <p className="mt-6 text-xs font-bold uppercase tracking-wide text-gold-ink">
+                  Todos os tipos de jogos
+                </p>
+                <div className="mt-2 flex flex-wrap justify-center gap-1.5">
+                  {fullKinds.map((k) => (
+                    <span
+                      key={k}
+                      className="rounded-full bg-gold/15 px-2.5 py-1 text-xs font-medium text-gold-ink ring-1 ring-gold/30"
+                    >
+                      {k}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Bônus grátis exclusivo do Kit Completo */}
+                <div className="mt-5 rounded-xl border border-dashed border-gold/50 bg-gold/10 p-3">
+                  <div className="flex items-center justify-center gap-1.5 pb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-gold-ink">
+                    <Gift className="h-4 w-4" /> Bônus grátis incluso
+                  </div>
+                  <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                    <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
+                    <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                      +100 Versículos organizados por temas
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="mt-2 flex items-center justify-center gap-2 md:mt-4">
-                <span className="text-xs font-medium text-muted-foreground line-through decoration-red-500/70 md:text-lg">
-                  R$69,90
+
+              <div className="relative mt-auto flex flex-col items-center gap-3 pt-6">
+                <a
+                  href="https://go.perfectpay.com.br/PPU38CQELK5"
+                  rel="noopener noreferrer"
+                  className="btn-cta w-full justify-center"
+                >
+                  Quero o Kit Completo
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4 text-gold" /> Compra segura · garantia de 7 dias
+                </div>
+              </div>
+            </div>
+
+            {/* Kit Básico (ponto de entrada / secundário) — md:order-1 */}
+            <div className="relative order-2 flex flex-col overflow-hidden rounded-[1.75rem] border border-border bg-card/70 p-6 text-center shadow-md md:order-1 md:p-9">
+              <h3 className="font-display text-xl font-bold text-deep">Kit Básico</h3>
+              <p className="mt-1 text-sm text-muted-foreground">10 jogos — para começar</p>
+
+              <div className="mt-4 inline-flex items-center gap-1.5 self-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-bold text-red-700">
+                60% OFF de lançamento
+              </div>
+              <div className="mt-3 flex items-end justify-center gap-2">
+                <span className="text-base font-medium text-muted-foreground line-through decoration-red-500/60">
+                  R$49,90
                 </span>
+                <span className="font-display text-4xl font-bold text-deep">R$17,90</span>
               </div>
-              <div className="mt-1 md:mt-2">
-                <span className="font-display text-xl font-bold text-deep sm:text-2xl md:text-6xl">
-                  R$27,90
-                </span>
-              </div>
-              <p className="mt-1 text-[0.6rem] text-muted-foreground md:mt-2 md:text-sm">
-                pagamento único
+              <p className="mt-1 text-sm text-muted-foreground">
+                pagamento único · acesso para sempre
               </p>
 
-              <p className="mt-3 mb-1.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold-ink md:mt-6 md:mb-2.5 md:text-xs">
-                Todos os tipos de jogos
+              <p className="mt-6 text-xs font-bold uppercase tracking-wide text-gold-ink">
+                Tipos de jogos incluídos
               </p>
-              <div className="flex flex-wrap justify-center gap-1 md:gap-1.5">
-                {fullKinds.map((k) => (
+              <div className="mt-2 flex flex-wrap justify-center gap-1.5">
+                {baseKinds.map((k) => (
                   <span
                     key={k}
-                    className="rounded-full bg-gold/15 px-2 py-0.5 text-[0.6rem] font-medium text-gold-ink ring-1 ring-gold/30 md:px-2.5 md:py-1 md:text-xs"
+                    className="rounded-full bg-gold/10 px-2.5 py-1 text-xs font-medium text-gold-ink ring-1 ring-gold/25"
                   >
                     {k}
                   </span>
                 ))}
               </div>
 
-              {/* Bônus + contador + CTA ancorados no rodapé do card (mt-auto). */}
-              <div className="mt-auto flex flex-col pt-3 md:pt-5">
-                {/* Bônus exclusivos do Kit Completo. IMPORTANTE: qualquer mudança
-                    aqui deve ser espelhada no espaçador invisível do Kit Básico
-                    (mesmo markup) para os rodapés dos dois cards continuarem
-                    alinhados. */}
-                <div className="rounded-lg border border-dashed border-gold/50 bg-gold/10 p-1.5 md:rounded-xl md:p-2.5">
-                  <div className="flex items-center justify-center gap-1 pb-1 text-[0.55rem] font-bold uppercase tracking-wide text-gold-ink md:pb-1.5 md:text-[0.7rem]">
-                    <Gift className="h-3 w-3 md:h-4 md:w-4" /> 1 Bônus grátis incluso
-                  </div>
-                  <div className="space-y-1 md:space-y-1.5">
-                    <div className="flex items-center gap-1.5 rounded-md bg-card px-2 py-1 shadow-sm ring-1 ring-gold/15 md:gap-2 md:rounded-lg md:px-2.5 md:py-1.5">
-                      <BookOpen className="h-3.5 w-3.5 shrink-0 text-gold-ink md:h-4 md:w-4" />
-                      <span className="text-left text-[0.65rem] font-semibold leading-tight text-card-foreground md:text-sm">
-                        +100 Versículos organizados por temas
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <OfferCountdown />
-
-                <div className="flex flex-col items-center gap-2 pt-4 md:gap-3 md:pt-8">
-                  <a
-                    href="https://go.perfectpay.com.br/PPU38CQELK5"
-                    rel="noopener noreferrer"
-                    className="btn-cta w-full justify-center !px-3 !py-2.5 !text-xs md:!px-8 md:!py-4 md:!text-base"
-                  >
-                    Quero esse
-                    <ArrowRight className="h-3.5 w-3.5 md:h-5 md:w-5" />
-                  </a>
-                  <div className="flex items-center gap-1 text-[0.6rem] text-muted-foreground md:gap-2 md:text-xs">
-                    <ShieldCheck className="h-3 w-3 text-gold md:h-4 md:w-4" /> Compra segura
-                  </div>
+              <div className="mt-auto flex flex-col items-center gap-3 pt-6">
+                <a
+                  href="https://go.perfectpay.com.br/PPU38CQE5MD"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-deep/20 bg-transparent px-6 py-3 text-sm font-bold text-deep transition hover:border-deep/40 hover:bg-deep/5"
+                >
+                  Quero o Kit Básico
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <ShieldCheck className="h-4 w-4 text-gold" /> Compra segura · garantia de 7 dias
                 </div>
               </div>
             </div>
           </div>
 
-          {/* GARANTIA — inversão de risco */}
-          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border-2 border-gold/40 bg-card/80 p-5 text-center shadow-lg backdrop-blur-sm sm:mt-10 sm:rounded-3xl sm:p-8">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gold/30 to-gold/5 ring-1 ring-gold/30 sm:h-16 sm:w-16">
-              <ShieldCheck className="h-7 w-7 text-gold-ink sm:h-8 sm:w-8" />
-            </div>
-            <h3 className="mt-4 font-display text-xl font-bold text-deep sm:text-2xl">
-              Garantia blindada de 7 dias
-            </h3>
-            <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground sm:text-base">
-              Teste o kit por 7 dias inteiros. Se o seu filho não pedir para jogar de novo, ou se
-              você simplesmente não amar o material, é só avisar que devolvemos{" "}
-              <span className="font-semibold text-foreground">100% do seu dinheiro</span>. Sem
-              perguntas, sem burocracia. O risco é todo nosso.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground sm:mt-8 sm:gap-x-7 sm:text-sm">
-            <span className="inline-flex items-center gap-1.5">
-              <RotateCcw className="h-4 w-4 text-gold-ink" /> Garantia de 7 dias
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Download className="h-4 w-4 text-gold-ink" /> Acesso imediato
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Lock className="h-4 w-4 text-gold-ink" /> Pagamento 100% seguro
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-32">
-        <div className="mx-auto max-w-3xl text-center">
-          <Cross className="mx-auto h-8 w-8 text-gold" />
-          <h2 className="mt-6 text-2xl font-bold sm:text-3xl md:text-5xl">
-            Faça seu filho amar a Bíblia do jeito certo
-          </h2>
-          <p className="mt-5 text-base text-cream/75 sm:mt-6 sm:text-lg">
-            A infância passa rápido. Você pode transformar esse tempo em brincadeira com propósito e
-            deixar a Palavra marcada no coração dele, começando hoje, em poucos minutos.
-          </p>
-          <div className="mt-8 sm:mt-10">
-            <CTAButton>Sim, quero receber os Jogos Bíblicos</CTAButton>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST SIGNALS */}
-      <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-8 text-center sm:mb-12">
-            <span className="section-eyebrow">Compre com tranquilidade</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
-              Sua compra 100% protegida
-            </h2>
-          </div>
-          <div className="grid grid-cols-3 gap-2.5 sm:gap-6">
-            {trustSignals.map(({ icon: Icon, title, micro }) => (
-              <div
-                key={title}
-                className="group relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl border border-[#E7D9B4]/70 bg-white px-3 py-6 text-center shadow-md shadow-black/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg sm:gap-4 sm:rounded-3xl sm:px-6 sm:py-9"
-              >
-                {/* Acento: fino traço dourado no topo do card */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-1/2 top-0 h-[3px] w-[60px] -translate-x-1/2 rounded-b-full bg-gradient-to-r from-[#B8973E] to-[#8B6914]"
-                />
-                {/* Ícone em círculo dourado-clarinho */}
-                <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-[#E7D9B4] bg-[#F6EFDD] transition-transform duration-300 group-hover:scale-105 sm:h-[58px] sm:w-[58px]">
-                  <Icon className="h-6 w-6 text-[#8B6914] sm:h-7 sm:w-7" />
-                </div>
-                <p className="font-display text-xs font-semibold leading-tight text-card-foreground sm:text-lg">
-                  {title}
-                </p>
-                {SHOW_GUARANTEE_MICROCOPY && micro && (
-                  <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-sm">{micro}</p>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Prova visual de pagamento seguro (SVG/ícones inline, sem imagem externa) */}
-          <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-3 sm:mt-12 sm:gap-4">
-            <p className="inline-flex items-center gap-1.5 text-[0.7rem] text-muted-foreground sm:text-sm">
+          {/* Confiança transacional próxima da oferta (plano seção 10) */}
+          <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-3 sm:mt-10">
+            <p className="inline-flex items-center gap-1.5 text-xs text-muted-foreground sm:text-sm">
               <Lock className="h-3.5 w-3.5 text-[#8B6914]" aria-hidden="true" />
               Ambiente seguro · processado por PerfectPay
             </p>
@@ -1027,18 +1098,67 @@ function Index() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* 10 — GARANTIA: inversão de risco */}
+      <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-2xl rounded-3xl border-2 border-gold/40 bg-card/80 p-6 text-center shadow-lg backdrop-blur-sm sm:p-10">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-gold/30 to-gold/5 ring-1 ring-gold/30">
+            <ShieldCheck className="h-8 w-8 text-gold-ink" />
+          </div>
+          <h2 className="mt-5 font-display text-2xl font-bold text-deep sm:text-3xl">
+            Você tem 7 dias para conhecer o material sem risco
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground sm:text-lg">
+            Teste o kit durante 7 dias. Se o seu filho não pedir para jogar de novo, ou se você
+            simplesmente não amar o material, é só avisar dentro do prazo que devolvemos{" "}
+            <span className="font-semibold text-foreground">100% do seu dinheiro</span>. O risco é
+            todo nosso.
+          </p>
+        </div>
+      </section>
+
+      {/* 11 — FAQ */}
       <section className="px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
             <span className="section-eyebrow">Dúvidas frequentes</span>
-            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-5xl">
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
               Ainda tem alguma dúvida?
             </h2>
           </div>
           <Suspense fallback={<div className="mt-10 sm:mt-14" />}>
             <FaqAccordion faqs={faqs} />
           </Suspense>
+        </div>
+      </section>
+
+      {/* 12 — CTA FINAL + SEGURANÇA */}
+      <section className="bg-deep px-4 py-16 text-cream sm:px-6 sm:py-24 md:py-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <Cross className="mx-auto h-8 w-8 text-gold" />
+          <h2 className="mt-6 text-2xl font-bold sm:text-3xl md:text-4xl">
+            A infância não precisa de uma aula a mais. Pode precisar de mais um momento com você.
+          </h2>
+          <p className="mt-5 text-base text-cream/75 sm:mt-6 sm:text-lg">
+            Coloque a Palavra na mesa de um jeito leve, divertido e possível para a rotina que vocês
+            têm hoje.
+          </p>
+          <div className="mt-8 sm:mt-10">
+            <CTAButton>Quero receber os Jogos Bíblicos</CTAButton>
+          </div>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-cream/70">
+            <span className="inline-flex items-center gap-1.5">
+              <Download className="h-4 w-4 text-gold" /> Acesso imediato
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Zap className="h-4 w-4 text-gold" /> Pagamento único
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <RotateCcw className="h-4 w-4 text-gold" /> Garantia de 7 dias
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Lock className="h-4 w-4 text-gold" /> Compra segura
+            </span>
+          </div>
         </div>
       </section>
 
@@ -1060,9 +1180,7 @@ function Index() {
                 suporte@achadinhosbiblicos.com.br
               </span>
             </a>
-            <p className="text-xs text-cream/70">
-              Tiramos suas dúvidas antes e depois da compra.
-            </p>
+            <p className="text-xs text-cream/70">Tiramos suas dúvidas antes e depois da compra.</p>
           </div>
 
           <div className="h-px w-full max-w-xs bg-white/10" />
@@ -1077,6 +1195,56 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      {/* CTA sticky no mobile — rola até a oferta */}
+      <StickyMobileCTA />
     </main>
+  );
+}
+
+// Slideshow de fotos reais do produto — usado na seção de mecanismo. Auto-avança
+// só quando visível (useAutoRotate) para não gastar CPU/bateria fora da dobra.
+function RealProductSlideshow() {
+  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(realProducts.length, 2200);
+
+  return (
+    <div
+      ref={ref}
+      className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl"
+      style={{ aspectRatio: "1" }}
+    >
+      <div
+        className="flex h-full transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${current * 100}%)` }}
+      >
+        {realProducts.map((p) => (
+          <img
+            key={p.src}
+            src={p.src}
+            srcSet={srcSetFor(p.src)}
+            sizes="(min-width: 1024px) 560px, 90vw"
+            alt={p.alt}
+            loading="lazy"
+            decoding="async"
+            width={820}
+            height={820}
+            className="h-full w-full flex-shrink-0 object-cover"
+            fetchPriority="low"
+          />
+        ))}
+      </div>
+      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
+        {realProducts.map((p, i) => (
+          <button
+            key={p.src}
+            onClick={() => setCurrent(i)}
+            aria-label={`Ver imagem ${i + 1}`}
+            className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+              i === current ? "bg-cream" : "bg-cream/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

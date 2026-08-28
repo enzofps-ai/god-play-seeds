@@ -247,6 +247,26 @@
   .nav-cta.is-navigating::after { animation: none; }
 }
 
+/* Pulso contínuo do botão de compra (CTA da oferta) — "respiração" leve com um
+   anel dourado que expande e some, para chamar atenção sem parecer cassino.
+   Sobrepõe o box-shadow do btn-cta durante a animação. Respeita reduced-motion. */
+@keyframes cta-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px -10px oklch(0.6 0.15 75 / 0.55), 0 0 0 0 oklch(0.74 0.16 72 / 0.5);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 16px 38px -10px oklch(0.6 0.15 75 / 0.65), 0 0 0 8px oklch(0.74 0.16 72 / 0);
+  }
+}
+.btn-pulse {
+  animation: cta-pulse 1.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-pulse { animation: none; }
+}
+
 /* Faixa promocional deslizante (marquee) no topo da página. A track duplica o
    conteúdo e corre de -50% até 0, criando um loop contínuo p/ a direita. Pausa
    ao passar o mouse e respeita prefers-reduced-motion. */

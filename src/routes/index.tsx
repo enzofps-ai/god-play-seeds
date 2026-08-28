@@ -487,14 +487,6 @@ function Index() {
                 E querer jogar de novo.
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-base text-cream/80 sm:mt-7 sm:text-lg">
-              Um kit digital com{" "}
-              <span className="font-semibold text-cream">
-                20 jogos bíblicos prontos para imprimir
-              </span>
-              , feito para transformar alguns minutos longe das telas em momentos leves de fé,
-              diversão e conexão com você.
-            </p>
             <ul className="mt-6 space-y-2.5 sm:mt-7">
               {[
                 "20 jogos prontos para imprimir",

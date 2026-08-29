@@ -24,6 +24,8 @@ import {
   Printer,
   Flame,
   Zap,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
@@ -173,6 +175,44 @@ const realProducts = [
   {
     src: "/images/real-quiz-biblico.webp",
     alt: "Cartas do Quiz Bíblico impressas e organizadas ao lado da caixinha do jogo",
+  },
+];
+
+// Fotos do produto saindo da impressora — usadas no carrossel de card único da
+// seção de prova visual ("Veja o produto de verdade"). Cada jogo aparecendo
+// sendo impresso em casa, deslizando um de cada vez.
+const printProducts = [
+  {
+    src: "/images/impressora-encontre.webp",
+    alt: "Cartas do jogo Encontre bíblico sendo impressas na impressora de casa",
+  },
+  {
+    src: "/images/impressora-jogo-mico.webp",
+    alt: "Cartas do Jogo do Mico bíblico saindo da impressora de casa",
+  },
+  {
+    src: "/images/impressora-passatempo.webp",
+    alt: "Folha de passatempos bíblicos sendo impressa na impressora de casa",
+  },
+  {
+    src: "/images/impressora-personagens.webp",
+    alt: "Cartas de personagens bíblicos sendo impressas na impressora de casa",
+  },
+  {
+    src: "/images/impressora-personagens-mao.webp",
+    alt: "Cartas de personagens bíblicos impressas sendo seguradas na mão ao lado da impressora",
+  },
+  {
+    src: "/images/impressora-quem-sou-eu.webp",
+    alt: "Cartas do jogo Quem Sou Eu bíblico saindo da impressora de casa",
+  },
+  {
+    src: "/images/impressora-siga-cristo.webp",
+    alt: "Tabuleiro Siga a Cristo sendo impresso na impressora de casa",
+  },
+  {
+    src: "/images/impressora-ta-na-biblia.webp",
+    alt: "Cartas do jogo Tá na Bíblia sendo impressas na impressora de casa",
   },
 ];
 
@@ -571,29 +611,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-2.5 sm:mt-12 sm:gap-4 lg:grid-cols-3">
-            {realProducts.map((p, i) => (
-              <div
-                key={p.src}
-                className={`overflow-hidden rounded-2xl border bg-card shadow-md sm:rounded-3xl ${
-                  i === 0 ? "col-span-2 lg:col-span-1 lg:row-span-2" : ""
-                }`}
-              >
-                <img
-                  src={p.src}
-                  srcSet={srcSetFor(p.src)}
-                  sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
-                  alt={p.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={820}
-                  height={820}
-                  className={`w-full object-cover ${i === 0 ? "h-full lg:aspect-auto" : ""}`}
-                  style={i === 0 ? undefined : { aspectRatio: "1" }}
-                />
-              </div>
-            ))}
-          </div>
+          <RealProductCarousel />
 
           <div className="mt-8 flex flex-col items-center gap-4 text-center sm:mt-10">
             <p className="inline-flex items-center gap-2 text-sm text-muted-foreground sm:text-base">
@@ -1190,6 +1208,85 @@ function Index() {
       {/* CTA sticky no mobile — rola até a oferta */}
       <StickyMobileCTA />
     </main>
+  );
+}
+
+// Carrossel de card único — usado na seção de prova visual. Mostra uma foto real
+// de cada vez, deslizando suavemente, com setas, indicadores e contador. Auto-avança
+// só quando visível (useAutoRotate); a interação do usuário pausa e retoma o giro.
+function RealProductCarousel() {
+  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(printProducts.length, 900);
+
+  const go = (dir: number) =>
+    setCurrent((current + dir + printProducts.length) % printProducts.length);
+
+  return (
+    <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
+      <div
+        ref={ref}
+        className="group relative overflow-hidden rounded-3xl border bg-card shadow-xl"
+        style={{ aspectRatio: "4 / 3" }}
+      >
+        {/* Trilha deslizante: cada foto ocupa 100% e translada em conjunto. */}
+        <div
+          className="flex h-full transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {printProducts.map((p, i) => (
+            <img
+              key={p.src}
+              src={p.src}
+              srcSet={srcSetFor(p.src)}
+              sizes="(min-width: 672px) 672px, 92vw"
+              alt={p.alt}
+              loading={i === 0 ? "eager" : "lazy"}
+              decoding="async"
+              width={820}
+              height={820}
+              className="h-full w-full flex-shrink-0 object-cover"
+            />
+          ))}
+        </div>
+
+        {/* Gradiente na base para dar contraste aos controles. */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
+
+        {/* Setas — aparecem sempre no mobile, no hover no desktop. */}
+        <button
+          onClick={() => go(-1)}
+          aria-label="Foto anterior"
+          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 text-deep shadow-lg backdrop-blur-sm transition hover:bg-white sm:opacity-0 sm:group-hover:opacity-100"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          onClick={() => go(1)}
+          aria-label="Próxima foto"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 text-deep shadow-lg backdrop-blur-sm transition hover:bg-white sm:opacity-0 sm:group-hover:opacity-100"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+
+        {/* Contador. */}
+        <div className="absolute right-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+          {current + 1} / {printProducts.length}
+        </div>
+
+        {/* Indicadores (dots) na base. */}
+        <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2">
+          {printProducts.map((p, i) => (
+            <button
+              key={p.src}
+              onClick={() => setCurrent(i)}
+              aria-label={`Ver foto ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === current ? "w-6 bg-white" : "w-2 bg-white/55 hover:bg-white/80"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

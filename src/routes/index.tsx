@@ -183,6 +183,10 @@ const realProducts = [
 // sendo impresso em casa, deslizando um de cada vez.
 const printProducts = [
   {
+    src: "/images/imprimindo-uno-biblico.webp",
+    alt: "Cartas do Uno bíblico saindo da impressora de casa",
+  },
+  {
     src: "/images/impressora-encontre.webp",
     alt: "Cartas do jogo Encontre bíblico sendo impressas na impressora de casa",
   },
@@ -1215,7 +1219,7 @@ function Index() {
 // de cada vez, deslizando suavemente, com setas, indicadores e contador. Auto-avança
 // só quando visível (useAutoRotate); a interação do usuário pausa e retoma o giro.
 function RealProductCarousel() {
-  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(printProducts.length, 900);
+  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(printProducts.length, 1200);
 
   const go = (dir: number) =>
     setCurrent((current + dir + printProducts.length) % printProducts.length);

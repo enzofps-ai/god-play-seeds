@@ -1215,7 +1215,7 @@ function Index() {
 // de cada vez, deslizando suavemente, com setas, indicadores e contador. Auto-avança
 // só quando visível (useAutoRotate); a interação do usuário pausa e retoma o giro.
 function RealProductCarousel() {
-  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(printProducts.length, 900);
+  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(printProducts.length, 1200);
 
   const go = (dir: number) =>
     setCurrent((current + dir + printProducts.length) % printProducts.length);

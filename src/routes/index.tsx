@@ -183,6 +183,10 @@ const realProducts = [
 // sendo impresso em casa, deslizando um de cada vez.
 const printProducts = [
   {
+    src: "/images/imprimindo-uno-biblico.webp",
+    alt: "Cartas do Uno bíblico saindo da impressora de casa",
+  },
+  {
     src: "/images/impressora-encontre.webp",
     alt: "Cartas do jogo Encontre bíblico sendo impressas na impressora de casa",
   },

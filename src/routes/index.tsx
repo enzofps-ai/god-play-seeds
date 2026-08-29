@@ -178,6 +178,44 @@ const realProducts = [
   },
 ];
 
+// Fotos do produto saindo da impressora — usadas no carrossel de card único da
+// seção de prova visual ("Veja o produto de verdade"). Cada jogo aparecendo
+// sendo impresso em casa, deslizando um de cada vez.
+const printProducts = [
+  {
+    src: "/images/impressora-encontre.webp",
+    alt: "Cartas do jogo Encontre bíblico sendo impressas na impressora de casa",
+  },
+  {
+    src: "/images/impressora-jogo-mico.webp",
+    alt: "Cartas do Jogo do Mico bíblico saindo da impressora de casa",
+  },
+  {
+    src: "/images/impressora-passatempo.webp",
+    alt: "Folha de passatempos bíblicos sendo impressa na impressora de casa",
+  },
+  {
+    src: "/images/impressora-personagens.webp",
+    alt: "Cartas de personagens bíblicos sendo impressas na impressora de casa",
+  },
+  {
+    src: "/images/impressora-personagens-mao.webp",
+    alt: "Cartas de personagens bíblicos impressas sendo seguradas na mão ao lado da impressora",
+  },
+  {
+    src: "/images/impressora-quem-sou-eu.webp",
+    alt: "Cartas do jogo Quem Sou Eu bíblico saindo da impressora de casa",
+  },
+  {
+    src: "/images/impressora-siga-cristo.webp",
+    alt: "Tabuleiro Siga a Cristo sendo impresso na impressora de casa",
+  },
+  {
+    src: "/images/impressora-ta-na-biblia.webp",
+    alt: "Cartas do jogo Tá na Bíblia sendo impressas na impressora de casa",
+  },
+];
+
 // Smoothly slides the page to the offer section and keeps a sliding shine on the
 // clicked button until the scroll settles.
 //
@@ -1177,10 +1215,10 @@ function Index() {
 // de cada vez, deslizando suavemente, com setas, indicadores e contador. Auto-avança
 // só quando visível (useAutoRotate); a interação do usuário pausa e retoma o giro.
 function RealProductCarousel() {
-  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(realProducts.length, 3800);
+  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(printProducts.length, 900);
 
   const go = (dir: number) =>
-    setCurrent((current + dir + realProducts.length) % realProducts.length);
+    setCurrent((current + dir + printProducts.length) % printProducts.length);
 
   return (
     <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
@@ -1191,10 +1229,10 @@ function RealProductCarousel() {
       >
         {/* Trilha deslizante: cada foto ocupa 100% e translada em conjunto. */}
         <div
-          className="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          className="flex h-full transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
-          {realProducts.map((p, i) => (
+          {printProducts.map((p, i) => (
             <img
               key={p.src}
               src={p.src}
@@ -1231,12 +1269,12 @@ function RealProductCarousel() {
 
         {/* Contador. */}
         <div className="absolute right-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-          {current + 1} / {realProducts.length}
+          {current + 1} / {printProducts.length}
         </div>
 
         {/* Indicadores (dots) na base. */}
         <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2">
-          {realProducts.map((p, i) => (
+          {printProducts.map((p, i) => (
             <button
               key={p.src}
               onClick={() => setCurrent(i)}

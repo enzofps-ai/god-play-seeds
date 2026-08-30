@@ -645,11 +645,23 @@ function Index() {
       <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 lg:order-1">
-            {/* Card reservado para uma única imagem da solução (a ser adicionada). */}
+            {/* Card único com a foto da mãe e do filho jogando juntos. */}
             <div
               className="w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl"
               style={{ aspectRatio: "1" }}
-            />
+            >
+              <img
+                src="/images/mae-filho-uno.webp"
+                srcSet={srcSetFor("/images/mae-filho-uno.webp")}
+                sizes="(min-width: 1024px) 560px, 90vw"
+                alt="Mãe e filho sentados no tapete da sala jogando Uno juntos e sorrindo"
+                loading="lazy"
+                decoding="async"
+                width={820}
+                height={820}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
           <div className="order-1 flex flex-col items-center text-center lg:order-2">
             <span className="section-eyebrow">A solução</span>

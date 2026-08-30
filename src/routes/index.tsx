@@ -125,7 +125,7 @@ const kitGames = [
   "Alfabeto de Versículos",
   "Biblicamente",
   "Bingo de Jesus",
-  "Bônus",
+  "Uno da Fé",
   "Dominó",
   "Jogo da Memória",
   "Mico Bíblico",

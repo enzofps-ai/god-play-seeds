@@ -152,32 +152,6 @@ function srcSetFor(src: string) {
   return `${b640} 640w, ${b700} 700w, ${src} 820w`;
 }
 
-// Fotos reais do produto impresso/em uso — a prova visual da seção 2 e da seção
-// de confiança. São imagens reais do cliente (plano: "não substituir por fotos
-// genéricas de banco de imagens").
-const realProducts = [
-  {
-    src: "/images/real-uno-mesa.webp",
-    alt: "Uno da Fé impresso sobre a mesa, pronto para jogar em família",
-  },
-  {
-    src: "/images/imprimindo-uno-biblico.webp",
-    alt: "Cartas do Uno bíblico saindo da impressora de casa",
-  },
-  {
-    src: "/images/real-siga-cristo-mesa.webp",
-    alt: "Tabuleiro Siga a Cristo impresso e montado sobre a mesa",
-  },
-  {
-    src: "/images/real-super-trunfo.webp",
-    alt: "Cartas do Super Trunfo bíblico impressas, com a carta de Marcos 10.45 em destaque",
-  },
-  {
-    src: "/images/real-quiz-biblico.webp",
-    alt: "Cartas do Quiz Bíblico impressas e organizadas ao lado da caixinha do jogo",
-  },
-];
-
 // Fotos do produto saindo da impressora — usadas no carrossel de card único da
 // seção de prova visual ("Veja o produto de verdade"). Cada jogo aparecendo
 // sendo impresso em casa, deslizando um de cada vez.
@@ -671,7 +645,23 @@ function Index() {
       <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 lg:order-1">
-            <RealProductSlideshow />
+            {/* Card único com a foto da mãe e do filho jogando juntos. */}
+            <div
+              className="w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl"
+              style={{ aspectRatio: "1" }}
+            >
+              <img
+                src="/images/mae-filho-uno.webp"
+                srcSet={srcSetFor("/images/mae-filho-uno.webp")}
+                sizes="(min-width: 1024px) 560px, 90vw"
+                alt="Mãe e filho sentados no tapete da sala jogando Uno juntos e sorrindo"
+                loading="lazy"
+                decoding="async"
+                width={820}
+                height={820}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
           <div className="order-1 flex flex-col items-center text-center lg:order-2">
             <span className="section-eyebrow">A solução</span>
@@ -1289,53 +1279,6 @@ function RealProductCarousel() {
             />
           ))}
         </div>
-      </div>
-    </div>
-  );
-}
-
-// Slideshow de fotos reais do produto — usado na seção de mecanismo. Auto-avança
-// só quando visível (useAutoRotate) para não gastar CPU/bateria fora da dobra.
-function RealProductSlideshow() {
-  const { current, setCurrent, ref } = useAutoRotate<HTMLDivElement>(realProducts.length, 2200);
-
-  return (
-    <div
-      ref={ref}
-      className="relative w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl"
-      style={{ aspectRatio: "1" }}
-    >
-      <div
-        className="flex h-full transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)` }}
-      >
-        {realProducts.map((p) => (
-          <img
-            key={p.src}
-            src={p.src}
-            srcSet={srcSetFor(p.src)}
-            sizes="(min-width: 1024px) 560px, 90vw"
-            alt={p.alt}
-            loading="lazy"
-            decoding="async"
-            width={820}
-            height={820}
-            className="h-full w-full flex-shrink-0 object-cover"
-            fetchPriority="low"
-          />
-        ))}
-      </div>
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
-        {realProducts.map((p, i) => (
-          <button
-            key={p.src}
-            onClick={() => setCurrent(i)}
-            aria-label={`Ver imagem ${i + 1}`}
-            className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-              i === current ? "bg-cream" : "bg-cream/50"
-            }`}
-          />
-        ))}
       </div>
     </div>
   );

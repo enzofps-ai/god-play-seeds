@@ -413,41 +413,6 @@ function CheckItem({
   );
 }
 
-// CTA fixo no rodapé apenas no mobile. Rola para a oferta (#oferta) — como há
-// dois kits, ele leva à seção de escolha, não a um checkout específico (plano
-// seção 8). Some quando a própria oferta está visível para não cobrir os cards
-// nem o botão do navegador (respeita a safe-area inferior).
-function StickyMobileCTA() {
-  const [hidden, setHidden] = useState(false);
-  useEffect(() => {
-    const target = document.getElementById("oferta");
-    if (!target) return;
-    const io = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), {
-      threshold: 0.15,
-    });
-    io.observe(target);
-    return () => io.disconnect();
-  }, []);
-
-  return (
-    <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-gold/30 bg-cream/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 sm:hidden ${
-        hidden ? "translate-y-full" : "translate-y-0"
-      }`}
-      style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
-    >
-      <a
-        href="#oferta"
-        onClick={slideToOffer}
-        className="btn-cta nav-cta w-full justify-center !py-3"
-      >
-        Ver os kits a partir de R$17,90
-        <ArrowRight className="h-4 w-4" />
-      </a>
-    </div>
-  );
-}
-
 function Index() {
   return (
     <main className="bg-background text-foreground">
@@ -1165,7 +1130,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-deep px-4 pt-10 pb-28 text-center text-sm text-cream/70 sm:px-6 sm:py-14">
+      <footer className="border-t border-white/5 bg-deep px-4 py-10 text-center text-sm text-cream/70 sm:px-6 sm:py-14">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:gap-7">
           {/* Suporte */}
           <div className="flex flex-col items-center gap-3">
@@ -1198,9 +1163,6 @@ function Index() {
           </div>
         </div>
       </footer>
-
-      {/* CTA sticky no mobile — rola até a oferta */}
-      <StickyMobileCTA />
     </main>
   );
 }

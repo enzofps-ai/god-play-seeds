@@ -505,20 +505,6 @@ function Index() {
                 E querer jogar de novo.
               </span>
             </h1>
-            <ul className="mt-6 space-y-2.5 sm:mt-7">
-              {[
-                "20 jogos prontos para imprimir",
-                "Acesso imediato após a compra",
-                "Pagamento único e acesso para sempre",
-              ].map((t) => (
-                <li
-                  key={t}
-                  className="flex items-center justify-center gap-2.5 text-sm text-cream/85 sm:text-base"
-                >
-                  <Check className="h-4 w-4 shrink-0 text-gold" /> {t}
-                </li>
-              ))}
-            </ul>
             <div className="mt-7 flex flex-col items-center gap-3 sm:mt-9 sm:flex-row sm:justify-center sm:gap-4">
               <CTAButton />
               <div className="flex items-center gap-2 text-sm text-cream/70">
@@ -610,10 +596,6 @@ function Index() {
               Você quer ensinar mais sobre Deus. O difícil é fazer isso caber no dia a dia.
             </h2>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-cream/80 sm:text-lg">
-            Entre trabalho, casa, cansaço e uma tela que prende a atenção em segundos, transformar o
-            momento da Bíblia em algo que a criança queira participar nem sempre é simples.
-          </p>
           <ul className="mx-auto mt-8 grid max-w-2xl gap-3 sm:mt-10">
             {[
               "Você não quer transformar a fé em cobrança.",
@@ -669,11 +651,6 @@ function Index() {
               A Bíblia não precisa virar aula para{" "}
               <span className="text-gold-ink">fazer parte da infância</span>
             </h2>
-            <p className="mt-5 text-base text-card-foreground sm:text-lg">
-              Quando a criança entra pela brincadeira, a atenção vem primeiro. Enquanto joga, ela
-              encontra personagens, histórias, perguntas e valores bíblicos de um jeito natural, e
-              o aprendizado acontece no meio de um momento que ela realmente quer repetir.
-            </p>
             <ul className="mt-6 inline-block space-y-3 text-left sm:mt-7">
               {[
                 "Ela brinca sem sentir que está “estudando”.",
@@ -842,10 +819,6 @@ function Index() {
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
               O melhor sinal não é a criança terminar. É ela querer repetir.
             </h2>
-            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-              Material real, impresso em casa e usado na mesa. Variedade de jogos para a brincadeira
-              não cansar e a fé continuar presente na rotina.
-            </p>
           </div>
 
           <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">

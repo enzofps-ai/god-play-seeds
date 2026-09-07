@@ -12,9 +12,9 @@ import { useEffect, type ReactNode } from "react";
 // <style> tag in the document head. This removes the render-blocking stylesheet
 // request (~170ms on slow 4G) — the ~16 KiB gzipped CSS ships with the HTML.
 import appCss from "../styles.css?inline";
-import heroKids from "@/assets/hero-kids.webp";
-import heroKids700 from "@/assets/hero-kids-700.webp";
-import heroKids820 from "@/assets/hero-kids-820.webp";
+import heroKids from "@/assets/hero-jogos.webp";
+import heroKids700 from "@/assets/hero-jogos-700.webp";
+import heroKids820 from "@/assets/hero-jogos-820.webp";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -104,7 +104,7 @@ export const Route = createRootRoute({
         rel: "preload",
         as: "image",
         href: heroKids,
-        imageSrcSet: `${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1000w`,
+        imageSrcSet: `${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1536w`,
         imageSizes: "(min-width: 1024px) 620px, 100vw",
         fetchPriority: "high",
       },

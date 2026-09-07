@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import heroKids from "@/assets/hero-kids.webp";
-import heroKids700 from "@/assets/hero-kids-700.webp";
-import heroKids820 from "@/assets/hero-kids-820.webp";
+import heroKids from "@/assets/hero-jogos.webp";
+import heroKids700 from "@/assets/hero-jogos-700.webp";
+import heroKids820 from "@/assets/hero-jogos-820.webp";
 import {
   BookOpen,
   Check,
@@ -499,11 +499,11 @@ function Index() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl">
               <img
                 src={heroKids}
-                srcSet={`${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1000w`}
+                srcSet={`${heroKids700} 700w, ${heroKids820} 820w, ${heroKids} 1536w`}
                 sizes="(min-width: 1024px) 620px, 100vw"
-                alt="Mãe e filhos felizes jogando jogos bíblicos juntos sobre a mesa"
+                alt="Capa do kit: 20 jogos bíblicos impressos para jogar em família"
                 width={1536}
-                height={864}
+                height={1024}
                 fetchPriority="high"
                 decoding="sync"
                 className="h-full w-full object-cover"

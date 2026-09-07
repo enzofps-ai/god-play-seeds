@@ -255,7 +255,7 @@ function slideToOffer(e: React.MouseEvent<HTMLAnchorElement>) {
 }
 
 // CTA guarda-chuva: rola até a oferta (#oferta). Não é um botão de checkout — os
-// botões que levam ao PerfectPay ficam só nos cards de oferta, para não
+// botões que levam ao checkout ficam só nos cards de oferta, para não
 // interferir na mensuração de InitiateCheckout (disparada do lado do checkout).
 function CTAButton({ children = "Quero conhecer os jogos" }: { children?: React.ReactNode }) {
   return (
@@ -1024,7 +1024,7 @@ function Index() {
           <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-3 sm:mt-10">
             <p className="inline-flex items-center gap-1.5 text-xs text-muted-foreground sm:text-sm">
               <Lock className="h-3.5 w-3.5 text-[#8B6914]" aria-hidden="true" />
-              Ambiente seguro · processado por PerfectPay
+              Ambiente seguro · pagamento processado com criptografia
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
               <PayBadge>VISA</PayBadge>

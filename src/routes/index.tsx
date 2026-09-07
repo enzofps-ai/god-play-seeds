@@ -483,8 +483,8 @@ function Index() {
               "radial-gradient(circle at 20% 0%, oklch(0.45 0.15 75 / 0.45), transparent 50%), radial-gradient(circle at 90% 80%, oklch(0.35 0.12 260 / 0.6), transparent 55%)",
           }}
         />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="flex flex-col items-center text-center">
+        <div className="relative mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="order-2 flex flex-col items-center text-center lg:order-1">
             <span className="chip text-[0.7rem] sm:text-sm">
               <Sparkles className="h-3.5 w-3.5 text-gold" /> Para mães cristãs que ensinam a fé no
               dia a dia
@@ -536,7 +536,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative order-1 lg:order-2">
             <div
               aria-hidden
               className="absolute -inset-6 rounded-[2rem]"
@@ -644,7 +644,7 @@ function Index() {
       {/* 4 — MECANISMO: ensinar brincando */}
       <section className="bg-secondary/60 px-4 py-16 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative order-2 lg:order-1">
+          <div className="relative order-1">
             {/* Card único com a foto da mãe e do filho jogando juntos. */}
             <div
               className="w-full overflow-hidden rounded-2xl border bg-card shadow-xl sm:rounded-3xl"
@@ -663,7 +663,7 @@ function Index() {
               />
             </div>
           </div>
-          <div className="order-1 flex flex-col items-center text-center lg:order-2">
+          <div className="order-2 flex flex-col items-center text-center lg:order-2">
             <span className="section-eyebrow">A solução</span>
             <h2 className="mt-4 text-2xl font-bold sm:text-3xl md:text-4xl">
               A Bíblia não precisa virar aula para{" "}
@@ -1165,7 +1165,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-deep px-4 py-10 text-center text-sm text-cream/70 sm:px-6 sm:py-14">
+      <footer className="border-t border-white/5 bg-deep px-4 pt-10 pb-28 text-center text-sm text-cream/70 sm:px-6 sm:py-14">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:gap-7">
           {/* Suporte */}
           <div className="flex flex-col items-center gap-3">

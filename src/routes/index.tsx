@@ -165,7 +165,7 @@ const printProducts = [
     alt: "Cartas do jogo Encontre bíblico sendo impressas na impressora de casa",
   },
   {
-    src: "/images/impressora-jogo-mico.webp",
+    src: "/images/impressora-jogo-mico-v2.webp",
     alt: "Cartas do Jogo do Mico bíblico saindo da impressora de casa",
   },
   {
@@ -181,7 +181,7 @@ const printProducts = [
     alt: "Cartas de personagens bíblicos impressas sendo seguradas na mão ao lado da impressora",
   },
   {
-    src: "/images/impressora-quem-sou-eu.webp",
+    src: "/images/impressora-quem-sou-eu-v2.webp",
     alt: "Cartas do jogo Quem Sou Eu bíblico saindo da impressora de casa",
   },
   {
@@ -189,7 +189,7 @@ const printProducts = [
     alt: "Tabuleiro Siga a Cristo sendo impresso na impressora de casa",
   },
   {
-    src: "/images/impressora-ta-na-biblia.webp",
+    src: "/images/impressora-ta-na-biblia-v2.webp",
     alt: "Cartas do jogo Tá na Bíblia sendo impressas na impressora de casa",
   },
 ];

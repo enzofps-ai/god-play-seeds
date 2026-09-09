@@ -26,6 +26,8 @@ import {
   Zap,
   ChevronLeft,
   ChevronRight,
+  X,
+  Crown,
 } from "lucide-react";
 
 const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
@@ -413,7 +415,154 @@ function CheckItem({
   );
 }
 
+// Links de checkout usados na oferta.
+const CHECKOUT_BASICO = "https://go.perfectpay.com.br/PPU38CQE5MD";
+const CHECKOUT_COMPLETO_PROMO = "https://go.perfectpay.com.br/PPU38CQG151";
+
+// Popup de upsell: aparece quando a pessoa clica para comprar o Kit Básico.
+// Antes de deixá-la seguir com o básico, oferece o Kit Completo por um preço
+// promocional exclusivo (R$19,90, de R$27,90). O botão principal (aceitar a
+// oferta) é chamativo — brilha e pulsa. O botão secundário (seguir com o
+// básico) é discreto, sem brilho e sem pulso, e leva ao checkout padrão do
+// básico.
+function UpsellModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  // Fecha no Esc e trava o scroll do fundo enquanto o popup está aberto.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  const completoKinds = [...baseKinds, "Super Trunfo", "Encontre"];
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="upsell-title"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto p-4 sm:p-6"
+    >
+      {/* Fundo escurecido — clicar fora fecha o popup. */}
+      <div
+        aria-hidden
+        onClick={onClose}
+        className="upsell-backdrop absolute inset-0 bg-deep/70 backdrop-blur-sm"
+      />
+
+      <div className="upsell-panel relative my-auto w-full max-w-md overflow-hidden rounded-[1.75rem] border-2 border-gold/50 bg-card text-center shadow-2xl">
+        {/* Botão fechar */}
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Fechar oferta"
+          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-deep/10 text-deep transition hover:bg-deep/20"
+        >
+          <X className="h-4 w-4" />
+        </button>
+
+        {/* Faixa de destaque no topo */}
+        <div className="bg-gradient-to-r from-gold to-gold-ink px-6 py-3">
+          <div className="flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-widest text-deep">
+            <Sparkles className="h-4 w-4" /> Oferta única e exclusiva
+          </div>
+        </div>
+
+        <div className="relative px-6 py-7 sm:px-8">
+          <div
+            aria-hidden
+            className="absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gold/30 blur-3xl"
+          />
+
+          <div className="relative">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase tracking-wide text-deep shadow-sm">
+              <Crown className="h-3.5 w-3.5 fill-current" /> Upgrade recomendado
+            </div>
+
+            <h2 id="upsell-title" className="mt-4 font-display text-2xl font-bold text-deep">
+              Espere! Leve o Kit Completo
+            </h2>
+            <p className="mx-auto mt-2 max-w-xs text-sm text-muted-foreground">
+              Por poucos reais a mais, você leva os <strong>20 jogos</strong> (o dobro do básico) e
+              ainda ganha o bônus dos versículos. Só nesta página:
+            </p>
+
+            {/* Preço promocional */}
+            <div className="mt-5 flex items-end justify-center gap-2">
+              <span className="text-lg font-medium text-muted-foreground line-through decoration-red-500/70">
+                R$27,90
+              </span>
+              <span className="font-display text-5xl font-bold text-deep md:text-6xl">R$19,90</span>
+            </div>
+            <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-bold text-red-700">
+              <Flame className="h-3.5 w-3.5" /> Desconto exclusivo desta oferta
+            </div>
+
+            {/* O que está incluído */}
+            <div className="mt-5 flex flex-wrap justify-center gap-1.5">
+              {completoKinds.map((k) => (
+                <span
+                  key={k}
+                  className="rounded-full bg-gold/15 px-2.5 py-1 text-xs font-medium text-gold-ink ring-1 ring-gold/30"
+                >
+                  {k}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-xl border border-dashed border-gold/50 bg-gold/10 p-3">
+              <div className="flex items-center justify-center gap-2 text-sm font-semibold text-card-foreground">
+                <Gift className="h-4 w-4 shrink-0 text-gold-ink" />
+                Bônus grátis: +100 Versículos por temas
+              </div>
+            </div>
+          </div>
+
+          {/* Ações */}
+          <div className="mt-7 flex flex-col items-center gap-3">
+            {/* Principal: brilha e pulsa */}
+            <a
+              href={CHECKOUT_COMPLETO_PROMO}
+              rel="noopener noreferrer"
+              className="btn-cta btn-glow w-full justify-center"
+            >
+              <Zap className="h-5 w-5 fill-current" />
+              Sim! Quero o Completo por R$19,90
+              <ArrowRight className="h-5 w-5" />
+            </a>
+
+            {/* Secundário: botão discreto, sem brilho e sem pulso — segue com o
+                básico, no checkout padrão do Kit Básico. */}
+            <a
+              href={CHECKOUT_BASICO}
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-full border border-border bg-transparent px-5 py-2.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-deep"
+            >
+              Continuar com o Kit Básico (R$10,00)
+            </a>
+
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <ShieldCheck className="h-4 w-4 text-gold" /> Compra segura · garantia de 7 dias
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Index() {
+  const [showUpsell, setShowUpsell] = useState(false);
+
   return (
     <main className="bg-background text-foreground">
       {/* 0 — BARRA SUPERIOR (valor + oferta) */}
@@ -964,7 +1113,7 @@ function Index() {
                     R$49,90
                   </span>
                   <span className="font-display text-5xl font-bold text-deep md:text-6xl">
-                    R$17,90
+                    R$10,00
                   </span>
                 </div>
                 <p className="mt-1 text-sm text-muted-foreground">
@@ -1005,20 +1154,25 @@ function Index() {
               </div>
 
               <div className="relative mt-auto flex flex-col items-center gap-3 pt-6">
-                <a
-                  href="https://go.perfectpay.com.br/PPU38CQE5MD"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setShowUpsell(true)}
                   className="btn-cta btn-pulse w-full justify-center"
                 >
                   Quero o Kit Básico
                   <ArrowRight className="h-5 w-5" />
-                </a>
+                </button>
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <ShieldCheck className="h-4 w-4 text-gold" /> Compra segura · garantia de 7 dias
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Popup de upsell exibido quando a pessoa tenta comprar o Kit Básico:
+              oferece o Kit Completo com desconto exclusivo (R$19,90) antes de
+              deixá-la seguir com o básico. */}
+          <UpsellModal open={showUpsell} onClose={() => setShowUpsell(false)} />
 
           {/* Confiança transacional próxima da oferta (plano seção 10) */}
           <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-3 sm:mt-10">

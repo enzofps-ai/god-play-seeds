@@ -28,6 +28,7 @@ import {
   ChevronRight,
   X,
   Crown,
+  Palette,
 } from "lucide-react";
 
 const FaqAccordion = lazy(() => import("@/components/FaqAccordion"));
@@ -493,7 +494,7 @@ function UpsellModal({ open, onClose }: { open: boolean; onClose: () => void }) 
             </h2>
             <p className="mx-auto mt-2 max-w-xs text-sm text-muted-foreground">
               Por poucos reais a mais, você leva os <strong>20 jogos</strong> (o dobro do básico) e
-              ainda ganha o bônus dos versículos. Só nesta página:
+              ainda ganha os bônus inclusos. Só nesta página:
             </p>
 
             {/* Preço promocional */}
@@ -520,9 +521,22 @@ function UpsellModal({ open, onClose }: { open: boolean; onClose: () => void }) 
             </div>
 
             <div className="mt-4 rounded-xl border border-dashed border-gold/50 bg-gold/10 p-3">
-              <div className="flex items-center justify-center gap-2 text-sm font-semibold text-card-foreground">
-                <Gift className="h-4 w-4 shrink-0 text-gold-ink" />
-                Bônus grátis: +100 Versículos por temas
+              <div className="flex items-center justify-center gap-1.5 pb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-gold-ink">
+                <Gift className="h-4 w-4" /> Bônus incluso
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                  <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
+                  <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                    +100 Versículos organizados por temas
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                  <Palette className="h-4 w-4 shrink-0 text-gold-ink" />
+                  <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                    +30 desenhos bíblicos para colorir
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1052,16 +1066,24 @@ function Index() {
                   ))}
                 </div>
 
-                {/* Bônus grátis exclusivo do Kit Completo */}
+                {/* Bônus exclusivo do Kit Completo */}
                 <div className="mt-5 rounded-xl border border-dashed border-gold/50 bg-gold/10 p-3">
                   <div className="flex items-center justify-center gap-1.5 pb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-gold-ink">
-                    <Gift className="h-4 w-4" /> Bônus grátis incluso
+                    <Gift className="h-4 w-4" /> Bônus incluso
                   </div>
-                  <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
-                    <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
-                    <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
-                      +100 Versículos organizados por temas
-                    </span>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                      <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
+                      <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                        +100 Versículos organizados por temas
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                      <Palette className="h-4 w-4 shrink-0 text-gold-ink" />
+                      <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                        +30 desenhos bíblicos para colorir
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1142,13 +1164,21 @@ function Index() {
                   className="hidden mt-5 rounded-xl border border-dashed border-gold/50 bg-gold/10 p-3 md:block md:invisible"
                 >
                   <div className="flex items-center justify-center gap-1.5 pb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-gold-ink">
-                    <Gift className="h-4 w-4" /> Bônus grátis incluso
+                    <Gift className="h-4 w-4" /> Bônus incluso
                   </div>
-                  <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
-                    <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
-                    <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
-                      +100 Versículos organizados por temas
-                    </span>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                      <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
+                      <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                        +100 Versículos organizados por temas
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
+                      <Palette className="h-4 w-4 shrink-0 text-gold-ink" />
+                      <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
+                        +30 desenhos bíblicos para colorir
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

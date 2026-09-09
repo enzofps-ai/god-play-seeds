@@ -267,6 +267,69 @@
   .btn-pulse { animation: none; }
 }
 
+/* Botão principal do popup de upsell — chamativo: pulsa e ganha um brilho
+   dourado que "respira", além de um brilho deslizante (shine) por cima. Feito
+   para saltar aos olhos frente ao botão secundário discreto. Respeita
+   prefers-reduced-motion. */
+@keyframes btn-glow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 10px 30px -10px oklch(0.6 0.15 75 / 0.6),
+      0 0 0 0 oklch(0.8 0.16 78 / 0.55),
+      0 0 18px 2px oklch(0.82 0.16 80 / 0.55);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow:
+      0 18px 42px -10px oklch(0.6 0.15 75 / 0.7),
+      0 0 0 10px oklch(0.8 0.16 78 / 0),
+      0 0 34px 6px oklch(0.85 0.17 82 / 0.85);
+  }
+}
+@keyframes btn-glow-shine {
+  from { transform: translateX(-130%); }
+  to { transform: translateX(130%); }
+}
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  animation: btn-glow-pulse 1.6s ease-in-out infinite;
+}
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 35%, oklch(1 0 0 / 0.55) 50%, transparent 65%);
+  transform: translateX(-130%);
+  animation: btn-glow-shine 2.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-glow { animation: none; }
+  .btn-glow::after { animation: none; }
+}
+
+/* Entrada suave do popup de upsell. */
+@keyframes upsell-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes upsell-rise {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.upsell-backdrop {
+  animation: upsell-fade 0.2s ease-out;
+}
+.upsell-panel {
+  animation: upsell-rise 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .upsell-backdrop, .upsell-panel { animation: none; }
+}
+
 /* Faixa promocional deslizante (marquee) no topo da página. A track duplica o
    conteúdo e corre de -50% até 0, criando um loop contínuo p/ a direita. Pausa
    ao passar o mouse e respeita prefers-reduced-motion. */

@@ -547,7 +547,7 @@ function UpsellModal({ open, onClose }: { open: boolean; onClose: () => void }) 
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center rounded-full border border-border bg-transparent px-5 py-2.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-deep"
             >
-              Continuar com o Kit Básico (R$10,00)
+              Continuar com o Kit Básico (R$9,90)
             </a>
 
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -1113,7 +1113,7 @@ function Index() {
                     R$49,90
                   </span>
                   <span className="font-display text-5xl font-bold text-deep md:text-6xl">
-                    R$10,00
+                    R$9,90
                   </span>
                 </div>
                 <p className="mt-1 text-sm text-muted-foreground">

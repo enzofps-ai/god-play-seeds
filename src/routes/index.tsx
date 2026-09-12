@@ -526,12 +526,6 @@ function UpsellModal({ open, onClose }: { open: boolean; onClose: () => void }) 
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
-                  <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
-                  <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
-                    +100 Versículos organizados por temas
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
                   <Palette className="h-4 w-4 shrink-0 text-gold-ink" />
                   <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
                     +30 desenhos bíblicos para colorir
@@ -1073,12 +1067,6 @@ function Index() {
                   </div>
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
-                      <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
-                      <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
-                        +100 Versículos organizados por temas
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
                       <Palette className="h-4 w-4 shrink-0 text-gold-ink" />
                       <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
                         +30 desenhos bíblicos para colorir
@@ -1167,12 +1155,6 @@ function Index() {
                     <Gift className="h-4 w-4" /> Bônus incluso
                   </div>
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
-                      <BookOpen className="h-4 w-4 shrink-0 text-gold-ink" />
-                      <span className="text-left text-sm font-semibold leading-tight text-card-foreground">
-                        +100 Versículos organizados por temas
-                      </span>
-                    </div>
                     <div className="flex items-center gap-2 rounded-lg bg-card px-3 py-2 shadow-sm ring-1 ring-gold/15">
                       <Palette className="h-4 w-4 shrink-0 text-gold-ink" />
                       <span className="text-left text-sm font-semibold leading-tight text-card-foreground">

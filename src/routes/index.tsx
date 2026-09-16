@@ -417,8 +417,8 @@ function CheckItem({
 }
 
 // Links de checkout usados na oferta.
-const CHECKOUT_BASICO = "https://go.perfectpay.com.br/PPU38CQE5MD";
-const CHECKOUT_COMPLETO_PROMO = "https://go.perfectpay.com.br/PPU38CQG151";
+const CHECKOUT_BASICO = "https://pay.lowify.com.br/checkout?product_id=Tt6VLR";
+const CHECKOUT_COMPLETO_PROMO = "https://pay.lowify.com.br/checkout?product_id=QVXBaZ";
 
 // Popup de upsell: aparece quando a pessoa clica para comprar o Kit Básico.
 // Antes de deixá-la seguir com o básico, oferece o Kit Completo por um preço
@@ -1078,7 +1078,7 @@ function Index() {
 
               <div className="relative mt-auto flex flex-col items-center gap-3 pt-6">
                 <a
-                  href="https://go.perfectpay.com.br/PPU38CQELK5"
+                  href="https://pay.lowify.com.br/checkout?product_id=QVXBaZ"
                   rel="noopener noreferrer"
                   className="btn-cta btn-pulse w-full justify-center"
                 >

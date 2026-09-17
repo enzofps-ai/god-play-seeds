@@ -418,6 +418,7 @@ function CheckItem({
 
 // Links de checkout usados na oferta.
 const CHECKOUT_BASICO = "https://pay.lowify.com.br/checkout?product_id=Tt6VLR";
+const CHECKOUT_COMPLETO = "https://pay.lowify.com.br/checkout?product_id=4kn8FM";
 const CHECKOUT_COMPLETO_PROMO = "https://pay.lowify.com.br/checkout?product_id=QVXBaZ";
 
 // Popup de upsell: aparece quando a pessoa clica para comprar o Kit Básico.
@@ -1078,7 +1079,7 @@ function Index() {
 
               <div className="relative mt-auto flex flex-col items-center gap-3 pt-6">
                 <a
-                  href="https://pay.lowify.com.br/checkout?product_id=QVXBaZ"
+                  href={CHECKOUT_COMPLETO}
                   rel="noopener noreferrer"
                   className="btn-cta btn-pulse w-full justify-center"
                 >
